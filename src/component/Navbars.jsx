@@ -18,16 +18,16 @@ const Navbars = ({ isDarkMode, toggleDarkMode }) => {
     return (
         <div className="flex  bg-white dark:bg-gray-900 pt-6 font-sans ">
             <div className="bg-white flex dark:bg-gray-900 w-full justify-center ">
-                <Navbar fluid rounded > 
+                <Navbar className='dark:bg-gray-900 dark:text-white' fluid rounded > 
                 <Navbar.Brand>
-                    <a href=""><img src="/AfroLogo.png" className="h-20 pr-16 dark:bg-white" alt="" /></a>
+                    <a href=""><img src="/AfroLogo.png" className="h-20 pr-24 " alt="" /></a>
                 </Navbar.Brand>
-                <div className="flex md:order-2 pl-16">
-                    <Button className='w-42 bg-black'>Login</Button>
+                <div className="flex md:order-2  pl-24">
+                    <a className='</a>' href="/Register"><Button className='w-36 h-14 rounded-full bg-black dark:bg-white dark:text-black text-xl font-extrabold' >Book trip</Button></a>
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link href="#" active className='text-xl text-bold'>
+                    <Navbar.Link href="#" active className='text-2xl font-extrabold'>
                     Home
                     </Navbar.Link>
                     <Navbar.Link href="#" className='text-xl text-bold'>About</Navbar.Link>
