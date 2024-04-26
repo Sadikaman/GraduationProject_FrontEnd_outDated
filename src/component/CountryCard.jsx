@@ -46,13 +46,13 @@ const CardContainer = () => {
   };
 
   return (
-    <div className="pl-40">
-      <div className='flex justify-between'>
+    <div className=" dark:bg-gray-900 dark:text-white ">
+      <div className='flex justify-between  flex-wrap'>
       <div className='pt-10 '>
       <h1 className='text-2xl pt-2 font-extrabold'>Popular Destinations</h1>
       <p className='text-md pt-2'>Unleash Your Wanderlust With Sky Wings</p>
       </div>
-      <div className="mt-4 pr-40 ">
+      <div className="mt-4">
         <button className="  font-bold py-2 px-4 rounded-l" onClick={previous}>
         <FaChevronCircleLeft  style={{fontSize:"40px"}}/>
         </button>
@@ -64,8 +64,8 @@ const CardContainer = () => {
       <Slider {...sliderSettings} ref={sliderRef}>
         {cardsData.map((card) => (
           <div key={card.id} className="p-4">
-            <Card className="max-w-sm" imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
-              <div className='flex justify-between'>
+            <Card className="max-w-sm flex-wrap" imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
+              <div className='flex justify-between flex-wrap'>
                 <a href="#">
                   <h1 className="text-xl font-semibold tracking-tight text-center text-gray-900 dark:text-white">
                     {card.name}

@@ -4,7 +4,7 @@ import Navbars from './component/Navbars';
 import Hero from './component/Hero';
 import CountryCard from './component/CountryCard'
 import Contact from './component/Contact'
-import Footer from './component/Footer'
+import Footers from './component/Footers'
 import ScrollToTopButton from './component/ScrollToTopButton';
 import BookTicket from './component/BookTicket';
 
@@ -30,7 +30,7 @@ function App() {
         {/* contact section */}
         <Contact isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
         {/* footer section */}
-        <Footer isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
+        <Footers isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
         {/*scroll up */}
         <ScrollToTopButton />
 
