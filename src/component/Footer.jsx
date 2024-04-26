@@ -15,7 +15,7 @@ const Navbars = ({ isDarkMode, toggleDarkMode }) => {
         document.body.classList.toggle('dark', darkMode);
     }, [darkMode]);
     return (
-        <div className="flex flex-col items-start bg-white dark:bg-gray-900 pr-28 pl-10 pb-5 dark:bg-gray-900 dark:text-white">
+        <div className="flex flex-col items-start bg-white pt-80 pr-28 pl-10 pb-5 dark:bg-gray-900 dark:text-white">
 
             <div className="w-full  sm:flex sm:items-center sm:justify-between">
                 <p>© 2024 DevNuru™</p>

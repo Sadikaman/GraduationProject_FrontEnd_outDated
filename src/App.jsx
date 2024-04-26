@@ -6,7 +6,7 @@ import CountryCard from './component/CountryCard'
 import Contact from './component/Contact'
 import Footer from './component/Footer'
 import ScrollToTopButton from './component/ScrollToTopButton';
-import CertificateResume from './component/CertificateResume';
+import BookTicket from './component/BookTicket';
 
 'use client';
 
@@ -26,7 +26,7 @@ function App() {
         {/* CountryCard */}
         <CountryCard isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
         {/* resume and cenrtaficate */}
-        <CertificateResume isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
+        <BookTicket isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
         {/* contact section */}
         <Contact isDarkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
         {/* footer section */}
