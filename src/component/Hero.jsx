@@ -34,14 +34,14 @@ const Hero = (isDarkMode, toggleDarkMode) => {
   
             </section>
 
-            <div className='pt-16 flex gap-20 pl-40 dark:bg-gray-900 dark:text-white'>
+            <div className='pt-16 flex gap-20 pl-40 dark:bg-gray-900 dark:text-white flex-wrap'>
             <div className='flex justify-center gap-10 p-5 border-2 border-gray-200 w-96 rounded-full dark:bg-gray-900 dark:text-white'>
                         <p className='text-xl font-extrabold'>Follow</p>
                         <a href="https://www.facebook.com/shemsy.shemsy.925 "><FaFacebook style={{ fontSize: "30px"}} /></a>
                         <a href="https://instagram.com/nuru_best2?igshid=MzNlNGNkZWQ4Mg= " ><RiInstagramFill style={{ fontSize: "30px" }} /></a>
                         <a href="https://t.me/kingnuru "><FaTelegramPlane style={{ fontSize: "30px" }} /></a>
                     </div>
-                    <div className='flex gap-20 pt-5'>
+                    <div className='flex gap-20 pt-5 flex-wrap'>
                         <p className='text-2xl font-extrabold text-gray-400 flex gap-5'><FaAirbnb /> Airbnb</p>
                         <p className='text-2xl font-extrabold text-gray-400 '>Booking.com</p>
                         <p className='text-2xl font-extrabold text-gray-400 flex gap-5'><FaAffiliatetheme /> Trivago</p>

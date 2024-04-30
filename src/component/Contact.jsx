@@ -19,20 +19,20 @@ const Contact = () => {
 
   return (
     <>
-      <section className='flex   pt-10  dark:bg-gray-900 dark:text-white justify-center ' id='Contact'>
-      <div className='flex flex-row gap-8 '>
-    <Card className="max-w-sm h-[420px] w-96  bg-gray-200 text-white rounded-3xl ">
+      <section className='flex   pt-10  dark:bg-gray-900 dark:text-white justify-center flex-wrap' id='Contact'>
+      <div className='flex flex-row gap-8 flex-wrap'>
+    <Card className="max-w-sm h-[420px] w-96  bg-gray-200 text-white rounded-3xl flex-wrap">
     
     </Card>
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col gap-5 flex-wrap'>
       <div className='flex gap-5'>
       <h1 className='text-4xl'>UNLEASH</h1>
       <p className='text-sm'>Traveling is A wonderful To Explore New places, Learn About <br /> Different and Gain new unique and amazing Experiences  </p>
     </div>
-    <div className=''>
+    <div className='flex-wrap'>
       <h1 className='text-4xl'>WANDERLUST WITH </h1>
     </div>
-    <div className='flex  gap-10'>
+    <div className='flex  gap-10 flex-wrap'>
       <p className='text-sm'>Traveling is A wonderful To Explore New places,<br /> Learn About  Different and Gain new Culture </p>
       <h1 className='text-4xl'>SKYWINGS</h1>
     </div>
@@ -40,27 +40,27 @@ const Contact = () => {
     </div>
       </section>
 
-  <section className='flex justify-center pt-5'>
-   <div className='pl-5 flex gap-5'>
+  <section className='flex justify-center pt-5 flex-wrap'>
+   <div className='pl-5 flex gap-5 flex-wrap'>
     <div className='w-96 flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center'>
       <h1 className='text-4xl text-blue-600'>20% OFF <span className='text-black text-lg'>Till 28 September, 2023</span></h1>
     </div>
 
-    <div className='w-[600px] flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center'>
+    <div className='w-[600px] flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center flex-wrap'>
       <h1 className=' text-2xl'>Book A Flight Now</h1>
     </div>
     </div>  
     
     </section>
 
-<div className='flex justify-center  gap-52 pt-10'>
-      <div className='w-[130px] flex  bg-slate-200  h-16 rounded-full justify-center items-center'>
+<div className='flex justify-center  gap-52 pt-10 flex-wrap'>
+      <div className='w-[130px] flex  bg-slate-200  h-16 rounded-full justify-center items-center flex-wrap'>
        <h1 className=' text-2xl'>About Us</h1>
        </div>
-       <div className='w-[500px]'>
+       <div className='w-[500px] flex-wrap'>
          <p>Traveling is A wonderful To Explore New places, Learn About  
             Different and Gain new unique and amazing Experiences.Traveling is A wonderful To Explore New places, Learn About  Different and Gain new unique and amazing            Experiences  </p>
-        <div className='w-[750px]  flex gap-8 pt-20'>
+        <div className='w-[750px]  flex gap-8 pt-20 flex-wrap'>
          <p className='w-[370px] border-l-4 border-l-blue-500 pl-2 text-justify'>Traveling is A wonderful To Explore New places, Learn About <br />  
             Different and Gain new unique and amazing Experiences.Traveling is A wonderful To Explore New places, Learn About  Different and Gain new unique and amazing Experiences</p> <p className='w-[370px] border-l-4 border-l-blue-500 pl-2 text-justify'>Traveling is A wonderful To Explore New places, Learn About <br />
             Different and Gain new unique and amazing Experiences.Traveling is A wonderful To Explore New places, Learn About  Different and Gain new unique and amazing Experiences</p>
@@ -69,8 +69,8 @@ const Contact = () => {
        
       </div> 
 
-      <section className='flex   pt-28  dark:bg-gray-900 dark:text-white justify-center'>
-<div className='flex gap-20  '> 
+      <section className='flex   pt-28  dark:bg-gray-900 dark:text-white justify-center flex-wrap'>
+<div className='flex gap-20  flex-wrap'> 
   <div className=' bg-slate-100 flex flex-col rounded-3xl w-80 h-[280px] justify-center items-center'>
     <h1 className='text-[100px] text-blue-700'>10+</h1>
     <h1 className='text-lg'>Year Expereince</h1>
@@ -94,8 +94,8 @@ const Contact = () => {
   <p className='text-sm'>Traveling is A wonderful To Explore New places, Learn About <br /> Different and Gain new Experiences  </p>
 </div>
 
-<section className='flex justify-center pt-20'>
-<div className='flex w-[1100px] gap-20 text-center '>
+<section className='flex justify-center pt-20 '>
+<div className='flex w-[1100px] gap-20 text-center'>
 
   <div className='flex flex-col  justify-center items-center w-[350px] gap-4'>
   <FaGlobe style={{fontSize:"30px", color:"blue"}}/>
@@ -125,7 +125,7 @@ const Contact = () => {
   </div> 
 
 
-<section className='flex   pt-20 dark:bg-gray-900 dark:text-white justify-center'>
+<section className='flex   pt-20 dark:bg-gray-900 dark:text-white justify-center flex-wrap'>
  
 <div className='flex gap-20  '> 
 
@@ -150,15 +150,15 @@ const Contact = () => {
 
 
       </section>
-      <div className='flex pt-20 text-center p-5 w-[450px]'>
+      <div className='flex pt-20 text-center p-5 w-[450px] flex-wrap'>
  <h1 className='text-lg '>Traveling is A wonderful  Way To Explore New places, Learn About  Different  Cultures  and Gain new Experiences  </h1>
   </div> 
 
 <section className='pt-20 flex justify-center flex-wrap'>
   
-<div className='flex flex-col' >
+<div className='flex flex-col flex-wrap' >
   
-  <div className='flex gap-[550px]  justify-end'>
+  <div className='flex gap-[550px]  justify-end flex-wrap'>
       <h1 className='text-2xl pt-6 '>lorem ipsum dol amit
       </h1>
       <TbMessage2X className='bg-black text-white p-5 rounded-full w-20 h-20 '/>
@@ -166,21 +166,21 @@ const Contact = () => {
       </div>
 
 
-    <div className='pt-10 flex justify-center'>
+    <div className='pt-10 flex justify-center flex-wrap'>
 <h1>Explore more</h1>
     </div>
 
-<div className='flex gap-72 pt-20'>
+<div className='flex gap-72 pt-20 flex-wrap'>
     <div className='w-36 h-36 rounded-full bg-gray-300'>
     </div>
 <h1 className='text-4xl'>
 Explore The Skies <br /> With confidence!
 </h1>
-    <div className=' w-20 h-20 rounded-full bg-white border-2 flex justify-center items-center border-gray-400'>
+    <div className=' w-20 h-20 rounded-full bg-white border-2 flex justify-center items-center border-gray-400 flex-wrap'>
     <ImArrowUpRight2 className='text-4xl'/>
 
     </div>
-    <div className='w-36 h-36 rounded-full bg-gray-300'>
+    <div className='w-36 h-36 rounded-full bg-gray-300 flex-wrap'>
     </div>
 
     </div>

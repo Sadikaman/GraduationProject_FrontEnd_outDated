@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Footer } from "flowbite-react";
-import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsInstagram } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
 const Footers = ({ isDarkMode, toggleDarkMode }) => {
     const [darkMode, setDarkMode] = useState(false);
