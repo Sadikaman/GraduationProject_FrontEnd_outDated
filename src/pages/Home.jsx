@@ -6,7 +6,7 @@ import  BookTicket  from "../component/BookTicket";
 import  Contact  from "../component/Contact";
 const Home = () => {
   return (
-    <div className="flex flex-col gap-16 py-10">
+    <div className="flex flex-col overflow-hidden">
       <Hero />
       <CountryCard />
       <BookTicket />

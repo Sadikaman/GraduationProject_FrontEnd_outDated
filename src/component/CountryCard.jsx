@@ -46,7 +46,7 @@ const CardContainer = () => {
   };
 
   return (
-    <div className=" dark:bg-gray-900 dark:text-white ">
+    <div className=" dark:bg-gray-900 dark:text-white pl-12 pr-12">
       <div className='flex justify-between  flex-wrap'>
       <div className='pt-10 flex-wrap'>
       <h1 className='text-2xl pt-2 font-extrabold'>Popular Destinations</h1>

@@ -5,11 +5,13 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-// import Login from "./pages/Login";
+import Calender from "./pages/Calender";
 import Account from "./pages/Account.jsx";
 import Contact from "./component/Contact.jsx";
 import Login from "./pages/Login"
-// import { Verfication } from "./components/Verfication";
+import  Tour  from "./pages/Tour";
+import Community from "./pages/Community.jsx";
+import Searchbar from "./component/Searchbar.jsx";
 // import Confirmation from "./components/Confirmation";
 // import  Footers  from "./component/Footers.jsx"; // Import Footer component
 
@@ -22,10 +24,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/signup",
-      //   element: <Signup />,
-      // },
+      {
+        path: "/Community",
+        element: <Community />,
+      },
       {
         path: "/register",
         element: <Register />,
@@ -34,14 +36,14 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-      // {
-      //   path: "/courses",
-      //   element: <Course />,
-      // },
-      // {
-      //   path: "/details",
-      //   element: <Details />,
-      // },
+      {
+        path: "/Tour",
+        element: <Tour />,
+      },
+      {
+        path: "/Calender",
+        element: <Calender />,
+      },
       {
         path: "/account",
         element: <Account />,
@@ -50,10 +52,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      // {
-      //   path: "/verify",
-      //   element: <Verfication />,
-      // },
+      {
+        path: "/Searchbar",
+        element: <Searchbar />,
+      },
       // {
       //   path: "/confirmation",
       //   element: <Confirmation />,

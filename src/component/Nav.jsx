@@ -30,7 +30,7 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
                             Home
                         </Navbar.Link>
                         <Navbar.Link href="#" className='text-xl text-bold'>About</Navbar.Link>
-                        <Navbar.Link href="#" className='text-xl text-bold'>Services</Navbar.Link>
+                        <Navbar.Link href="/Tour" className='text-xl text-bold'>Tour</Navbar.Link>
                         <Navbar.Link href="#" className='text-xl text-bold'>Pricing</Navbar.Link>
                         <Navbar.Link href="#" className='text-xl text-bold'>Contact</Navbar.Link>
                     </Navbar.Collapse>
