@@ -2,6 +2,7 @@ import React from 'react';
 import { Card,Dropdown,Sidebar,Datepicker } from "flowbite-react";
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
 import { CiStar } from "react-icons/ci";
+import { PiHandWaving } from "react-icons/pi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
@@ -51,9 +52,15 @@ const CardContainer = () => {
 
   return (
     <>
+     <div className="pt-2 flex justify-center items-center gap-52">
+      <div className='flex flex-col'>
+            <h1 className="text-4xl font-semibold pt-2 flex gap-4">Welcome back <PiHandWaving className="text-yellow-300 "/></h1>
+             <p className="text-lg text-gray-500 pt-2">Glad to see you again Login to your account below </p>
+             </div>
     <Searchbar />
-    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden">
+    </div>
 
+    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden">
     < Sidebars />
 
     
