@@ -22,7 +22,7 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
                         <a href=""><img src="/AfroLogo.png" className="h-20 pr-24 " alt="" /></a>
                     </Navbar.Brand>
                     <div className="flex md:order-2  pl-24">
-                        <a className='</a>' href="/Register"><Button className='w-36 h-14 rounded-full bg-black dark:bg-white dark:text-black text-xl font-extrabold' >Book trip</Button></a>
+                        <a className='</a>' href="/Joinus"><Button className='w-36 h-14 rounded-full bg-black dark:bg-white dark:text-black text-xl font-extrabold' >Book trip</Button></a>
                         <Navbar.Toggle />
                     </div>
                     <Navbar.Collapse>

@@ -12,6 +12,9 @@ import Login from "./pages/Login"
 import  Tour  from "./pages/Tour";
 import Community from "./pages/Community.jsx";
 import Searchbar from "./component/Searchbar.jsx";
+import Joinus from "./pages/Joinus.jsx"
+import RegisterServicesProvider from "./pages/RegisterServicesProvider.jsx";
+import VerifyRegisterServicesProvider from "./pages/VerifyRegisterServicesProvider.jsx";
 // import Confirmation from "./components/Confirmation";
 // import  Footers  from "./component/Footers.jsx"; // Import Footer component
 
@@ -56,29 +59,19 @@ const router = createBrowserRouter([
         path: "/Searchbar",
         element: <Searchbar />,
       },
-      // {
-      //   path: "/confirmation",
-      //   element: <Confirmation />,
-      // },
-      // Include footer component on specific routes
-      // {
-      //   path: "/",
-      //   element: (
-      //     <>
-      //       <Footers />
-      //       <Route />
-      //     </>
-      //   ),
-      // },
-      // {
-      //   path: "/register",
-      //   element: (
-      //     <>
-      //       <Footers />
-      //       <Route />
-      //     </>
-      //   ),
-      // },
+      {
+        path: "/Joinus",
+        element: <Joinus />,
+      },
+    
+      {
+        path: "/RegisterServicesProvider",
+        element: <RegisterServicesProvider />,
+      },
+      {
+        path: "/VerifyRegisterServicesProvider",
+        element:<VerifyRegisterServicesProvider />
+      },
       // {
       //   path: "/login",
       //   element: (

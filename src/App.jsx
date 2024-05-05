@@ -15,10 +15,10 @@ function App() {
   return (
     <>
 
-<div className="App dark:bg-gray-900 dark:text-white ">
-      <Nav/>
+<div className="App dark:bg-gray-90 dark:text-white ">
+      
       <Outlet />
-      <Footers />
+     
 
         <ScrollToTopButton />
 

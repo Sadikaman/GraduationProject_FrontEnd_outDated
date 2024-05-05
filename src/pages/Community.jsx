@@ -7,7 +7,7 @@ import { IoMdSend } from "react-icons/io";
 import { FaXTwitter,FaYoutube,FaLinkedin,FaFacebook,FaPinterest,FaSquareInstagram } from "react-icons/fa6";
 import React, { useState } from 'react';
 import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@heroicons/react/outline';
-
+import Nav from "../component/Nav"
 
 
 function Community() {
@@ -40,7 +40,10 @@ function Community() {
     ];}
 
   return (
-    <div className='flex gap-10 p-5 dark:bg-gray-900'>
+    <>
+    <Nav />
+    <div className='flex  gap-10 p-5 dark:bg-gray-900'>
+       
       < Sidebars />
       <div className=' bg-gray-100  rounded-xl w-full p-5 dark:bg-gray-900'>
       <h1 className='text-2xl font-semibold pb-12'>The Afro Community </h1>
@@ -59,19 +62,25 @@ function Community() {
 {/* card */}
   <div className='flex gap-5 '>
     <div className='bg-gray-300 rounded-2xl w-80 h-96 flex justify-end items-start p-4 flex-col  dark:bg-gray-800'>
-      <Button color='blue' inline label='destination' />
+    <Button color="blue" pill>
+        Destination
+      </Button>
       <p className='w-44 text-lg'>Simple Guidance For In Bali Adventure </p>
       <span className='w-80 flex gap-2'>
       <h1 className=' font-semibold pt-2 gap-3 border-r-2 border-r-black flex '><CgProfile className='text-4xl text-white bg-black rounded-full'/> By John Doe </h1><IoTimeOutline className='text-xl mt-2'/> <p className='mt-2'>12  04 2024</p> </span>
     </div>
     <div className='bg-gray-300 rounded-2xl w-80 h-96 flex justify-end items-start p-4 flex-col dark:bg-gray-800'>
-      <Button color='blue' inline label='destination' />
+    <Button color="blue" pill>
+        Destination
+      </Button>
       <p className='w-44 text-lg'>Simple Guidance For In Bali Adventure </p>
       <span className='w-80 flex gap-2'>
       <h1 className=' font-semibold pt-2 gap-3 border-r-2 border-r-black flex '><CgProfile className='text-4xl text-white bg-black rounded-full'/> By John Doe </h1><IoTimeOutline className='text-xl mt-2'/> <p className='mt-2'>12  04 2024</p> </span>
     </div>
     <div className='bg-gray-300 rounded-2xl w-80 h-96 flex justify-end items-start p-4 flex-col dark:bg-gray-800'>
-      <Button color='blue' inline label='destination' />
+    <Button color="blue" pill>
+        Destination
+      </Button>
       <p className='w-44 text-lg'>Simple Guidance For In Bali Adventure </p>
       <span className='w-80 flex gap-2'>
       <h1 className=' font-semibold pt-2 gap-3 border-r-2 border-r-black flex '><CgProfile className='text-4xl text-white bg-black rounded-full'/> By John Doe </h1><IoTimeOutline className='text-xl mt-2'/> <p className='mt-2'>12  04 2024</p> </span>
@@ -146,6 +155,7 @@ function Community() {
 
       
     </div>
+    </>
   )
 }
 

@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
+import Nav from '../component/Nav';
 // import Image from "next/image";
 const CardContainer = () => {
   const cardsData = [
@@ -52,7 +53,8 @@ const CardContainer = () => {
 
   return (
     <>
-     <div className="pt-2 flex justify-center items-center gap-52">
+    <Nav />
+     <div className="pt-2 flex justify-center items-center gap-52 dark:bg-gray-900">
       <div className='flex flex-col'>
             <h1 className="text-4xl font-semibold pt-2 flex gap-4">Welcome back <PiHandWaving className="text-yellow-300 "/></h1>
              <p className="text-lg text-gray-500 pt-2">Glad to see you again Login to your account below </p>
@@ -98,6 +100,7 @@ const CardContainer = () => {
 
 
     </div>
+    
 {/* schedule part */}
 <Card className="max-w-sm xl:w-96 justify-center items-end h-screen">
       <Dropdown inline label="Jeremy Zuck ">
