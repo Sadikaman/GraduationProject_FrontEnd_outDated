@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
+import Nav from '../component/Nav';
 // import Image from "next/image";
 const CardContainer = () => {
   const cardsData = [
@@ -48,6 +49,7 @@ const CardContainer = () => {
 
   return (
     <>
+    <Nav />
     <Searchbar />
     <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden pt-5">
 

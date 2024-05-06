@@ -14,8 +14,8 @@ const RegisterServicesProvider = () => {
 
   return (
    
-    <div className="font-kanit transition-colors flex  justify-center items-center w-screen h-screen ">
-      <div className="flex flex-col md:flex-row gap-16  w-[80%]  justify-center">
+    <div className="font-kanit transition-colors flex flex-wrap justify-center items-center w-screen h-screen overflow-hidden ">
+      <div className="flex flex-col md:flex-row gap-16   w-[80%]  justify-center">
           <form className="flex flex-col  py-3 px-6 w-full ">
           <div className="flex flex-col justify-center items-center">
               <img
@@ -27,15 +27,15 @@ const RegisterServicesProvider = () => {
             
            
             <h1 className="text-4xl font-semibold pt-2">Sign up and work with us </h1>
-            <Button  pill  className="flex flex-row  rounded-md w-[600px]  mt-4 bg-gray-200">
+            <Button  pill  className="flex flex-row  rounded-md w-[600px]   mt-4 bg-gray-200">
               <FcGoogle className="text-xl mr-8"/>
               Continue With Google
             </Button>
             </div>
 
 
-            <div className=" grid-cols-1 md:grid-cols-2   pt-2 ">
-              <div className=" lg:flex-row flex flex-row  gap-5 md:flex-col pt-2 ">
+            <div className=" flex  flex-wrap justify-center  gap-5">
+              <div className=" lg:flex-row flex flex-wrap  gap-5   ">
                 <div className="flex flex-col gap-1 w-full">
                   <Label className="text-md pb-4 font-semibold pt-4 " value="First Name" />
                   <input
@@ -53,7 +53,7 @@ const RegisterServicesProvider = () => {
               </div>
 
 
-              <div className="flex  gap-5">
+              <div className="flex flex-wrap  gap-5">
                <div className="flex flex-col w-full">
                 <Label className="text-md pb-4 font-semibold pt-4" value="Password" />
                 <input
@@ -74,14 +74,14 @@ const RegisterServicesProvider = () => {
               
 
             </div>
-            <div className="mt-4">
+            <div className="mt-4 flex justify-center">
               <input
                 type="checkbox"
                 className="mr-2 "
                 id="termsCheckbox dark:bg-gray-900 dark:text-white shadow-lg "
                 required
               />
-              <label htmlFor="termsCheckbox">
+              <label className="" htmlFor="termsCheckbox">
                 By creating an account, I agree to the{" "}
                 <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
               </label>

@@ -42,8 +42,22 @@ const CardContainer = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToShow: 3, // Default number of slides to show
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // Medium screen breakpoint
+        settings: {
+          slidesToShow: 2, // Number of slides to show on medium screens
+        },
+      },
+      {
+        breakpoint: 640, // Small screen breakpoint
+        settings: {
+          slidesToShow: 1, // Number of slides to show on small screens
+        },
+      },
+    ],
   };
 
   return (
@@ -65,7 +79,7 @@ const CardContainer = () => {
       <Slider {...sliderSettings} ref={sliderRef}>
         {cardsData.map((card) => (
           <div key={card.id} className="p-4 flex flex-wrap">
-            <Card className="xl:w-80 md:w-80 sm:w-80 " imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
+            <Card className="xl:w-80 md:w-96 sm:w-80 " imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
               <div className='flex justify-between flex-wrap'>
                 <a href="#">
                   <h1 className="text-xl font-semibold tracking-tight text-center text-gray-900 dark:text-white">

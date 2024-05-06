@@ -24,7 +24,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
                     <div className=''>
                         <p className='xl:text-xl text-white font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
                         <h1 className='xl:text-6xl text-white md:text-2xl font-bold pt-5 pb-5 text-center'>Discover Ethiopia <br /> Where History <br /> Unfolds!!</h1>
-                        <Button className='xl:w-52 md:w-10 p-2 bg-white text-black rounded-full border-2 border-gray-500'>Book Trip Now</Button>
+                        <Button className='xl:w-52 md:w-40 p-2 bg-white text-black rounded-full border-2 border-gray-500'>Book Trip Now</Button>
                     </div>
                 </div>
             </section>

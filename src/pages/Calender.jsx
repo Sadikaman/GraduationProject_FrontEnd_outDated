@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card,Dropdown,Sidebar,Datepicker } from "flowbite-react";
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { PiHandWaving } from "react-icons/pi";
 import "slick-carousel/slick/slick.css";
@@ -8,19 +8,20 @@ import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
 import Nav from '../component/Nav';
+import { MdDateRange } from "react-icons/md";
 // import Image from "next/image";
 const CardContainer = () => {
   const cardsData = [
-    { id: 1, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 2, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 3, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 4, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 5, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 6, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 7, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 8, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 9, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-    { id: 10, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
+    { id: 1, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 2, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 3, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 4, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 5, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 6, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 7, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 8, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 9, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 10, name:"Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
     // Add more card data objects as needed
   ];
 
@@ -67,9 +68,9 @@ const CardContainer = () => {
 
     
 
-  <div className='flex gap-16 flex-wrap justify-center'>
+  <div className='flex gap-10 flex-wrap justify-center'>
     <div className="overflow-y-auto h-[95vh] w-[100%] ">
-      <div className="flex  p-4 gap-6 flex-wrap" style={{ overflowX: "hidden" }}>
+      <div className="flex  p-4 gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
         {cardsData.map((card) => (
           <div key={card.id} className="p-4 " style={{ minWidth: "300px" }}>
             <Card className=' w-80' imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
@@ -103,6 +104,9 @@ const CardContainer = () => {
     
 {/* schedule part */}
 <Card className="max-w-sm xl:w-96 justify-center items-end h-screen">
+     
+     <div className='flex gap-5 justify-center'>
+     <FaUserCircle className='text-4xl' />
       <Dropdown inline label="Jeremy Zuck ">
           <Dropdown.Item>
             <a
@@ -129,6 +133,8 @@ const CardContainer = () => {
             </a>
           </Dropdown.Item>
         </Dropdown>
+        </div>
+<p className='flex justify-center text-sm text-gray-400'>Travel Enthusiast  </p>
       <Datepicker inline />
       <h1>My Schedule </h1>
      
@@ -136,23 +142,21 @@ const CardContainer = () => {
       <div className="flex   gap-10 flex-wrap" style={{ overflowX: "hidden" }}>
         {cardsData.map((card) => (
           <div key={card.id} className=" " style={{ minWidth: "300px" }}>
-            <Card className=' w-72' imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
-              <div className="flex flex-col items-center">
+            <Card className=' w-72 h-28 pb-5 flex' imgAlt={`Image of ${card.name}`} >
+              <div className="flex flex-col gap-2">
+            <div className='flex gap-2'>
+              <img className='w-16 rounded-md' src={card.imageSrc} />
                 <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   {card.name}
                 </h1>
-                <div className="bg-blue-500 w-16 p-1 rounded-full flex items-center justify-center">
+                </div>
+                {/* <div className="bg-blue-500 w-16 p-1 rounded-full flex items-center justify-center">
                   <CiStar style={{ color: "white" }} />
                   <span className="text-white ml-2">{card.rating}</span>
-                </div>
+                </div> */}
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">${card.price}</span>
-                  <a
-                    href="#"
-                    className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                  >
-                    Add to cart
-                  </a>
+                  <span className="text-md flex font-bold text-gray-900 dark:text-white"><MdDateRange /> ${card.price}</span>
+                 
                 </div>
               </div>
             </Card>

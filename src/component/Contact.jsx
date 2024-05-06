@@ -131,7 +131,7 @@ const Contact = () => {
 
 <section className='flex   pt-20 dark:bg-gray-900 dark:text-white justify-center flex-wrap '>
  
-<div className='flex gap-20  '> 
+<div className='flex gap-20  flex-wrap p-3'> 
 
   <div className=' bg-slate-100 flex  rounded-3xl w-96 h-[430px] justify-center pt-4'>
   <div className='bg-white   flex flex-col rounded-3xl w-80 h-[280px]'>

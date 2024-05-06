@@ -16,11 +16,11 @@ const Joinus = () => {
   };
 
   return (
-    <div className="font-kanit transition-colors flex justify-center items-center w-screen h-screen">
-      <div className="flex flex-col md:flex-row gap-16">
-        <form className="flex flex-col py-3 px-6 w-full">
+    <div className="font-kanit transition-colors flex justify-center  items-center w-screen h-screen overflow-hidden">
+      <div className="flex flex-col md:flex-row gap-16 flex-wrap">
+        <form className="flex flex-col py-3 px-6 w-full flex-wrap">
           {/* Your other form elements */}
-          <div className="lg:flex-row flex flex-row gap-16 md:flex-col pt-2">
+          <div className="lg:flex-row flex flex-row gap-16 md:flex-col sm:flex-col flex-wrap pt-2">
             <div className="mt-4 border-2 border-black w-72 h-80 flex flex-col items-end p-2 rounded-3xl">
               <input
                 type="checkbox"

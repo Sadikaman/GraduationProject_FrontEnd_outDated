@@ -19,7 +19,7 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
             <div className="bg-white flex dark:bg-gray-900 w-full justify-center flex-row">
                 <Navbar className='dark:bg-gray-900 dark:text-white  flex flex-row' fluid rounded >
                     <Navbar.Brand>
-                        <a href=""><img src="/AfroLogo.png" className="h-20 pr-24 " alt="" /></a>
+                        <a href=""><img src="/AfroLogo.png" className="h-20 xl:pr-24 md:pr-0  " alt="" /></a>
                     </Navbar.Brand>
                     <div className="flex md:order-2 md:p-0 sm:p-0 xl:pl-24 flex-row">
                         <a className='</a>' href="/Joinus"><Button className='xl:w-36 sm:w-10 md:w-16 h-14 rounded-full bg-black dark:bg-white dark:text-black text-xl font-extrabold' >Book trip</Button></a>
