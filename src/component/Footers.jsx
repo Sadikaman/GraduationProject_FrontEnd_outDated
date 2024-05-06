@@ -13,7 +13,7 @@ const Footers = ({ isDarkMode, toggleDarkMode }) => {
         document.body.classList.toggle('dark', darkMode);
     }, [darkMode]);
     return (
-        <div className="p-20">
+        <div className="xl:p-20 md:p-10">
     <Footer container className="border-2 border-gray-300 rounded-3xl">
     <div className="w-full">
       <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">

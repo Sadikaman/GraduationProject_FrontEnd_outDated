@@ -24,7 +24,7 @@ const Contact = () => {
     <Card className="max-w-sm h-[420px] w-96  bg-gray-200 text-white rounded-3xl flex-wrap">
     
     </Card>
-    <div className='flex flex-col gap-5 flex-wrap'>
+    <div className='flex flex-col gap-5 flex-wrap p-2'>
       <div className='flex gap-5'>
       <h1 className='text-4xl'>UNLEASH</h1>
       <p className='text-sm'>Traveling is A wonderful To Explore New places, Learn About <br /> Different and Gain new unique and amazing Experiences  </p>
@@ -46,7 +46,7 @@ const Contact = () => {
       <h1 className='text-4xl text-blue-600'>20% OFF <span className='text-black text-lg dark:text-white'>Till 28 September, 2023</span></h1>
     </div>
 
-    <div className='w-[600px] flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center flex-wrap dark:bg-gray-800'>
+    <div className='xl:w-[600px] md:w-96 flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center flex-wrap dark:bg-gray-800 '>
       <h1 className=' text-2xl'>Book A Flight Now</h1>
     </div>
     </div>  
@@ -57,11 +57,11 @@ const Contact = () => {
       <div className='w-[130px] flex  bg-slate-200  h-16 rounded-full justify-center items-center flex-wrap dark:bg-gray-800'>
        <h1 className=' text-2xl'>About Us</h1>
        </div>
-       <div className='w-[500px] flex-wrap'>
+       <div className='xl:w-[500px] md:w-full p-2 flex-wrap'>
          <p>Traveling is A wonderful To Explore New places, Learn About  
             Different and Gain new unique and amazing Experiences.Traveling is A wonderful To Explore New places, Learn About  Different and Gain new unique and amazing            Experiences  </p>
-        <div className='w-[750px]  flex gap-8 pt-20 flex-wrap'>
-         <p className='w-[370px] border-l-4 border-l-blue-500 pl-2 text-justify'>Traveling is A wonderful To Explore New places, Learn About <br />  
+        <div className='xl:w-[750px] p-2  md:w-full flex gap-8 pt-20 flex-wrap'>
+         <p className='xl:w-[370px] p-2 md:w-full border-l-4 border-l-blue-500 pl-2 text-justify'>Traveling is A wonderful To Explore New places, Learn About <br />  
             Different and Gain new unique and amazing Experiences.Traveling is A wonderful To Explore New places, Learn About  Different and Gain new unique and amazing Experiences</p> <p className='w-[370px] border-l-4 border-l-blue-500 pl-2 text-justify'>Traveling is A wonderful To Explore New places, Learn About <br />
             Different and Gain new unique and amazing Experiences.Traveling is A wonderful To Explore New places, Learn About  Different and Gain new unique and amazing Experiences</p>
            </div>
@@ -71,7 +71,7 @@ const Contact = () => {
 
 {/* card  */}
       <section className='flex   pt-28  dark:bg-gray-900 dark:text-white justify-center flex-wrap'>
-          <div className='flex gap-20  flex-wrap'> 
+          <div className='flex gap-20 pl-10 flex-wrap'> 
             <div className=' bg-slate-100 flex flex-col rounded-3xl w-80 h-[280px] justify-center items-center dark:bg-gray-800'>
               <h1 className='text-[100px] text-blue-700'>10+</h1>
               <h1 className='text-lg'>Year Expereince</h1>
@@ -99,7 +99,7 @@ const Contact = () => {
 </div>
 
 <section className='flex justify-center pt-20 dark:bg-gray-900'>
-<div className='flex w-[1100px] gap-20 text-center dark:bg-gray-900'>
+<div className='flex w-[1300px] gap-20 text-center flex-wrap pl-2 dark:bg-gray-900'>
 
   <div className='flex flex-col  justify-center items-center w-[350px] gap-4'>
   <FaGlobe style={{fontSize:"30px", color:"blue"}}/>

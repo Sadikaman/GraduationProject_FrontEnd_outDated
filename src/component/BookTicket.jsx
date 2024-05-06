@@ -25,7 +25,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
   
   'use client';
   return (
-    <section className=' flex pt-10 justify-center dark:bg-gray-900 dark:text-white flex-wrap' id='Education'>
+    <section className=' flex pt-10 justify-center dark:bg-gray-900 dark:text-white flex-wrap p-4' id='Education'>
      <div className='flex flex-col flex-wrap'>
       <h1 className='text-4xl font-bold'>Journey To The Skies Made Simple!</h1>
       <p className='text-center'>Traveling is A wonderful To Explore New places, Learn About <br /> Different and Gain new Experiences </p>
