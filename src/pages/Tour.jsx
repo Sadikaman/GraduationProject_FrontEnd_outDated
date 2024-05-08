@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Card,Dropdown,Sidebar ,Button} from "flowbite-react";
 import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll} from "react-icons/io";
 import { PiAirplaneTakeoffBold } from "react-icons/pi";
@@ -14,8 +15,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
 import Nav from '../component/Nav';
+import { FaDollarSign, FaWifi, FaSun } from 'react-icons/fa'; // Import React icons
+
+
+ 
 // import Image from "next/image";
 const CardContainer = () => {
+  const [isHovered, setIsHovered] = useState(false);
   const cardsData = [
     { id: 1, name: "Harar",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/harar.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
     { id: 2, name: "Abjifar Hawolt",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/hawolet.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
@@ -80,43 +86,50 @@ const CardContainer = () => {
         <div className="flex  gap-28 " style={{ overflowX: "auto", scrollbarWidth: "",}}>
           {cardsData.map((card) => (
             <div key={card.id} className=" " style={{ minWidth: "300px", }}>
-            <Card className='w-80 h-[320px] rounded-3xl' imgAlt={`Image of ${card.name}`} 
-      style={
-        { 
-              backgroundImage: `url(${card.imageSrc})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-      }
-      }
-      >
-
-  <div
-    className="flex flex-col gap-20"
-  >
-    <div className='flex justify-between'>
- 
- <p className='text-white text-2xl'>{card.num}</p> 
-  {card.internet}
-</div>
-
-    <div className='flex flex-col items-center '>
-    <h1 className="text-2xl flex flex-col font-semibold tracking-tight text-gray-50 dark:text-white">
-      {card.name}
+            <Card
+      className='w-80 h-[320px] rounded-3xl relative overflow-hidden'
+      imgAlt={`Image of ${card.name}`}
+      style={{
+        backgroundImage: `url(${card.imageSrc})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex justify-center items-center">
+        <div className="text-white text-center">
+          <p>Cost: {card.price}</p>
+          <p>Safety: {card.safety}</p>
+          <p>Other Info...</p>
+        </div>
+      </div>
       
-    </h1>
-    <h3 className="text-xl flex flex-col  tracking-tight text-gray-50 dark:text-white">
-    {card.country}
-    </h3>
-    </div>
-  
-<div className='flex justify-between'>
-  {card.sunny}
- <p className='text-white text-2xl'> {card.price}</p>
-</div>
+      <div className="flex flex-col gap-20">
+        <div className='flex justify-between'>
+          <p className='text-white text-2xl'>{card.num}</p> 
+          {card.internet}
+        </div>
+        
+        <div className='flex flex-col items-center '>
+          <h1 className="text-2xl flex flex-col font-semibold tracking-tight text-gray-50 dark:text-white">
+            {card.name}
+          </h1>
+          <h3 className="text-xl flex flex-col  tracking-tight text-gray-50 dark:text-white">
+            {card.country}
+          </h3>
+        </div>
+        
+        <div className='flex justify-between'>
+          {card.sunny}
+          <p className='text-white text-2xl'>
+            <FaDollarSign /> {card.price}
+          </p>
+        </div>
+      </div>
+    </Card>
 
-  </div>
-</Card>
 
             </div>
           ))}
