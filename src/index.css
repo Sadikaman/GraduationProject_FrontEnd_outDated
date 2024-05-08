@@ -7,3 +7,17 @@
 
     @apply transition-all duration-200
 }
+::-webkit-scrollbar{
+    width: 10px;
+   
+}
+::-webkit-scrollbar-track{
+    background: #d1e5ff;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #2986fe;
+    border-radius: 15px;
+    width: 5px; /* Adjust the width */
+    height: 20px;
+}
