@@ -63,13 +63,16 @@ const CardContainer = () => {
   return (
     <>
     <Nav />
-    <Searchbar />
-    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden   pt-5">
+  <div className='flex'>
+    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden    pt-5">
 
     < Sidebars />
-    
+    <div className='flex'>
     <div className='flex flex-col flex-wrap'>
-      <div className='flex justify-between w-[35%] pb-10'>
+      <div className='flex flex-col '>
+      <div className='flex'><Searchbar /></div>
+
+      <div className='flex justify-between w-[35%] pt-3'>
         <h1 className="text-2xl font-extrabold">Discover Places </h1>
         <div className='border-2 border-gray-700 rounded-full'>
         <Dropdown  className='' label="View All" color='white'  dismissOnClick={false}>
@@ -78,6 +81,7 @@ const CardContainer = () => {
           <Dropdown.Item>Earnings</Dropdown.Item>
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
+        </div>
         </div>
       </div>
 
@@ -163,13 +167,20 @@ const CardContainer = () => {
 
  </div>
 
-    
+</div>
 
-      <Card className="max-w-sm xl:w-96 justify-center items-end h-screen bg-gray-50">
+
+      </div>
+
+    </div>
+    </div>
+
+    <div className='dark:bg-gray-900 p-5'>
+    <Card className="max-w-sm xl:w-96 justify-center items-end h-screen bg-gray-50 ">
       {/* Profile part */}
      <div className='flex gap-5 justify-center'>
      <FaUserCircle className='text-6xl font-bold' />
-      <Dropdown className='text-4xl font-semibold' inline label="Jeremy Zuck ">
+      <Dropdown className='text-4xl  font-semibold' inline label="Jeremy Zuck ">
           <Dropdown.Item>
             <a
               href="#"
@@ -257,18 +268,8 @@ const CardContainer = () => {
 
   
     </Card>
-
-
-</div>
-
-
-      </div>
-
-
-      {/* map part */}
-
     </div>
-  
+</div>
     </>
   );
 }

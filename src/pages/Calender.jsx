@@ -1,8 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 import { Card,Dropdown,Sidebar,Datepicker } from "flowbite-react";
 import { FaUserCircle } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { PiHandWaving } from "react-icons/pi";
+import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll} from "react-icons/io";
+import { PiAirplaneTakeoffBold } from "react-icons/pi";
+import { MdOutlineHotel } from "react-icons/md";
+import { IoLocationOutline,IoAirplane } from "react-icons/io5";
+import { SiEthiopianairlines } from "react-icons/si";
+import { GiCommercialAirplane } from "react-icons/gi";
+import { FaDollarSign, FaWifi, FaSun } from 'react-icons/fa'; // Import React icons
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
@@ -11,17 +19,15 @@ import Nav from '../component/Nav';
 import { MdDateRange } from "react-icons/md";
 // import Image from "next/image";
 const CardContainer = () => {
+  const [isHovered, setIsHovered] = useState(false);
   const cardsData = [
-    { id: 1, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 2, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 3, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 4, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 5, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 6, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 7, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 8, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 9, name: "Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
-    { id: 10, name:"Bale Mountains", rating: 4.5, price: "16 June - 20June  ", imageSrc: "/images.jpeg" },
+    { id: 1, name: "Harar",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/harar.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
+    { id: 2, name: "Abjifar Hawolt",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/hawolet.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
+    { id: 3, name: "Lalibala",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/lalibala.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
+    { id: 4, name: "Samain Mountain",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/sameMountain.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
+    { id: 5, name: "Afar",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/afar.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
+    { id: 6, name: "South-OmoVally",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/south-Omo-Vally.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
+    { id: 7, name: "Aksum Hawolt",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/aksum.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
     // Add more card data objects as needed
   ];
 
@@ -55,42 +61,66 @@ const CardContainer = () => {
   return (
     <>
     <Nav />
-     <div className="pt-2 flex justify-center items-center gap-52 dark:bg-gray-900">
-      <div className='flex flex-col'>
-            <h1 className="text-4xl font-semibold pt-2 flex gap-4">Welcome back <PiHandWaving className="text-yellow-300 "/></h1>
-             <p className="text-lg text-gray-500 pt-2">Glad to see you again Login to your account below </p>
+    
+
+    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden ">
+    < Sidebars />
+
+<div className='flex flex-col'>
+    
+    <div className="pt-2 flex justify-center items-center gap-52 dark:bg-gray-900">
+      <div className='flex flex-col '>
+            <h1 className="text-4xl font-semibold pt-2 flex gap-4">Hello, Ezra  <PiHandWaving className="text-yellow-300 "/></h1>
+             <p className="text-lg text-gray-500 pt-2">Welcome back and explore the world </p>
              </div>
     <Searchbar />
     </div>
-
-    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden">
-    < Sidebars />
-
-    
-
-  <div className='flex gap-10 flex-wrap justify-center'>
+  <div className='flex gap-10 flex-wrap justify-center '>
     <div className="overflow-y-auto h-[95vh] w-[100%] ">
-      <div className="flex  p-4 gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
+      <div className="flex dark:bg-gray-900  p-4 gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
         {cardsData.map((card) => (
           <div key={card.id} className="p-4 " style={{ minWidth: "300px" }}>
-            <Card className=' w-80' imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
-              <div className="flex flex-col items-center">
-                <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  {card.name}
-                </h1>
-                <div className="bg-blue-500 w-16 p-1 rounded-full flex items-center justify-center">
-                  <CiStar style={{ color: "white" }} />
-                  <span className="text-white ml-2">{card.rating}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">${card.price}</span>
-                  <a
-                    href="#"
-                    className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                  >
-                    Add to cart
-                  </a>
-                </div>
+            <Card
+      className='w-80 h-[320px] rounded-3xl relative overflow-hidden'
+      imgAlt={`Image of ${card.name}`}
+      style={{
+        backgroundImage: `url(${card.imageSrc})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex justify-center items-center">
+              <div className="text-white text-center">
+          <p>Cost: {card.price}</p>
+          <p>Safety: {card.safety}</p>
+          <p>Other Info...</p>
+        </div>
+      </div>
+      
+      <div className="flex flex-col gap-20">
+        <div className='flex justify-between'>
+          <p className='text-white text-2xl'>{card.num}</p> 
+          {card.internet}
+        </div>
+        
+        <div className='flex flex-col items-center '>
+          <h1 className="text-2xl flex flex-col font-semibold tracking-tight text-gray-50 dark:text-white">
+            {card.name}
+          </h1>
+          <h3 className="text-xl flex flex-col  tracking-tight text-gray-50 dark:text-white">
+            {card.country}
+          </h3>
+        </div>
+        
+        <div className='flex justify-between'>
+          {card.sunny}
+          <p className='text-white text-2xl'>
+            <FaDollarSign /> {card.price}
+          </p>
+        </div>
               </div>
             </Card>
           </div>
@@ -101,11 +131,11 @@ const CardContainer = () => {
 
 
     </div>
-    
+    </div>
 {/* schedule part */}
-<Card className="max-w-sm xl:w-96 justify-center items-end h-screen">
+<Card className="max-w-sm xl:w-96 justify-center items-end h-screen dark:bg-gray-900">
      
-     <div className='flex gap-5 justify-center'>
+     <div className='flex gap-5 dark:bg-gray-900 justify-center'>
      <FaUserCircle className='text-4xl' />
       <Dropdown inline label="Jeremy Zuck ">
           <Dropdown.Item>
@@ -142,7 +172,7 @@ const CardContainer = () => {
       <div className="flex   gap-10 flex-wrap" style={{ overflowX: "hidden" }}>
         {cardsData.map((card) => (
           <div key={card.id} className=" " style={{ minWidth: "300px" }}>
-            <Card className=' w-72 h-28 pb-5 flex' imgAlt={`Image of ${card.name}`} >
+            <Card className=' w-72 h-28  flex' imgAlt={`Image of ${card.name}`} >
               <div className="flex flex-col gap-2">
             <div className='flex gap-2'>
               <img className='w-16 rounded-md' src={card.imageSrc} />
@@ -150,10 +180,7 @@ const CardContainer = () => {
                   {card.name}
                 </h1>
                 </div>
-                {/* <div className="bg-blue-500 w-16 p-1 rounded-full flex items-center justify-center">
-                  <CiStar style={{ color: "white" }} />
-                  <span className="text-white ml-2">{card.rating}</span>
-                </div> */}
+               
                 <div className="flex items-center justify-between">
                   <span className="text-md flex font-bold text-gray-900 dark:text-white"><MdDateRange /> ${card.price}</span>
                  
@@ -169,6 +196,7 @@ const CardContainer = () => {
 
   
     </Card>
+   
     </div>
   
     </>

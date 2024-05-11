@@ -1,18 +1,18 @@
 // import React from 'react'
 import Sidebars from '../component/Sidebars'
-import { Button } from 'flowbite-react'
+import { Button,Card } from 'flowbite-react'
 import { CgProfile } from "react-icons/cg";
 import { IoTimeOutline } from "react-icons/io5";
 import { IoMdSend } from "react-icons/io";
+import { MdDateRange } from "react-icons/md";
 import { FaXTwitter,FaYoutube,FaLinkedin,FaFacebook,FaPinterest,FaSquareInstagram } from "react-icons/fa6";
 import React, { useState } from 'react';
 import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@heroicons/react/outline';
 import Nav from "../component/Nav"
 
+  const Community = () => {
 
-function Community() {
-
-  const [message, setMessage] = useState('');
+    const [message, setMessage] = useState('');
 
   const handleMessageChange = (e) => {
     setMessage(e.target.value);
@@ -23,8 +23,6 @@ function Community() {
     console.log('Sending message:', message);
     setMessage('');
   };
-
-  const CardContainer = () => {
     const cardsData = [
       { id: 1, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
       { id: 2, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
@@ -37,7 +35,7 @@ function Community() {
       { id: 9, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
       { id: 10, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
       // Add more card data objects as needed
-    ];}
+    ];
 
   return (
     <>
@@ -45,8 +43,10 @@ function Community() {
     <div className='flex  gap-10 p-5 dark:bg-gray-900'>
        
       < Sidebars />
-      <div className=' bg-gray-100  rounded-xl w-full p-5 dark:bg-gray-900'>
+      <div className='flex flex-col  dark:bg-gray-900'>
       <h1 className='text-2xl font-semibold pb-12'>The Afro Community </h1>
+      <div className=' bg-gray-100  rounded-xl w-full p-5 dark:bg-gray-900'>
+     
       <div className='bg-gray-300 rounded-xl w-[100%] h-[500px] flex flex-col dark:bg-gray-800'></div>
       <Button className='w-28 mt-2' color='dark' inline label= "destination"/>
      
@@ -123,7 +123,7 @@ function Community() {
 
       </div>
      
-
+      </div>
 
 {/* Social Network */}
       <div className='h-screen bg-slate-100 rounded-xl w-[40%] flex flex-col mt-4 p-8 dark:bg-gray-900'>
@@ -149,9 +149,31 @@ function Community() {
   </div>
  
 </div>
+
+{/* card  */}
+<div className="overflow-y-auto h-[95vh] w-[100%]  mt-8">
+      <div className="flex   gap-10 flex-wrap" style={{ overflowX: "hidden" }}>
+      <h1 className='text-xl font-medium'>Announcement</h1>
+        {cardsData.map((card) => (
+          
+          <div key={card.id} className="flex gap-2" style={{ minWidth: "300px" }}>  
+            <Card className=' w-72 h-28 rounded-2xl bg-gray-300  flex' imgAlt={`Image of ${card.name}`} >
+              <div className="flex flex-col gap-2">
+            <div className='flex gap-2'>
+              
+               
+                </div>
+              </div>
+            </Card>
+            <h1 className='text-md font-medium'>Seven Things To avoid in Photography</h1>
+          </div>
+          ))}
+    </div>
+
+    </div>
         
       </div>
-
+      
 
       
     </div>

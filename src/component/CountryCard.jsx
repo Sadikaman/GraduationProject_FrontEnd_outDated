@@ -61,7 +61,7 @@ const CardContainer = () => {
   };
 
   return (
-    <div className=" dark:bg-gray-900 dark:text-white ">
+    <div className=" dark:bg-gray-900 dark:text-white p-5">
       <div className='flex justify-between  flex-wrap'>
       <div className='pt-10 flex-wrap'>
       <h1 className='text-2xl pt-2 font-extrabold'>Popular Destinations</h1>
@@ -79,7 +79,7 @@ const CardContainer = () => {
       <Slider {...sliderSettings} ref={sliderRef}>
         {cardsData.map((card) => (
           <div key={card.id} className="p-4 flex flex-wrap">
-            <Card className="xl:w-80 md:w-96 sm:w-80 " imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
+            <Card className="xl:w-80 md:w-96 sm:w-80 rounded-3xl " imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
               <div className='flex justify-between flex-wrap'>
                 <a href="#">
                   <h1 className="text-xl font-semibold tracking-tight text-center text-gray-900 dark:text-white">

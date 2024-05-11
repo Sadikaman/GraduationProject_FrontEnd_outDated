@@ -21,10 +21,9 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
                     <Navbar.Brand>
                         <a href=""><img src="/AfroLogo.png" className="h-20 xl:pr-24 md:pr-0  " alt="" /></a>
                     </Navbar.Brand>
-                    <div className="flex md:order-2 md:p-0 sm:p-0 xl:pl-24 flex-row">
-                        <a className='</a>' href="/Joinus"><Button className='xl:w-36 sm:w-10 md:w-16 h-14 rounded-full bg-black dark:bg-white dark:text-black text-xl font-extrabold' >Book trip</Button></a>
+                   
                         <Navbar.Toggle />
-                    </div>
+                  
                     <Navbar.Collapse className=' shadow-none border-none'>
                         <Navbar.Link href="/" active className='text-2xl font-extrabold'>
                             Home
@@ -33,6 +32,7 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
                         <Navbar.Link href="/Tour" className='text-xl text-bold'>Tour</Navbar.Link>
                         <Navbar.Link href="#" className='text-xl text-bold'>Pricing</Navbar.Link>
                         <Navbar.Link href="#" className='text-xl text-bold'>Contact</Navbar.Link>
+                        <Navbar.Link href="/Joinus" className=''> <Button className='w-36  h-14 rounded-full bg-black dark:bg-white dark:text-black text-xl font-extrabold' >Get started</Button></Navbar.Link>
                     </Navbar.Collapse>
                 </Navbar>
             </div>
