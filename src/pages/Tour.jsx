@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { Card,Dropdown,Sidebar ,Button} from "flowbite-react";
-import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll} from "react-icons/io";
+import { Card,Dropdown,Sidebar ,Button,Progress} from "flowbite-react";
+import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
 import { PiAirplaneTakeoffBold } from "react-icons/pi";
 import { Datepicker } from "flowbite-react";
-import { FaUserCircle } from "react-icons/fa";
-import { MdOutlineHotel } from "react-icons/md";
+import { FaUserCircle,FaMoneyBillWave } from "react-icons/fa";
+import { MdOutlineHotel,MdFavoriteBorder } from "react-icons/md";
 import { CiStar } from "react-icons/ci";
 import { IoLocationOutline,IoAirplane } from "react-icons/io5";
 import { SiEthiopianairlines } from "react-icons/si";
@@ -102,11 +102,68 @@ const CardContainer = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex justify-center items-center">
-        <div className="text-white text-center">
-          <p>Cost: {card.price}</p>
-          <p>Safety: {card.safety}</p>
-          <p>Other Info...</p>
+            {/* card hover effect  */}
+
+      <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex ">
+        <div className="text-white w-full p-2 ">
+          <div className='flex justify-between'><MdFavoriteBorder  className='text-4xl hover:text-red-600'/> <IoMdClose className='text-4xl' /></div>
+         
+
+         <div className='w-full flex flex-col mt-16'>
+          
+         <div className='flex gap-1  '>
+          
+           <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+          <div className='ml-20 mb-2'>
+          <div className="text-base f gap-5ont-medium text-green-700 w-40"></div>
+          <Progress progress={45} size="xl" color="green" />
+          </div>
+          </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+         
+         </div>
+         <p className='pt-3 text-lg'>Lorem ipsum dolor sit amet cons</p>
+       
+          
         </div>
       </div>
       
@@ -249,10 +306,7 @@ const CardContainer = () => {
                   {card.name}
                 </h1>
                 </div>
-                {/* <div className="bg-blue-500 w-16 p-1 rounded-full flex items-center justify-center">
-                  <CiStar style={{ color: "white" }} />
-                  <span className="text-white ml-2">{card.rating}</span>
-                </div> */}
+      
                 <div className="flex items-center justify-between">
                   <span className="text-md flex font-bold text-gray-900 dark:text-white"> ${card.price}</span>
                  

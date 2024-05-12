@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { Card,Dropdown,Sidebar,Datepicker } from "flowbite-react";
-import { FaUserCircle } from "react-icons/fa";
+import { Card,Dropdown,Sidebar,Datepicker,Progress } from "flowbite-react";
+import { FaUserCircle,FaMoneyBillWave } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { PiHandWaving } from "react-icons/pi";
-import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll} from "react-icons/io";
+import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
 import { PiAirplaneTakeoffBold } from "react-icons/pi";
 import { MdOutlineHotel } from "react-icons/md";
 import { IoLocationOutline,IoAirplane } from "react-icons/io5";
@@ -16,7 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
 import Nav from '../component/Nav';
-import { MdDateRange } from "react-icons/md";
+import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 // import Image from "next/image";
 const CardContainer = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -92,11 +92,68 @@ const CardContainer = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex justify-center items-center">
-              <div className="text-white text-center">
-          <p>Cost: {card.price}</p>
-          <p>Safety: {card.safety}</p>
-          <p>Other Info...</p>
+
+      {/* card hover effect  */}
+              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex ">
+        <div className="text-white w-full p-2 ">
+          <div className='flex justify-between'><MdFavoriteBorder  className='text-4xl hover:text-red-600'/> <IoMdClose className='text-4xl' /></div>
+         
+
+         <div className='w-full flex flex-col mt-16'>
+          
+         <div className='flex gap-1  '>
+          
+           <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+          <div className='ml-20 mb-2'>
+          <div className="text-base f gap-5ont-medium text-green-700 w-40"></div>
+          <Progress progress={45} size="xl" color="green" />
+          </div>
+          </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+
+         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
+         
+         <div className='ml-20 mb-2'>
+           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+      <Progress progress={45} size="xl" color="green" />
+      </div>
+      </div>
+         
+         </div>
+         <p className='pt-3 text-lg'>Lorem ipsum dolor sit amet cons</p>
+       
+          
         </div>
       </div>
       

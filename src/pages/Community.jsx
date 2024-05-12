@@ -43,7 +43,7 @@ import Nav from "../component/Nav"
     <div className='flex  gap-10 p-5 dark:bg-gray-900'>
        
       < Sidebars />
-      <div className='flex flex-col  dark:bg-gray-900'>
+      <div className='flex flex-col '>
       <h1 className='text-2xl font-semibold pb-12'>The Afro Community </h1>
       <div className=' bg-gray-100  rounded-xl w-full p-5 dark:bg-gray-900'>
      
