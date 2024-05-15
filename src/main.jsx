@@ -15,8 +15,11 @@ import Searchbar from "./component/Searchbar.jsx";
 import Joinus from "./pages/Joinus.jsx"
 import RegisterServicesProvider from "./pages/RegisterServicesProvider.jsx";
 import VerifyRegisterServicesProvider from "./pages/VerifyRegisterServicesProvider.jsx";
-// import Confirmation from "./components/Confirmation";
-// import  Footers  from "./component/Footers.jsx"; // Import Footer component
+import { Payment } from "./component/Payment.jsx";
+import Confirmation from "./component/Confirmation.jsx";
+import { Confirm } from "./component/Confirm.jsx";
+// import { Verfication } from "./component/Verfication.jsx";
+import { Verfication } from "./component/Verfication.jsx";
 
 const router = createBrowserRouter([
   {
@@ -72,24 +75,35 @@ const router = createBrowserRouter([
         path: "/VerifyRegisterServicesProvider",
         element:<VerifyRegisterServicesProvider />
       },
+      {
+        path: "/Payment",
+        element:<Payment />
+      },
+      {
+        path: "/Confirmation",
+        element:<Confirmation />
+      },
+      {
+        path: "/Confirm",
+        element:<Confirm />
+      },
+      {
+        path: "/Verfication",
+        element:<Verfication />
+      },
       // {
-      //   path: "/login",
-      //   element: (
-      //     <>
-      //       <Footers />
-      //       <Route />
-      //     </>
-      //   ),
+      //   path: "/Confirmation",
+      //   element:<Confirmation />
       // },
       // {
-      //   path: "/contact",
-      //   element: (
-      //     <>
-      //       <Footers />
-      //       <Route />
-      //     </>
-      //   ),
+      //   path: "/Confirmation",
+      //   element:<Confirmation />
       // },
+      // {
+      //   path: "/Confirmation",
+      //   element:<Confirmation />
+      // },
+
     ],
   },
 ]);
