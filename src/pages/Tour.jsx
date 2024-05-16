@@ -116,7 +116,7 @@ const CardContainer = () => {
           
          <p className='flex gap-1'>  <FaStar className='text-xl text-yellow-300'/>Overall</p>
           <div className=' mb-2'>
-          <div className="text-base text-green-700 w-40"></div>
+          <div className="text-base text-green-500 w-40"></div>
           <Progress progress={80} size="xl" color="green" />
           </div>
           </div>
@@ -125,7 +125,7 @@ const CardContainer = () => {
          <p className='flex gap-2'><FaMoneyBillWave className='text-2xl text-green-400'/>Price </p>
          
          <div className=' mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+           <div className="text-base gap-5 font-medium text-green-500 w-40"></div>
       <Progress progress={56} size="xl" color="green" />
       </div>
       </div>
@@ -134,7 +134,7 @@ const CardContainer = () => {
          <p className='flex gap-2'>  <FaSatelliteDish className='text-xl '/>Internet</p>
          
          <div className='mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+           <div className="text-base gap-5 font-medium text-green-500 w-40"></div>
       <Progress progress={75} size="xl" color="green" />
       </div>
       </div>
@@ -143,7 +143,7 @@ const CardContainer = () => {
        <p className='flex gap-1'> <BiSolidLike className='text-2xl text-yellow-300'/>Liked</p>  
          
          <div className=' mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+           <div className="text-base gap-5 font-medium text-green-500 w-40"></div>
       <Progress progress={55} size="xl" color="green" />
       </div>
       </div>
@@ -152,7 +152,7 @@ const CardContainer = () => {
          <p className='flex gap-1'> <FaShieldAlt className='text-2xl text-red-600'/>Safety</p>  
          
          <div className=' mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
+           <div className="text-base gap-5 font-medium text-green-500 w-40"></div>
       <Progress progress={65} size="xl" color="green" />
       </div>
       </div>
@@ -301,12 +301,14 @@ const CardContainer = () => {
           <div key={card.id} className=" " style={{ minWidth: "300px" }}>
             <Card className=' w-72 h-44 rounded-3xl  flex' imgAlt={`Image of ${card.name}`} >
               <div className="flex flex-col gap-2">
-            <div className='flex gap-2'>
-              <img className='w-16 rounded-md' src={card.imageSrc} />
-                <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  {card.name}
-                </h1>
-                </div>
+                <div className='flex gap-2'>
+                  <img className='w-16 rounded-md' 
+                  src={card.imageSrc}
+                 />
+                  <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {card.name}
+                  </h1>
+               </div>
       
                 <div className="flex items-center justify-between">
                   <span className="text-md flex font-bold text-gray-900 dark:text-white"> ${card.price}</span>
