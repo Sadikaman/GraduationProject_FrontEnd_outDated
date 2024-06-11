@@ -18,6 +18,7 @@ import VerifyRegisterServicesProvider from "./pages/VerifyRegisterServicesProvid
 import { Payment } from "./component/Payment.jsx";
 import Confirmation from "./component/Confirmation.jsx";
 import { Confirm } from "./component/Confirm.jsx";
+import Pricing from "./pages/Pricing.jsx";
 // import { Verfication } from "./component/Verfication.jsx";
 import { Verfication } from "./component/Verfication.jsx";
 
@@ -91,10 +92,10 @@ const router = createBrowserRouter([
         path: "/Verfication",
         element:<Verfication />
       },
-      // {
-      //   path: "/Confirmation",
-      //   element:<Confirmation />
-      // },
+      {
+        path: "/Pricing",
+        element:<Pricing />
+      },
       // {
       //   path: "/Confirmation",
       //   element:<Confirmation />
