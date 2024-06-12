@@ -19,6 +19,7 @@ import { Payment } from "./component/Payment.jsx";
 import Confirmation from "./component/Confirmation.jsx";
 import { Confirm } from "./component/Confirm.jsx";
 import Pricing from "./pages/Pricing.jsx";
+import About from "./pages/About.jsx";
 // import { Verfication } from "./component/Verfication.jsx";
 import { Verfication } from "./component/Verfication.jsx";
 
@@ -96,10 +97,10 @@ const router = createBrowserRouter([
         path: "/Pricing",
         element:<Pricing />
       },
-      // {
-      //   path: "/Confirmation",
-      //   element:<Confirmation />
-      // },
+      {
+        path: "/About",
+        element:<About />
+      },
       // {
       //   path: "/Confirmation",
       //   element:<Confirmation />

@@ -17,7 +17,7 @@ import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@hero
     const [paymentOption, setPaymentOption] = useState(null);
   
     // Replace this with actual location detection logic
-    const isInEthiopia = false; // Mock location check
+    const isInEthiopia = true; // Mock location check
   
     const handlePaymentChoice = (choice) => {
       setPaymentOption(choice);
@@ -62,11 +62,11 @@ import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@hero
     <div  className='flex justify-end w-full pr-10'>
     <Button color="dark" className='w-44 flex '>Cancel Trip</Button>
     </div>
-<section className=' flex border p-4  gap-20 justify-center'>
-    <div className='flex flex-col border-2 gap-4'>
+<section className=' flex p-4  gap-20 justify-center'>
+    <div className='flex flex-col  gap-4'>
         
-    <div className='border bg-gray-100 w-[650px] rounded-2xl h-24'>
-        <form className="flex max-w-md  gap-4 ">
+    <div className='bg-gray-100 w-[650px] rounded-2xl h-24'>
+        <form className="flex max-w-md  gap-4 p-2">
            
             <div>
                 <div className="mb-2 block">
@@ -130,7 +130,7 @@ import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@hero
 
     </div>
     {/* /////////////////// */}
-    <form className='flex flex-col border-2 gap-4'>
+    <form className='flex flex-col  gap-4'>
       <div className='border bg-gray-100 h-[400px] w-full rounded-2xl'>
         <h1 className='w-full border-b text-xl text-[#2986FE] p-3'>PAYMENT DETAILS</h1>
         <div className='flex justify-between p-4'>
@@ -205,61 +205,25 @@ import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@hero
             </div>
           )}
 
+
+
+          
+{/* ezra part */}
           {paymentOption === 'telebirr' && (
             <div className='flex justify-center items-center'>
-              <img src='qr.png' alt='Telebirr QR Code' />
+              {/* ezra is gay  */}
             </div>
           )}
 
           {paymentOption === 'chapa' && (
             <div className='flex flex-col gap-3 pl-40 pr-40'>
-            <input
-              type='text'
-              placeholder='Card Holder Name'
-              className='p-2 border rounded'
-            />
-            <input
-              type='text'
-              placeholder='Credit Card Number'
-              className='p-2 border rounded'
-            />
-            <input
-              type='text'
-              placeholder='Expiration Date'
-              className='p-2 border rounded'
-            />
-            <input
-              type='text'
-              placeholder='CVV'
-              className='p-2 border rounded'
-            />
-            <button className='bg-black text-white  p-2 rounded-full'>Pay</button>
+            {/* Ezra is gay  */}
           </div>
           )}
 
           {paymentOption === 'paypal' && (
             <div className='flex flex-col gap-3 pl-40 pr-40'>
-              <input
-                type='text'
-                placeholder='Card Holder Name'
-                className='p-2 border rounded'
-              />
-              <input
-                type='text'
-                placeholder='Credit Card Number'
-                className='p-2 border rounded'
-              />
-              <input
-                type='text'
-                placeholder='Expiration Date'
-                className='p-2 border rounded'
-              />
-              <input
-                type='text'
-                placeholder='CVV'
-                className='p-2 border rounded'
-              />
-              <button className='bg-black text-white  p-2 rounded-full'>Pay</button>
+             {/* Ezra is gay  */}
             </div>
 
 
@@ -267,27 +231,7 @@ import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@hero
 
 {paymentOption === 'stripe' && (
             <div className='flex flex-col gap-3 pl-40 pr-40'>
-              <input
-                type='text'
-                placeholder='Card Holder Name'
-                className='p-2 border rounded'
-              />
-              <input
-                type='text'
-                placeholder='Credit Card Number'
-                className='p-2 border rounded'
-              />
-              <input
-                type='text'
-                placeholder='Expiration Date'
-                className='p-2 border rounded'
-              />
-              <input
-                type='text'
-                placeholder='CVV'
-                className='p-2 border rounded'
-              />
-              <button className='bg-blue-500 text-white  p-2 rounded-full'>Pay</button>
+             {/* ezra is gay  */}
             </div>
             
 
