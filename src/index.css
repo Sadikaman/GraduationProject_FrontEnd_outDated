@@ -1,11 +1,16 @@
+@import url('https://fonts.cdnfonts.com/css/dm-sans');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 * {
-
     @apply transition-all duration-200
+    
+}
+html {
+    font-family: 'dm-sans', sans-serif;
 }
 ::-webkit-scrollbar{
     width: 10px;
