@@ -4,7 +4,7 @@ import { FaCalendarDays} from "react-icons/fa6";
 import { FaUsers ,FaArrowAltCircleLeft } from "react-icons/fa";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import { LiaMapMarkedAltSolid } from "react-icons/lia";
-import { CiLogout } from "react-icons/ci";
+import { CiLogout,CiSettings } from "react-icons/ci";
 function Sidebars() {
   return (
     <>
@@ -27,6 +27,9 @@ function Sidebars() {
           </Sidebar.Item>
           <Sidebar.Item href="#">
           <MdOutlineSupportAgent className='text-blue-500 text-4xl'/>
+          </Sidebar.Item>
+          <Sidebar.Item href="./PaymentHistory">
+          <CiSettings className='text-blue-500 text-4xl'/>
           </Sidebar.Item>
           </div>
 

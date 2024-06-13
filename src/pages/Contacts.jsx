@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../component/Nav'
-function Contacts() {
+const Contacts = () =>  {
   return (
     <>
      <section className='dark:bg-gray-900'>

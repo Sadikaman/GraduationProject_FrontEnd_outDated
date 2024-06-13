@@ -98,7 +98,7 @@ const VerifyRegisterServicesProvider = () => {
             <label htmlFor="termsCheckbox">I confirm that the information provided is correct</label>
           </div>
 
-          <Button color="white" pill className="flex w-full lg:w-44 rounded-full mt-4 border-2 border-black">
+          <Button color="white" pill href="/TravelProviderPage" className="flex w-full lg:w-44 rounded-full mt-4 border-2 border-black">
             Verify now <MdOutlineVerified className="text-blue-700 ml-2 text-xl"/>
           </Button>
         </form>
