@@ -19,7 +19,7 @@ function Sidebars() {
           <Sidebar.Item href="/Calender" >
           <FaCalendarDays className='text-blue-500 text-4xl'/>
           </Sidebar.Item>
-          <Sidebar.Item href="#">
+          <Sidebar.Item href="/DiscoverPlaces">
           <LiaMapMarkedAltSolid className='bg-white rounded-full text-blue-500 text-4xl'/>
           </Sidebar.Item>
           <Sidebar.Item href="/Community">

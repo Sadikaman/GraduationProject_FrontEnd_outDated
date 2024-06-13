@@ -9,7 +9,7 @@ import Calender from "./pages/Calender";
 import Account from "./pages/Account.jsx";
 import Contact from "./component/Contact.jsx";
 import Login from "./pages/Login"
-import  Tour  from "./pages/Tour";
+import DiscoverPlaces from "./pages/DiscoverPlaces.jsx";
 import Community from "./pages/Community.jsx";
 import TravelProviderSidebadr from "./component/TravelProviderSidebadr.jsx";
 import Searchbar from "./component/Searchbar.jsx";
@@ -26,6 +26,8 @@ import Contacts from "./pages/Contacts.jsx";
 import PaymentHistory from "./pages/PaymentHistory.jsx";
 import { Verfication } from "./component/Verfication.jsx";
 import TravelProviderPage from "./pages/TravelProviderPage.jsx";
+import Tour from "./pages/Tour.jsx";
+import Packagess from "./pages/Packagess.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,8 +50,8 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/Tour",
-        element: <Tour />,
+        path: "/DiscoverPlaces",
+        element: <DiscoverPlaces />,
       },
       {
         path: "/Calender",
@@ -120,14 +122,14 @@ const router = createBrowserRouter([
         path: "/TravelProviderSidebadr",
         element:<TravelProviderSidebadr />
       },
-      // {
-      //   path: "/PaymentHistory",
-      //   element:<PaymentHistory />
-      // },
-      // {
-      //   path: "/PaymentHistory",
-      //   element:<PaymentHistory />
-      // },
+      {
+        path: "/Tour",
+        element:<Tour />
+      },
+      {
+        path: "/Packagess",
+        element:<Packagess />
+      },
       // {
       //   path: "/PaymentHistory",
       //   element:<PaymentHistory />
