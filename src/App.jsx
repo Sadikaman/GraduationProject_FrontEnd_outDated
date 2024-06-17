@@ -1,9 +1,9 @@
 
 import { useState } from 'react';
 import { Outlet } from "react-router-dom";
-import Nav from "./component/Nav";
+// import Nav from "./component/Nav";
 import "./index.css";
-import  Footers from "./component/Footers";
+// import  Footers from "./component/Footers";
 import ScrollToTopButton from "./component/ScrollToTopButton"
 
 'use client';

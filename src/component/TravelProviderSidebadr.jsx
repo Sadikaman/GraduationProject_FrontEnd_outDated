@@ -46,7 +46,7 @@ const TravelProviderSidebadr = () => {
           <span className="ms-3">Analytics</span>
         </a>
       </li>
-<h1 className='pt-5 text-gray-500 font-semibold'>BUSINESS SETTINGS</h1>
+    <h1 className='pt-5 text-gray-500 font-semibold'>BUSINESS SETTINGS</h1>
 
       <li>
         <a href="#" className="flex items-center font-bold p-2 text-gray-900 rounded-lg gap-4 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -67,7 +67,7 @@ const TravelProviderSidebadr = () => {
         </a>
       </li>
       <li>
-        <a href="#" className="flex items-center font-bold p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a href="/Tpcustomer" className="flex items-center font-bold p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
         <CgProfile className='text-2xl text-[#2986FE] '/>
           <span className="flex-1 ms-3 whitespace-nowrap text-[#2986FE] text-xl">Customers</span>
         </a>
@@ -82,7 +82,7 @@ const TravelProviderSidebadr = () => {
         </a>
       </li>
       <li>
-        <a href="#" className="flex items-center font-bold p-2 gap-4 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a href="TpStatus" className="flex items-center font-bold p-2 gap-4 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
         <FcBarChart className='text-2xl text-[#2986FE] '/>
           <span className="flex-1 ms-3 whitespace-nowrap text-[#2986FE] text-xl">Status</span>
         </a>

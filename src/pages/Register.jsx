@@ -192,7 +192,7 @@ const Register = () => {
               <Button className="rounded-md" pill="true" size="md" color="light">
                 Cancel
               </Button>
-              <Button className="rounded-md" pill="true" size="md" color="dark" href="/verify">
+              <Button className="rounded-md" pill="true" size="md" color="dark" href="/DiscoverPlaces">
                 Register
               </Button>
             </div>

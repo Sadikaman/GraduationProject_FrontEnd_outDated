@@ -28,6 +28,8 @@ import { Verfication } from "./component/Verfication.jsx";
 import TravelProviderPage from "./pages/TravelProviderPage.jsx";
 import Tour from "./pages/Tour.jsx";
 import Packagess from "./pages/Packagess.jsx";
+import Tpcustomer from "./pages/Tpcustomer.jsx";
+import TpStatus from "./pages/TpStatus.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -130,9 +132,25 @@ const router = createBrowserRouter([
         path: "/Packagess",
         element:<Packagess />
       },
+      {
+        path: "/TpStatus",
+        element:<TpStatus />
+      },
+      {
+        path: "/Tpcustomer",
+        element:<Tpcustomer />
+      },
       // {
-      //   path: "/PaymentHistory",
-      //   element:<PaymentHistory />
+      //   path: "/Tpcustomer",
+      //   element:<Tpcustomer />
+      // },
+      // {
+      //   path: "/Tpcustomer",
+      //   element:<Tpcustomer />
+      // },
+      // {
+      //   path: "/Tpcustomer",
+      //   element:<Tpcustomer />
       // },
     ],
   },
