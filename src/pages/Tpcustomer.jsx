@@ -14,9 +14,11 @@ import { BiSolidLike } from "react-icons/bi";
 import { FaDollarSign, FaWifi, FaSun,FaStar,FaSatelliteDish,FaShieldAlt } from 'react-icons/fa'; // Import React icons
 import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 import AddPackageModal from '../component/AddPackageModal';
+import { CiMenuKebab } from "react-icons/ci";
 import { MdDownload } from "react-icons/md";
-
 import { GiPieChart } from "react-icons/gi";
+import { RiUser3Fill,RiUserHeartFill,RiUserAddFill } from "react-icons/ri";
+
 "use client";
 
 import { Bar } from 'react-chartjs-2';
@@ -134,36 +136,52 @@ const Tpcustomer = () => {
     <div className='flex justify-center'>
 <div className='flex flex-col  mt-10 gap-10'>
   <div className='flex gap-11  '>
-    <div className='w-52 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
-    <div className='w-52 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
-    <div className='w-52 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
-    <div className='w-52 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
+    <div className='w-52 h-32 shadow-lg rounded-xl border-2  border-gray-100 flex flex-col'>
+      <h1 className='text-2xl text-[#2986FE] p-5 font-medium'><RiUser3Fill className='mb-2'/>
+        <p className='font-bold'>1000</p><p>Total Customer</p>
+        </h1>
+    </div>
+    <div className='w-52 h-32 shadow-lg rounded-xl border-2  border-gray-100 flex flex-col'>
+      <h1 className='text-2xl text-[#2986FE] p-5 font-medium'><RiUserHeartFill className='mb-2 text-red-500'/>
+        <p className='font-bold'>300</p><p>Active User</p>
+        </h1>
+    </div>
+    <div className='w-52 h-32 shadow-lg rounded-xl border-2  border-gray-100 flex flex-col'>
+      <h1 className='text-2xl text-[#2986FE] p-5 font-medium'><RiUserAddFill className='mb-2 text-green-400'/>
+      <p className='font-bold'>100</p><p className='text-xl'>New User/ Week</p>
+      </h1>
+    </div>
+    <div className='w-52 h-32 shadow-lg rounded-xl border-2  border-gray-100 flex flex-col'>
+      <h1 className='text-2xl text-[#2986FE] p-5 font-medium'><FaDollarSign className='mb-2 text-[#101010]'/>
+        <p className='font-bold'>$1000</p><p>Total Spent</p>
+        </h1>
+    </div>
   </div>
   <div className='overflow-x-auto rounded-xl' >
-            <table className='w-full bg-gray-100 '>
+            <table className='w-full bg-gray-50 '>
               <thead>
-                <tr className='bg-gray-100'>
-                  <th className='p-5 text-left border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" /> Payment Invoice</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Amount</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Date</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Status</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Download</th>
+                <tr className='bg-[#2986FE] text-[#ffffff]'>
+                  <th className='p-5 text-left border-b border-blue-400 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" /> Payment Invoice</th>
+                  <th className='p-5 text-left border-b border-blue-400'>Amount</th>
+                  <th className='p-5 text-left border-b border-blue-400'>Date</th>
+                  <th className='p-5 text-left border-b border-blue-400'>Status</th>
+                  <th className='p-5 text-left border-b border-blue-400'>Download</th>
                 </tr>
               </thead>
               <tbody>
                 {payments.map((payment) => (
                   <tr key={payment.id} className='text-left'>
-                    <td className='p-5 border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" />  {payment.invoice}</td>
-                    <td className='p-5 border-b-2 border-gray-300'>  ${payment.amount.toFixed(2)}</td>
-                    <td className='p-5 border-b-2 border-gray-300'> {new Date(payment.date).toLocaleDateString()}</td>
-                    <td className='p-5 border-b-2 border-gray-300'>
+                    <td className='p-5 border-b border-blue-400 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" />  {payment.invoice}</td>
+                    <td className='p-5 border-b border-blue-400'>  ${payment.amount.toFixed(2)}</td>
+                    <td className='p-5 border-b border-blue-400'> {new Date(payment.date).toLocaleDateString()}</td>
+                    <td className='p-5 border-b border-blue-400'>
                       <span className={`p-1 rounded ${payment.status === 'Paid' ? 'bg-green-200' : 'bg-red-200'}`}>
                        {payment.status}
                       </span>
                     </td>
-                    <td className='p-2 border-b-2 border-gray-300'>
+                    <td className='p-2 border-b border-blue-400'>
                       <button className='flex items-center justify-center text-xl gap-3 text-[#2986FE]   rounded-full px-2 py-1'>
-                        <MdDownload /> Download
+                        <CiMenuKebab className='text-2xl text-gray-700'/> 
                       </button>
                     </td>
                   </tr>

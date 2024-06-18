@@ -21,7 +21,7 @@ import { GiPieChart } from "react-icons/gi";
 import { Bar } from 'react-chartjs-2';
 
 
-const Tpcustomer = () => {
+const TpTransaction = () => {
 
   const data = {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -57,9 +57,9 @@ const Tpcustomer = () => {
    <TravelProviderSidebadr />
     {/* //////////// */}
 <div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-    <div className=' flex   mt-5 gap-[1000px]  overflow-hidden '>
+    <div className=' flex   mt-5 gap-[950px]  overflow-hidden '>
 
-   <h1 className='flex text-black text-2xl font-bold'><GiPieChart className='text-2xl'/>Analytic</h1>
+   <h1 className='flex text-black text-2xl font-bold gap-2'><GiPieChart className='text-2xl'/>Transaction</h1>
 
    <div className='flex dark:bg-gray-900 w-full p-4'>
      <FaUserCircle className='text-4xl ' />
@@ -100,4 +100,4 @@ const Tpcustomer = () => {
   )
 }
 
-export default Tpcustomer
+export default TpTransaction

@@ -30,6 +30,11 @@ import Tour from "./pages/Tour.jsx";
 import Packagess from "./pages/Packagess.jsx";
 import Tpcustomer from "./pages/Tpcustomer.jsx";
 import TpStatus from "./pages/TpStatus.jsx";
+import TpEarning from "./pages/TpEarning.jsx";
+import Notification from "./pages/Notification.jsx";
+import TpSetting from "./pages/TpSetting.jsx";
+import TpTransaction from "./pages/TpTransaction.jsx";
+import MessagingInterface from "./pages/MessagingInterface.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -140,17 +145,33 @@ const router = createBrowserRouter([
         path: "/Tpcustomer",
         element:<Tpcustomer />
       },
+      {
+        path: "/TpEarning",
+        element:<TpEarning />
+      },
+      {
+        path: "/Notification",
+        element:<Notification />
+      },
+      {
+        path: "/TpSetting",
+        element:<TpSetting />
+      },
+      {
+        path: "/TpTransaction",
+        element:<TpTransaction />
+      },
+      {
+        path: "/MessagingInterface",
+        element:<MessagingInterface />
+      },
       // {
-      //   path: "/Tpcustomer",
-      //   element:<Tpcustomer />
+      //   path: "/TpSetting",
+      //   element:<TpSetting />
       // },
       // {
-      //   path: "/Tpcustomer",
-      //   element:<Tpcustomer />
-      // },
-      // {
-      //   path: "/Tpcustomer",
-      //   element:<Tpcustomer />
+      //   path: "/TpSetting",
+      //   element:<TpSetting />
       // },
     ],
   },

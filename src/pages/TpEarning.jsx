@@ -14,41 +14,61 @@ import { BiSolidLike } from "react-icons/bi";
 import { FaDollarSign, FaWifi, FaSun,FaStar,FaSatelliteDish,FaShieldAlt } from 'react-icons/fa'; // Import React icons
 import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 import AddPackageModal from '../component/AddPackageModal';
+import { MdDownload } from "react-icons/md";
 
 import { GiPieChart } from "react-icons/gi";
+
 "use client";
+
+
+
+const payments = [
+  {
+    id: 1,
+    invoice: 'Invoice#098 - Sep 2022',
+    amount: 150.75,
+    date: '2024-06-10',
+    status: 'Paid'
+  },
+  {
+    id: 2,
+    invoice: 'Invoice#098 - Sep 2022',
+    amount: 85.50,
+    date: '2024-06-12',
+    status: 'Pending'
+  },
+  {
+    id: 3,
+    invoice: 'Invoice#098 - Sep 2022',
+    amount: 120.00,
+    date: '2024-06-15',
+    status: 'Paid'
+  },
+  {
+    id: 4,
+    invoice: 'Invoice#098 - Sep 2022',
+    amount: 45.00,
+    date: '2024-06-18',
+    status: 'Pending'
+  },
+  {
+    id: 5,
+    invoice: 'Invoice#098 - Sep 2022',
+    amount: 45.00,
+    date: '2024-06-18',
+    status: 'Pending'
+  },
+  
+  
+];
+
 
 import { Bar } from 'react-chartjs-2';
 
 
-const Tpcustomer = () => {
+const TpEarning = () => {
 
-  const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [
-      {
-        label: 'Leads',
-        data: [500, 700, 1000, 900, 1200, 800, 600],
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Leads Generated Per Day',
-      },
-    },
-  };
-
+  
 
   return (
     <>
@@ -59,7 +79,7 @@ const Tpcustomer = () => {
 <div className='flex justify-center w-full border-b-2 border-b-gray-400'>
     <div className=' flex   mt-5 gap-[1000px]  overflow-hidden '>
 
-   <h1 className='flex text-black text-2xl font-bold'><GiPieChart className='text-2xl'/>Analytic</h1>
+   <h1 className='flex text-black text-2xl font-bold gap-2'><GiPieChart className='text-2xl'/>Earning</h1>
 
    <div className='flex dark:bg-gray-900 w-full p-4'>
      <FaUserCircle className='text-4xl ' />
@@ -92,7 +112,54 @@ const Tpcustomer = () => {
         </div>
         </div>
     </div>
-
+<div className='flex ml-72 mt-20 '>
+  <div className='flex flex-col gap-8'>
+    <div className='w-96 h-52 bg-gray-100 rounded-xl flex flex-col  p-10 gap-10 '>
+      <h1 className='flex flex-col text-gray-400 '>Total balances<p className='text-black font-bold text-xl'>$ 389.07</p></h1>
+      <div className='flex gap-4'>
+        <button className='bg-[#101010] text-[#FFFFFF] rounded-full p-2 w-28'>Send</button>
+        <button className='bg-[#101010] text-[#FFFFFF] rounded-full p-2 w-28'>Request </button>
+        <button className='bg-[#101010] text-[#FFFFFF] rounded-full p-2 w-28'>Refund</button>
+      </div>
+    </div>
+    {/* ////// */}
+    <div className='flex flex-col gap-2'>
+        <h1 className='text-xl font-semibold'>Transaction</h1>
+        <div className='overflow-x-auto rounded-xl' >
+            <table className='w-full bg-gray-100 '>
+              <thead>
+                <tr className='bg-gray-100'>
+                  <th className='p-5 text-left border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" /> Payment Invoice</th>
+                  <th className='p-5 text-left border-b-2 border-gray-300'>Amount</th>
+                  <th className='p-5 text-left border-b-2 border-gray-300'>Date</th>
+                  <th className='p-5 text-left border-b-2 border-gray-300'>Status</th>
+                  <th className='p-5 text-left border-b-2 border-gray-300'>Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                {payments.map((payment) => (
+                  <tr key={payment.id} className='text-left'>
+                    <td className='p-5 border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" />  {payment.invoice}</td>
+                    <td className='p-5 border-b-2 border-gray-300'>  ${payment.amount.toFixed(2)}</td>
+                    <td className='p-5 border-b-2 border-gray-300'> {new Date(payment.date).toLocaleDateString()}</td>
+                    <td className='p-5 border-b-2 border-gray-300'>
+                      <span className={`p-1 rounded ${payment.status === 'Paid' ? 'bg-green-200' : 'bg-red-200'}`}>
+                       {payment.status}
+                      </span>
+                    </td>
+                    <td className='p-2 border-b-2 border-gray-300'>
+                      <button className='flex items-center justify-center text-xl gap-3 text-[#2986FE]   rounded-full px-2 py-1'>
+                        <MdDownload /> Download
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>
 
 
     </section>   
@@ -100,4 +167,4 @@ const Tpcustomer = () => {
   )
 }
 
-export default Tpcustomer
+export default TpEarning
