@@ -34,9 +34,11 @@ const Login = () => {
               <div className=" lg:flex-row flex flex-row  gap-5 md:flex-col pt-2 ">
                
                 <div className="flex flex-col  w-full pt-1">
-                <Label className="text-md pb-4 font-semibold pt-4" value="Email" />
+                <Label className="text-md pb-4 font-semibold pt-4"  value="Email" />
                 <input
                   type="email"
+                  placeholder="Example@gmail.com"
+                  required
                   className="rounded-md  border-1 border-gray-200 bg-gray-100  h-12 dark:bg-gray-900  dark:text-white  hover:dark:shadow-cyan-500 duration-200"
                 />
               </div>
@@ -48,6 +50,8 @@ const Login = () => {
                 <Label className="text-md pb-4 font-semibold pt-4" value="Password" />
                 <input
                   type="password"
+                  required
+                  placeholder="*********"
                   className="rounded-md  border-1 border-gray-200 bg-gray-100 h-12  dark:bg-gray- dark:text-white shadow-lg  hover:dark:shadow-cyan-500 duration-200"
                 />
                 </div>
@@ -61,10 +65,11 @@ const Login = () => {
             </div>
             <div className="mt-4">
               <input
+             
                 type="checkbox"
                 className="mr-2 "
                 id="termsCheckbox dark:bg-gray-900 dark:text-white shadow-lg "
-                required
+           
               />
               <label htmlFor="termsCheckbox">
                 remember me{" "}
@@ -73,9 +78,8 @@ const Login = () => {
             </div>
             <div className="mt-6  justify-center">
             
-              <Button className="rounded-md" pill="true" size="md" color="dark" href="/verify">
-                Login
-              </Button>
+              <input className="rounded-md w-full bg-[#101010] text-[#ffffff] p-2" type="submit" name="Login" />
+              
              
             </div>
             
