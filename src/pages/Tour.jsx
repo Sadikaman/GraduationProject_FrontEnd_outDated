@@ -89,17 +89,18 @@ const Tour = () => {
         {cardsData.map((card) => (
           <div key={card.id} className="p-4 " style={{ minWidth: "300px" }}>
             <Card
-      className='w-72 h-[320px] rounded-3xl relative overflow-hidden'
-      imgAlt={`Image of ${card.name}`}
-      style={{
-        backgroundImage: `url(${card.imageSrc})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+                className='w-72 h-[320px] rounded-3xl relative overflow-hidden'
+                imgAlt={`Image of ${card.name}`}
+                 href='/Pricing.jsx'
+                style={{
+                  backgroundImage: `url(${card.imageSrc})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
 
       {/* card hover effect  */}
       <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex ">
