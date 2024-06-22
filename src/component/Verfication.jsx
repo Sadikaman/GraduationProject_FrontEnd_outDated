@@ -8,11 +8,7 @@ export const Verfication = () => {
       <div className="flex justify-center items-center">
         <Card className="flex flex-col  items-center justify-center ml-[100px] mr-[100px]">
           <div className="flex justify-center items-center">
-            {/* <Lottie
-              animationData={lottieJson}
-              play
-              style={{ width: "100%,", maxWidth: "300px", height: "auto" }}
-            /> */}
+           
           </div>
 
           <p className="font-semibold ">

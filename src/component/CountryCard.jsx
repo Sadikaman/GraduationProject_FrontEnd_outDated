@@ -7,18 +7,19 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+
 const CardContainer = () => {
   
   // Array of card data
   const cardsData = [
-    { id: 1, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
-    { id: 2, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
-    { id: 3, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
-    { id: 4, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
+    { id: 1, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/lalibala.jpg" },
+    { id: 2, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/harar.jpg" },
+    { id: 3, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/aksum.jpg" },
+    { id: 4, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/afar.jpg" },
     { id: 5, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
-    { id: 6, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
+    { id: 6, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/sameMountain.jpg" },
     { id: 7, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
-    { id: 8, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
+    { id: 8, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/south-Omo-Vally.jpg" },
     { id: 9, name: "Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" },
     { id: 10, name:"Popular Destination", rating: 4.5, price: "NRT, Indonesia", imageSrc: "/images.jpeg" }
     
@@ -61,25 +62,27 @@ const CardContainer = () => {
   };
 
   return (
-    <div className=" dark:bg-gray-900 dark:text-white p-5">
-      <div className='flex justify-between  flex-wrap'>
-      <div className='pt-10 flex-wrap'>
-      <h1 className='text-2xl pt-2 font-extrabold'>Popular Destinations</h1>
-      <p className='text-md pt-2'>Unleash Your Wanderlust With Sky Wings</p>
-      </div>
-      <div className="mt-4 flex-wrap">
-        <button className="  font-bold py-2 px-4 rounded-l" onClick={previous}>
-        <FaChevronCircleLeft  style={{fontSize:"40px"}}/>
-        </button>
-        <button className="  font-bold py-2 px-4 rounded-r" onClick={next}>
-        <FaChevronCircleRight style={{fontSize:"40px"}}/>
-        </button>
-      </div>
+  <section className='flex justify-center'>
+    <div className="dark:bg-gray-900 dark:text-white p-5  w-[80%]">
+      <div className='flex justify-between flex-wrap'>
+        <div className='pt-10 flex-wrap gap-2'>
+          <h1 className='text-3xl pt-2 font-bold'>Popular Destinations</h1>
+          <p className='text-md pt-2 text-gray-500'>Unleash Your Wanderlust With Sky Wings</p>
+        </div>
+        <div className="mt-4 flex-wrap">
+          <button className="font-bold py-2 px-4 rounded-l" onClick={previous}>
+            <FaChevronCircleLeft style={{ fontSize: "40px" }} />
+          </button>
+          <button className="font-bold py-2 px-4 rounded-r" onClick={next}>
+            <FaChevronCircleRight style={{ fontSize: "40px" }} />
+          </button>
+        </div>
       </div>
       <Slider {...sliderSettings} ref={sliderRef}>
         {cardsData.map((card) => (
-          <div key={card.id} className="p-4 flex flex-wrap">
-            <Card className="xl:w-80 md:w-96 sm:w-80 rounded-3xl " imgAlt={`Image of ${card.name}`} imgSrc={card.imageSrc}>
+          <div key={card.id} className="p-4  flex flex-wrap ">
+            <card className="xl:w-80 md:w-96 sm:w-80 flex flex-col gap-3" >
+              <img className="rounded-[50px] object-cover" src={card.imageSrc} alt={`Image of ${card.name}`} />
               <div className='flex justify-between flex-wrap'>
                 <a href="#">
                   <h1 className="text-xl font-semibold tracking-tight text-center text-gray-900 dark:text-white">
@@ -93,15 +96,14 @@ const CardContainer = () => {
               </div>
 
               <div className="flex items-center justify-between flex-wrap">
-                <span className="text-lg flex font-bold text-gray-900 dark:text-white gap-2"><IoLocationSharp />${card.price}</span>
-               
+                <span className="text-md flex font-bold text-gray-500 dark:text-white gap-2"><IoLocationSharp />${card.price}</span>
               </div>
-            </Card>
+            </card>
           </div>
         ))}
       </Slider>
-      
     </div>
+    </section>
   );
 }
 

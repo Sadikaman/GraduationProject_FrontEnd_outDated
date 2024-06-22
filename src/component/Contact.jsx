@@ -19,31 +19,33 @@ const Contact = () => {
 
   return (
     <>
-      <section className='flex   pt-10  dark:bg-gray-900 dark:text-white justify-center flex-wrap' id='Contact'>
-      <div className='flex flex-row gap-8 flex-wrap'>
-    <Card className="max-w-sm h-[420px] w-96  bg-gray-200 text-white rounded-3xl flex-wrap">
+<section className='flex   pt-10  dark:bg-gray-900 dark:text-white justify-center flex-wrap' id='Contact'>
+  <div className='flex flex-row gap-8 flex-wrap'>
+   
+    <div  className=" w-96 " >
+    <img src="/public/abiy-fikru.jpg"  className="rounded-3xl"/>
+    </div>
     
-    </Card>
-    <div className='flex flex-col gap-5 flex-wrap p-2'>
+    <div className='flex flex-col gap-5 flex-wrap p-2  justify-center items-center'>
       <div className='flex gap-5'>
-      <h1 className='text-4xl'>UNLEASH</h1>
-      <p className='text-sm'>Traveling is A wonderful To Explore New places, Learn About <br /> Different and Gain new unique and amazing Experiences  </p>
+      <h1 className='text-6xl font-bold'>UNLEASH</h1>
+      <p className='text-sm text-gray-500'>Traveling is A wonderful To Explore New places, Learn <br /> About  Different and unique and amazing Experiences  </p>
     </div>
     <div className='flex-wrap'>
-      <h1 className='text-4xl'>WANDERLUST WITH </h1>
+      <h1 className='text-6xl font-bold'>WANDERLUST WITH </h1>
     </div>
     <div className='flex  gap-10 flex-wrap'>
-      <p className='text-sm'>Traveling is A wonderful To Explore New places,<br /> Learn About  Different and Gain new Culture </p>
-      <h1 className='text-4xl'>SKYWINGS</h1>
+      <p className='text-sm text-gray-500'>Traveling is A wonderful To Explore New places,<br /> Learn About  Different and Gain new Culture </p>
+      <h1 className='text-6xl font-bold'>SKYWINGS</h1>
     </div>
     </div>
-    </div>
+ </div>
       </section>
 
   <section className='flex justify-center pt-5 flex-wrap dark:bg-gray-900'>
    <div className='pl-5 flex gap-5 flex-wrap'>
-    <div className='w-96 flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center dark:bg-gray-800 dark:text-white'>
-      <h1 className='text-4xl text-blue-600'>20% OFF <span className='text-black text-lg dark:text-white'>Till 28 September, 2023</span></h1>
+    <div className='w-96 flex bg-gray-100 border-1 h-20 gap-2  rounded-xl justify-center items-center dark:bg-gray-800 dark:text-white'>
+      <h1 className='text-5xl font-bold text-blue-500'>20% OFF</h1> <span className='text-gray-500 text-sm dark:text-white'>Till 28 September,<br /> 2023</span>
     </div>
 
     <div className='xl:w-[600px] md:w-96 flex bg-slate-200 border-1 h-16 rounded-xl justify-center items-center flex-wrap dark:bg-gray-800 '>
