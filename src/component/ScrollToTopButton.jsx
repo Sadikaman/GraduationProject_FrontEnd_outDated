@@ -31,10 +31,10 @@ const ScrollToTopButton = () => {
     return (
         <button
             className={`${isVisible ? 'block' : 'hidden'
-                } fixed bottom-6 right-6 bg-blue-500 text-white p-2 rounded-full focus:outline-none`}
+                } fixed bottom-6 right-6 bg-gray-700 flex text-white w-12 h-12 justify-center items-center rounded-full focus:outline-none`}
             onClick={scrollToTop}
         >
-            <GoTriangleUp />
+            <GoTriangleUp className='text-xl'/>
         </button>
     );
 };

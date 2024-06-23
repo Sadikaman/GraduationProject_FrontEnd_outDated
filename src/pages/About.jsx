@@ -5,7 +5,7 @@ import { Footer } from 'flowbite-react'
 function About() {
   return (
     <>
-    <section className='flex  flex-col dark:bg-gray-900 dark:text-white'>
+    <section className='flex pt-36  flex-col dark:bg-gray-900 dark:text-white'>
         <Nav />
           <div className='flex justify-center'>
             <div className='flex justify-center w-[1500px] h-56 '>

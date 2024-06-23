@@ -32,7 +32,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
       <div className='flex gap-2 pt-10 flex-wrap'>
      
 <div className='flex items-end '>
-     <card href="#" className="max-w-sm bg-gray-100 w-80 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-br-none">
+     <card href="#" className="max-w-sm bg-gray-100 dark:bg-gray-800 w-80 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-br-none">
     <p className=' text-blue-400 ' > <FaMapMarkerAlt className=' bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16 ' /></p>
       <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
       Find Your <br /> Destination
@@ -57,7 +57,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
       </button>
     </div>
   
-    <card href="#" className="max-w-sm bg-gray-100 w-80 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-bl-none">
+    <card href="#" className="max-w-sm bg-gray-100 w-80 dark:bg-gray-800 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-bl-none">
     <p className='text-blue-400'> <BsFillCreditCardFill  className='bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16 '/></p>
       <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
       Pay & Start   <br /> Journey
