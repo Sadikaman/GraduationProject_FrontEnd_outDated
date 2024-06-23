@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaFacebook, FaTelegramPlane } from 'react-icons/fa';
+import { FaFacebook, FaTelegramPlane, FaArrowRight, FaPlayCircle } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
-import { FaArrowRight, FaAirbnb, FaPlayCircle } from 'react-icons/fa';
+import { FaAirbnb } from 'react-icons/fa';
 import { GiCommercialAirplane } from 'react-icons/gi';
 
 const Hero = ({ isDarkMode, toggleDarkMode }) => {
@@ -17,28 +17,32 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
 
     return (
         <>
-            <section className='mt-[120px] flex flex-col bg-white dark:bg-gray-900 dark:text-white font-mono rounded-t-lg overflow-hidden md:h-[810px] md:pl-0 md:pr-0 p-2 xl:pl-28 xl:pr-28 justify-center' id='About'>
-                <div className="">
-                    <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover z-0">
-                        <source src="/Ethiopia.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                    <div className='text-container ml-8 md:ml-40 z-10 relative'>
-                        <p className='xl:text-xl text-white font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
-                        <h1 className='xl:text-6xl text-white md:text-2xl font-bold pt-5 pb-5 '>
-                            Discover Ethiopia <br /> Where History <br /> Unfolds!
-                        </h1>
-                        <a href="/Pricing" className='flex gap-5'>
-                            <button className='xl:w-52 md:w-40   p-4 bg-[#2986FE] text-white rounded-full  '>
-                                Book Trip Now
-                            </button>
-                            <FaPlayCircle className='w-12 h-12 p-3 rounded-full text-[#2986FE] bg-white'/>
-                        </a>
-                    </div>
+            <section className='mt-[120px] flex flex-col bg-white dark:bg-gray-900 dark:text-white font-mono rounded-t-lg overflow-hidden md:h-[810px] md:pl-0 md:pr-0 p-2 xl:pl-28 xl:pr-28 justify-center relative' id='About'>
+                {/* YouTube Background Video */}
+                <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
+                    <iframe
+                        src="https://www.youtube.com/embed/KR2mSICf2wA?autoplay=1&mute=1&loop=1&playlist=KR2mSICf2wA&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&rel=0"
+                        className="w-full h-full absolute top-0 left-0 object-cover pointer-events-none"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+                <div className="relative z-10 text-container ml-8 md:ml-40">
+                    <p className='xl:text-xl text-white font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
+                    <h1 className='xl:text-6xl text-white md:text-2xl font-bold pt-5 pb-5 '>
+                        Discover Ethiopia <br /> Where History <br /> Unfolds!
+                    </h1>
+                    <a href="/Pricing" className='flex gap-5'>
+                        <button className='xl:w-52 md:w-40 p-4 bg-[#2986FE] text-white rounded-full'>
+                            Book Trip Now
+                        </button>
+                        <FaPlayCircle className='w-12 h-12 p-3 rounded-full text-[#2986FE] bg-white' />
+                    </a>
                 </div>
 
                 {/* Know More Section */}
-                <div className=' flex relative justify-end items-end w-full overflow-hidden mt-8 md:mt-0'>
+                <div className='flex relative justify-end items-end w-full overflow-hidden mt-8 md:mt-0'>
                     <div className='rounded-2xl shadow-lg w-80 h-44 bg-white'>
                         <div className="p-4">
                             <div className="flex items-center justify-between space-x-2">
@@ -56,7 +60,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
                             </div>
                         </div>
                         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 250 110" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: -1 }}>
-                            <path d="M0,0 C0,0 190,110 250,110 L250,0 Z" fill="#fff"/>
+                            <path d="M0,0 C0,0 190,110 250,110 L250,0 Z" fill="#fff" />
                         </svg>
                     </div>
                 </div>
