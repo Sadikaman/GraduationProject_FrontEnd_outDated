@@ -6,14 +6,25 @@ const Nav = () => {
   const [darkMode, setDarkMode] = useState(() => {
     // Initialize dark mode state from localStorage
     const savedMode = localStorage.getItem('darkMode');
-    return savedMode ? JSON.parse(savedMode) : false;
+    try {
+      // Check if savedMode is truthy and parse JSON
+      return savedMode ? JSON.parse(savedMode) : false;
+    } catch (error) {
+      console.error('Error parsing dark mode state:', error);
+      return false; // Default to false if parsing fails
+    }
   });
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Toggle dark mode class on the body element
   useEffect(() => {
-    document.body.classList.toggle('dark', darkMode);
-    localStorage.setItem('darkMode', JSON.stringify(darkMode)); // Save mode to localStorage
+    // Apply or remove the 'dark' class on body based on darkMode state
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+    // Save the current mode to localStorage
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
   const toggleMode = () => {
@@ -45,7 +56,7 @@ const Nav = () => {
               <a href="Community" className="text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Community</a>
             </li>
             <li>
-              <a href="/Contact" className="text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+              <a href="/Contacts" className="text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
             </li>
           </ul>
           {/* Get Started Button for Desktop */}
@@ -62,12 +73,12 @@ const Nav = () => {
         {/* Dark Mode Toggle */}
         <button
           onClick={toggleMode}
-          className="ml-auto md:ml-0 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg   "
+          className="ml-auto md:ml-0 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg"
         >
           {darkMode ? (
-            <IoSunnyOutline style={{ fontSize: '25', color: 'yellow', transition: '0.9s' }} />
+            <IoSunnyOutline style={{ fontSize: '35px', color: 'yellow', transition: '0.3s' }} />
           ) : (
-            <FaMoon style={{ fontSize: '25', transition: '0.9s' }} />
+            <FaMoon style={{ fontSize: '35px', transition: '0.3s' }} />
           )}
         </button>
 
@@ -92,16 +103,16 @@ const Nav = () => {
       <div className={`md:hidden ${menuOpen ? 'block' : 'hidden'}`}>
         <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
           <li>
-            <a href="/About" className="text-2xl font-semibold  text-[#101010] block py-2 px-3 rounded hover:underline hover:bg-gray-100 md:hover:bg-transparent md:hover:underline md:p-0 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+            <a href="/About" className="text-2xl font-semibold text-[#101010] block py-2 px-3 rounded hover:underline hover:bg-gray-100 md:hover:bg-transparent md:hover:underline md:p-0 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
           </li>
           <li>
-            <a href="/Tour" className="text-2xl font-semibold hover:text-gray-800 text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tour</a>
+            <a href="/Tour" className="text-2xl font-semibold hover:text-gray-800 text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tour</a>
           </li>
           <li>
-            <a href="/Community" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Community</a>
+            <a href="/Community" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Community</a>
           </li>
           <li>
-            <a href="/Contacts" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacts</a>
+            <a href="/Contacts" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacts</a>
           </li>
           {/* Get Started Button for Mobile */}
           <li>
