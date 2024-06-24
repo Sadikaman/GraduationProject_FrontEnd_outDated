@@ -16,16 +16,18 @@ const Joinus = () => {
   };
 
   return (
-    <div className="font-kanit transition-colors flex justify-center  items-center w-screen h-screen overflow-hidden">
+    <div className="font-kanit transition-colors flex justify-center  items-center w-full h-screen overflow-hidden">
      
       <div className="flex flex-col md:flex-row gap-16 flex-wrap justify-center">
         <div className="flex flex-col ">
       <div className="w-[100px] h-[100px] rounded-full   relative overflow-hidden">
+              <a href="/">
               <img
                 src="/AfroLogo.png"
                 alt="AfroLogo"
                 className="object-cover absolute inset-0 m-auto"
               />
+              </a>
              
             </div>
       <h1 className="pt-10 text-4xl font-semibold ">Join as a Tourist or a service Provider</h1>

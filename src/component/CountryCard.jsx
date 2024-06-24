@@ -82,7 +82,7 @@ const CardContainer = () => {
         {cardsData.map((card) => (
           <div key={card.id} className="p-4  flex flex-wrap ">
             <card className="xl:w-80 md:w-96 sm:w-80 flex flex-col gap-3" >
-              <img className="xl:rounded-[50px] md:rounded-3xl lg:rounded-3xl sm:rounded-3xl  object-cover" src={card.imageSrc} alt={`Image of ${card.name}`} />
+              <img className="rounded-[50px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[40px] xl:rounded-[50px]  object-cover" src={card.imageSrc} alt={`Image of ${card.name}`} />
               <div className='flex justify-between flex-wrap'>
                 <a href="#">
                   <h1 className="text-xl font-semibold tracking-tight text-center text-gray-900 dark:text-white">

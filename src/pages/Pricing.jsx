@@ -52,11 +52,13 @@ import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@hero
     <>
     <div className='flex flex-col dark:bg-gray-900  '>
     <div className='flex justify-between w-[85%] pt-3'>
+        <a href="/">
         <img 
         className='w-32'
         src="AfroLogo.png" 
         alt="" 
         />
+        </a>
         <h1 className='text-2xl font-medium  pt-4'>Contact Provider</h1>
     </div>
     <div  className='flex justify-end w-full pr-10'>
