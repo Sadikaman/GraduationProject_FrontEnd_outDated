@@ -27,11 +27,17 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
   return (
     <section className=' flex pt-10 justify-center dark:bg-gray-900 dark:text-white flex-wrap p-4' id='Education'>
      <div className='flex flex-col flex-wrap gap-4'>
-      <h1 className='text-4xl font-bold flex justify-center'>Journey To The Skies Made Simple!</h1>
-      <p className='text-center text-gray-500'>Traveling is A wonderful To Explore New places, Learn About <br /> Different and Gain new Experiences </p>
+      <h1 className='xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl font-bold flex justify-center'>Journey To The Skies Made Simple!</h1>
+     <div className='flex pl-10 pr-10 justify-center w-full'>
+      <p className='text-center  text-gray-500 text-base xl:text-2xl lg:text-2xl md:text-xl sm:text-lg'>
+        Traveling is a wonderful way to explore new places, learn about 
+        <br className='hidden sm:block' /> 
+        different cultures, and gain new experiences
+      </p>
+     </div>
       <div className='flex gap-2 pt-10 flex-wrap'>
      
-<div className='flex items-end '>
+<div className='flex items-end flex-wrap '>
      <card href="#" className="max-w-sm bg-gray-100 dark:bg-gray-800 w-80 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-br-none">
     <p className=' text-blue-400 ' > <FaMapMarkerAlt className=' bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16 ' /></p>
       <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -39,7 +45,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
       </h5>
     </card>
 
-    <div className="relative overflow-hidden max-w-sm w-96 h-[420px] rounded-b-none bg-[#2986FE] text-white rounded-t-3xl flex flex-col gap-5 p-12">
+    <div className="relative overflow-hidden xl:p-0 md:p-2 sm:p-2 lg:p-2 max-w-sm w-96 h-[420px] rounded-b-none bg-[#2986FE] text-white rounded-t-3xl flex flex-col gap-5 p-12">
       <div className="absolute top-0 right-0 w-60 h-56 overflow-hidden rounded-full transform translate-x-10 -translate-y-10">
         <img src="/afar.jpg" alt="Boat" className="w-full h-full object-cover"/>
       </div>

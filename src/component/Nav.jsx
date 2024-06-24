@@ -40,7 +40,11 @@ const Nav = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/AfroLogo.jpg" className="h-20 rounded-full" alt="Afro Logo" />
+          <img
+            src="/AfroLogo.jpg"
+            className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+            alt="Afro Logo"
+          />
         </a>
 
         {/* Main Menu and Buttons */}

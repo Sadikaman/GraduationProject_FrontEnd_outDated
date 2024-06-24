@@ -4,7 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@layer utilities {
+    .delay-[-0.9s] {
+      animation-delay: -0.9s;
+    }
+    .delay-[-0.6s] {
+      animation-delay: -0.6s;
+    }
+    .delay-[-0.3s] {
+      animation-delay: -0.3s;
+    }
+    .delay-[0s] {
+      animation-delay: 0s;
+    }
+  }
 * {
     @apply transition-all duration-200
     

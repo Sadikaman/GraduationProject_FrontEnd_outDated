@@ -2,9 +2,11 @@ import React from 'react'
 import Nav from '../component/Nav'
 import Footers from '../component/Footers'
 import { Footer } from 'flowbite-react'
+import Spinner from '../component/Spinner'
 function About() {
   return (
     <>
+   
     <section className='flex pt-36  flex-col dark:bg-gray-900 dark:text-white'>
         <Nav />
           <div className='flex justify-center'>

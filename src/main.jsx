@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Calender from "./pages/Calender";
 import Account from "./pages/Account.jsx";
-import Contact from "./component/Contact.jsx";
+import HomeContent from "./component/HomeContent.jsx";
 import Login from "./pages/Login"
 import DiscoverPlaces from "./pages/DiscoverPlaces.jsx";
 import Community from "./pages/Community.jsx";
@@ -69,8 +69,8 @@ const router = createBrowserRouter([
         element: <Account />,
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "/HomeContent",
+        element: <HomeContent />,
       },
       {
         path: "/Searchbar",
