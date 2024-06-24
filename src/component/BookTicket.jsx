@@ -39,7 +39,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
      
 <div className='flex items-end flex-wrap '>
      <card href="#" className="max-w-sm bg-gray-100 dark:bg-gray-800 w-80 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-br-none">
-    <p className=' text-blue-400 ' > <FaMapMarkerAlt className=' bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16 ' /></p>
+    <p className=' text-blue-400 ' > <FaMapMarkerAlt className=' bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16' /></p>
       <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
       Find Your <br /> Destination
       </h5>
@@ -49,6 +49,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
       <div className="absolute top-0 right-0 w-60 h-56 overflow-hidden rounded-full transform translate-x-10 -translate-y-10">
         <img src="/afar.jpg" alt="Boat" className="w-full h-full object-cover"/>
       </div>
+      <div className='flex flex-col p-10 gap-5 h-full'>
       <div className="border-2 rounded-full w-16 h-16 items-center p-2 border-white flex justify-start" style={{fontSize:"60px"}}>
         <FaTicketAlt />
       </div>
@@ -62,7 +63,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
         LEARN MORE <GoChevronRight style={{fontSize:"25px"}}/>
       </button>
     </div>
-  
+    </div>
     <card href="#" className="max-w-sm bg-gray-100 w-80 dark:bg-gray-800 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-bl-none">
     <p className='text-blue-400'> <BsFillCreditCardFill  className='bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16 '/></p>
       <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
