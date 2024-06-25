@@ -15,6 +15,7 @@ const Nav = () => {
     }
   });
   const [menuOpen, setMenuOpen] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     // Apply or remove the 'dark' class on body based on darkMode state
@@ -29,6 +30,9 @@ const Nav = () => {
 
   const toggleMode = () => {
     setDarkMode(!darkMode);
+    setAnimate(true);
+    setDarkMode(!darkMode);
+    setTimeout(() => setAnimate(false), 500); // duration of the animation
   };
 
   const toggleMenu = () => {
@@ -77,12 +81,12 @@ const Nav = () => {
         {/* Dark Mode Toggle */}
         <button
           onClick={toggleMode}
-          className="ml-auto md:ml-0 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg"
+          className={`ml-auto md:ml-0 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg transition-transform duration-500 ${animate ? 'animate-rotate-360' : ''}`}
         >
           {darkMode ? (
-            <IoSunnyOutline style={{ fontSize: '35px', color: 'yellow', transition: '0.3s' }} />
+            <IoSunnyOutline className='text-6xl text-yellow-300 font-bold' />
           ) : (
-            <FaMoon style={{ fontSize: '35px', transition: '0.3s' }} />
+            <FaMoon className='text-6xl text-gray-800 font-bold' />
           )}
         </button>
 

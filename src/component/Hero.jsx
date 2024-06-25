@@ -18,18 +18,35 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
 
     return (
         <>
-<section className='mt-[120px] flex flex-col bg-white dark:bg-gray-900 dark:text-white font-mono rounded-t-lg overflow-hidden md:h-[810px] p-2 md:p-0 xl:px-28 justify-center' id='About'>
-                <div className="bg-cover bg-center xl:rounded-[100px] md:rounded-xl flex-wrap w-full h-full shadow-gray-500 flex justify-center flex-col" style={{ backgroundImage: "url('/Landing.jpg')" }}>
-                    <div className='ml-10 md:ml-20 lg:ml-40'>
-                        <p className='xl:text-xl text-white font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
-                        <h1 className='xl:text-6xl text-white md:text-4xl font-bold pt-5 pb-5'>
+        {/* small screen size  */}
+                    <div className='ml-10 md:ml-20 mt-32 lg:ml-40  flex-col flex xl:hidden lg:hidden'>
+                        <p className='xl:text-xl text-gray-500 font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
+                        <h1 className='xl:text-6xl text-[#101010]  md:text-4xl font-bold pt-5 pb-5'>
                             Discover Ethiopia <br /> Where History <br /> Unfolds!
                         </h1>
                         <a href="/Pricing" className='flex gap-5 items-center'>
-                            <button className='xl:w-52 md:w-40 p-4 bg-[#2986FE] text-white rounded-full'>
+                            <button className='w-52 p-4 bg-[#101010] text-white rounded-full'>
                                 Book Trip Now
                             </button>
-                            <FaPlayCircle className='w-12 h-12 p-3 rounded-full text-[#2986FE] bg-white'/>
+                            <FaPlayCircle className='w-12 h-12 p-3 rounded-full text-[#101010] bg-gray-300'/>
+                        </a>
+                    </div>
+                    <div className='w-full flex mt-2 justify-center'                                                    >
+                    <img src="/Landing.jpg" className='h-80  flex xl:hidden lg:hidden' alt="" />
+                    </div>
+                    {/* //////// */}
+<section className='xl:mt-[120px] lg:mt-[120px] flex flex-col bg-white dark:bg-gray-900 dark:text-white font-mono rounded-t-lg overflow-hidden md:h-[810px] p-2 md:p-0 xl:px-28 justify-center' id='About'>
+                <div className="bg-cover bg-center xl:rounded-[100px] md:rounded-xl flex-wrap w-full h-full shadow-gray-500 flex justify-center flex-col" style={{ backgroundImage: "url('/Landing.jpg')" }}>
+                    <div className='ml-10 md:ml-20 lg:ml-40 '>
+                        <p className='xl:text-xl hidden md:flex  text-white font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
+                        <h1 className='xl:text-6xl hidden md:flex text-white md:text-4xl font-bold pt-5 pb-5'>
+                            Discover Ethiopia <br /> Where History <br /> Unfolds!
+                        </h1>
+                        <a href="/Pricing" className='flex gap-5 items-center'>
+                            <button className='xl:w-52 md:w-40 p-4 hidden md:flex bg-[#ffffff] text-[#101010] font-bold rounded-full'>
+                                Book Trip Now
+                            </button>
+                            <FaPlayCircle className='w-12 h-12 p-3 hidden md:flex rounded-full text-[#2986FE] bg-white'/>
                         </a>
                     </div>
 
