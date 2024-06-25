@@ -57,8 +57,8 @@ const HomeContent = () => {
 
   return (
     <>
-<section className='flex pt-10 dark:bg-gray-900 dark:text-white justify-center flex-wrap p-2' id='Contact'>
-  <div className='flex flex-col md:flex-row gap-8 flex-wrap items-center'>
+<section className='flex pt-10 dark:bg-gray-900 dark:text-white justify-center w-full flex-wrap p-2' id='Contact'>
+  <div className='flex flex-col md:flex-row gap-8 flex-wrap items-center xl:justify-start md:justify-center'>
     
     {/* Image and Discount Section */}
     <div className="flex flex-col gap-3 items-center md:items-start">
@@ -120,8 +120,8 @@ const HomeContent = () => {
 </div> 
 
 {/* card  */}
-<section className='flex pt-28 dark:bg-gray-900 dark:text-white justify-center flex-wrap p-2'>
-      <div className='flex gap-20  flex-wrap'>
+<section className='flex pt-28 dark:bg-gray-900 dark:text-white w-full justify-center flex-wrap p-2'>
+      <div className='flex gap-20  flex-wrap justify-center'>
         <StatCard endValue={10} title="Years Experience" />
         <StatCard endValue={17} title="Happy Clients" />
         <StatCard endValue={4} title="Overall Rating" />
@@ -168,7 +168,7 @@ const HomeContent = () => {
 
 <section className='flex   pt-20 dark:bg-gray-900 dark:text-white justify-center flex-wrap  '>
  
-<div className='flex gap-20 flex-wrap p-3'> 
+<div className='flex gap-20 flex-wrap p-3 justify-center'> 
 <section className='flex justify-center flex-col '> 
   <div className=' bg-slate-100 rounded-3xl dark:bg-gray-800 w-96 h-[430px] pt-2 flex-col'>
     <div className='bg-white dark:bg-gray-700  flex flex-col rounded-3xl w-[380px] h-[280px] gap-7 p-10'>

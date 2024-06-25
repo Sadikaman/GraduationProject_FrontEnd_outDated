@@ -37,42 +37,51 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
      </div>
       <div className='flex gap-2 pt-10 flex-wrap'>
      
-<div className='flex items-end flex-wrap '>
-     <card href="#" className="max-w-sm bg-gray-100 dark:bg-gray-800 w-80 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-br-none">
-    <p className=' text-blue-400 ' > <FaMapMarkerAlt className=' bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16' /></p>
-      <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-      Find Your <br /> Destination
-      </h5>
-    </card>
+    <div className='flex flex-wrap justify-center   gap-4 p-4'>
+      <div className='flex flex-wrap justify-center items-end md:flex-nowrap'>
+        <div className='flex-shrink-0'>
+          <div className="bg-gray-100 dark:bg-gray-800 w-full sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4 md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-br-none">
+            <p className='text-blue-400'>
+              <FaMapMarkerAlt className='bg-white text-lg md:text-xl rounded-full p-3 md:p-4 w-12 md:w-16 h-12 md:h-16' />
+            </p>
+            <h5 className="text-lg md:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              Find Your <br /> Destination
+            </h5>
+          </div>
+        </div>
 
-    <div className="relative overflow-hidden xl:p-0 md:p-2 sm:p-2 lg:p-2 max-w-sm w-96 h-[420px] rounded-b-none bg-[#2986FE] text-white rounded-t-3xl flex flex-col gap-5 p-12">
-      <div className="absolute top-0 right-0 w-60 h-56 overflow-hidden rounded-full transform translate-x-10 -translate-y-10">
-        <img src="/afar.jpg" alt="Boat" className="w-full h-full object-cover"/>
+        <div className="relative overflow-hidden  w-full sm:w-80 md:w-72 lg:w-96 h-64 md:h-56 lg:h-[420px] rounded-t-3xl rounded-b-none bg-[#2986FE] text-white flex flex-col p-4 md:p-6 lg:p-12 gap-4 md:gap-5">
+          <div className="absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 lg:w-60 lg:h-56 overflow-hidden rounded-full transform translate-x-10 -translate-y-10">
+            <img src="/afar.jpg" alt="Boat" className="w-full h-full object-cover" />
+          </div>
+          <div className='flex flex-col justify-between h-full'>
+            <div className="border-2 rounded-full w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 items-center p-1 md:p-2 border-white flex justify-center" style={{ fontSize: "30px" }}>
+              <FaTicketAlt />
+            </div>
+            <h5 className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight">
+              Book A <br /> Ticket
+            </h5>
+            <p className="text-xs md:text-sm lg:text-base font-normal">
+              Traveling is a wonderful way to explore new places, learn about different cultures, and gain new experiences.
+            </p>
+            <button className="bg-[#2986FE] flex items-center">
+              LEARN MORE <GoChevronRight style={{ fontSize: "20px" }} />
+            </button>
+          </div>
+        </div>
+
+        <div className='flex-shrink-0'>
+          <div className="bg-gray-100 dark:bg-gray-800 w-full sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4 md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-bl-none">
+            <p className='text-blue-400'>
+              <BsFillCreditCardFill className='bg-white text-lg md:text-xl rounded-full p-3 md:p-4 w-12 md:w-16 h-12 md:h-16' />
+            </p>
+            <h5 className="text-lg md:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              Pay & Start <br /> Journey
+            </h5>
+          </div>
+        </div>
       </div>
-      <div className='flex flex-col p-10 gap-5 h-full'>
-      <div className="border-2 rounded-full w-16 h-16 items-center p-2 border-white flex justify-start" style={{fontSize:"60px"}}>
-        <FaTicketAlt />
-      </div>
-      <h5 className="text-2xl font-bold tracking-tight">
-        Book A <br /> Ticket
-      </h5>
-      <p className="font-normal">
-        Traveling is A wonderful <br /> To Explore New places, Learn <br /> About Different and Gain new <br /> Experiences
-      </p>
-      <button className="bg-[#2986FE] flex justify-start xl-lg">
-        LEARN MORE <GoChevronRight style={{fontSize:"25px"}}/>
-      </button>
     </div>
-    </div>
-    <card href="#" className="max-w-sm bg-gray-100 w-80 dark:bg-gray-800 h-72 flex flex-col p-12 gap-20 rounded-3xl rounded-bl-none">
-    <p className='text-blue-400'> <BsFillCreditCardFill  className='bg-[#ffffff] text-xl  rounded-full p-4 w-16 h-16 '/></p>
-      <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-      Pay & Start   <br /> Journey
-      </h5>
-    </card>
-
-</div>
-
 
 </div>
     </div>

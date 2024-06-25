@@ -19,7 +19,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
     return (
         <>
         {/* small screen size  */}
-                    <div className='ml-10 md:ml-20 mt-32 lg:ml-40  flex-col flex xl:hidden lg:hidden'>
+                    <div className='ml-10 md:ml-20 mt-32 lg:ml-40  flex-col flex xl:hidden lg:hidden md:hidden'>
                         <p className='xl:text-xl text-gray-500 font-bold pt-5 md:text-lg dark:text-[#ffffff]'>ELEVATE YOUR TRAVEL JOURNEY</p>
                         <h1 className='xl:text-6xl text-[#101010] dark:text-[#ffffff]  md:text-4xl font-bold pt-5 pb-5'>
                             Discover Ethiopia <br /> Where History <br /> Unfolds!
@@ -32,12 +32,12 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
                         </a>
                     </div>
                     <div className='w-full flex mt-2 justify-center'                                                    >
-                    <img src="/Landing.png" className='h-80  flex xl:hidden lg:hidden' alt="" />
+                    <img src="/Landing.png" className='h-80  flex xl:hidden lg:hidden md:hidden' alt="" />
                     </div>
                     {/* //////// */}
 <section className='xl:mt-[120px] lg:mt-[120px] flex flex-col bg-white dark:bg-gray-900 dark:text-white font-mono rounded-t-lg overflow-hidden md:h-[810px] p-2 md:p-0 xl:px-28 justify-center' id='About'>
                 <div className="bg-cover bg-center xl:rounded-[100px] md:rounded-xl flex-wrap w-full h-full shadow-gray-500 flex justify-center flex-col" style={{ backgroundImage: "url('/Landing.jpg')" }}>
-                    <div className='ml-10 md:ml-20 lg:ml-40 '>
+                    <div className='md:ml-10 xl:ml-40 '>
                         <p className='xl:text-xl hidden md:flex  text-white font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
                         <h1 className='xl:text-6xl hidden md:flex text-white md:text-4xl font-bold pt-5 pb-5'>
                             Discover Ethiopia <br /> Where History <br /> Unfolds!
@@ -82,7 +82,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
         </div>
 </section>
 {/* large screen size  */}
-<div className='flex xl:hidden lg:hidden justify-center items-end w-full  mt-3 p-2'>
+<div className='flex xl:hidden lg:hidden md:hidden justify-center items-end w-full  mt-3 p-2'>
                 <div className='w-[400px]   flex  gap-5  rounded-3xl'>
                        
                             <div className="flex  overflow-hidden">
@@ -104,7 +104,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
             <div className="pt-16 flex flex-col md:flex-row gap-8 md:gap-40 pl-4 md:pl-20 dark:bg-gray-900 dark:text-white w-full justify-center items-center">
 
 {/* small screen size  */}
-                    <div className="flex xl:hidden lg:hidden w-full items-center justify-start  gap-2">
+                    <div className="flex xl:hidden lg:hidden md:hidden w-full items-center justify-start  gap-2">
                         <h3 className="text-sm text-black font-bold dark:text-[#ffffff]">Know More</h3>
                         <FaArrowRight className="text-xl" />
                         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 250 110" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: -1 }}>
