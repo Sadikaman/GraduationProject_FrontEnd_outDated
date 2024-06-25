@@ -6,8 +6,8 @@ import { IoIosPartlySunny, IoIosWifi, IoMdClose } from "react-icons/io";
 import { MdFavoriteBorder } from "react-icons/md";
 import { PiHandWaving } from "react-icons/pi";
 import Nav from '../component/Nav';
-import { PiLessThan } from "react-icons/pi";
 import Searchbar from '../component/Searchbar';
+import { LiaLessThanSolid } from "react-icons/lia";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -122,25 +122,21 @@ const Tour = () => {
             onClick={toggleSidebar}
             className=" text-black focus:outline-none"
           >
-            {isSidebarOpen ? <IoMdClose className='text-xl text-black' /> : <PiLessThan className='text-xl text-black' />}
+            {isSidebarOpen ? <IoMdClose className='text-xl text-black dark:text-[#ffffff]' /> : <LiaLessThanSolid className='text-xl text-black dark:text-[#ffffff]' />}
           </button>
         </div>
         {/* Announcement Sidebar */}
         <div className={`fixed top-0 right-0 h-full z-40 lg:relative lg:z-auto transition-transform transform ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'} lg:w-1/4 bg-gray-900`}>
-          <Card className="max-w-sm xl:w-96 justify-center items-end lg:h-screen dark:bg-gray-900">
+          <Card className="max-w-sm xl:w-96 lg:w-72 justify-center items-end lg:h-screen dark:bg-gray-900">
             <p className='flex justify-center text-xl'>Announcement</p>
             <div className="overflow-y-auto h-[95vh] w-[100%]">
               <div className="flex gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
                 {cardsData.map((card) => (
-                  <div key={card.id} style={{ minWidth: "300px" }}>
-                    <Card className='w-72 h-56 bg-gray-50 flex' imgAlt={`Image of ${card.name}`}>
+                  <div key={card.id} className="w-full sm:w-72 md:w-60 lg:w-72" style={{ minWidth: "300px" }}>
+                    <Card className='bg-gray-50 flex h-56' imgAlt={`Image of ${card.name} ` }>
                       <div className="flex flex-col gap-2">
-                        <div className='flex gap-2'>
-                          {/* Add any additional content here */}
-                        </div>
-                        <div className="flex items-center justify-between">
-                          {/* Add any additional content here */}
-                        </div>
+                        <h1 className='flex justify-center'>Comming Soon</h1>
+                        <img src="/vision.jpeg" alt="" />
                       </div>
                     </Card>
                   </div>
@@ -149,6 +145,7 @@ const Tour = () => {
             </div>
           </Card>
         </div>
+
       </div>
     </div>
   );

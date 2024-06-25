@@ -295,17 +295,17 @@ const HomeContent = () => {
     </div>
 
     <div className='flex flex-col md:flex-row items-center gap-8 md:gap-10 lg:gap-14 xl:gap-20 p-5 md:p-10 lg:p-20'>
-      <img src="/afar.jpg" className='rounded-full w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 h-24 h:w-28 h:w-32 h:w-36 h:w-40' alt="Afar image" />
+      <img src="/afar.jpg" className='rounded-full w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 h-24 sm:h-28 md:h-32 lg:h:h-36 xl:h-40' alt="Afar image" />
       
       <h1 className='text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mt-4 md:mt-0'>
         Explore The Skies <br className='hidden md:block' /> With Confidence!
       </h1>
       
-      <div className='flex justify-center items-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-400'>
+      <div className='flex justify-center items-center w-14 sm:w-16 md:w-20 xl:w-20 h-14  sm:h-16  md:h-20 xl:h-20 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-400'>
         <ImArrowUpRight2 className='text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white' />
       </div>
       
-      <img src="/images.jpeg" className='rounded-full w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 h-24 h:w-28 h:w-32 h:w-36 h:w-40' alt="Additional image" />
+      <img src="/images.jpeg" className='rounded-full w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 h-24 sm:h-28 md:h-32 lg:h:h-36 xl:h-40' alt="Additional image" />
     </div>
 
   </div>

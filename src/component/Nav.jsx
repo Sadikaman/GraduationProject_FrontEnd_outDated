@@ -29,14 +29,17 @@ const Nav = () => {
   }, [darkMode]);
 
   const toggleMode = () => {
-    setDarkMode(!darkMode);
     setAnimate(true);
-    setDarkMode(!darkMode);
+    setDarkMode(prevMode => !prevMode);
     setTimeout(() => setAnimate(false), 500); // duration of the animation
   };
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen(prev => !prev);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -55,23 +58,23 @@ const Nav = () => {
         <div className="hidden md:flex md:items-center md:space-x-4">
           <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse p-4 md:p-0 mt-4 md:mt-0 font-medium border border-gray-100 rounded-lg bg-gray-50 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
             <li>
-              <a href="/About" className="text-2xl hover:underline font-semibold text-[#101010] dark:text-[#ffffff] block py-2 px-3 rounded md:bg-transparent md:p-0" aria-current="page">About</a>
+              <a href="/About" className="text-xl md:text-2xl hover:underline font-semibold text-[#101010] dark:text-[#ffffff] block py-2 px-3 rounded md:bg-transparent md:p-0" aria-current="page">About</a>
             </li>
             <li>
-              <a href="/Tour" className="text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tour</a>
+              <a href="/Tour" className="text-xl md:text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tour</a>
             </li>
             <li>
-              <a href="Community" className="text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Community</a>
+              <a href="Community" className="text-xl md:text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Community</a>
             </li>
             <li>
-              <a href="/Contacts" className="text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+              <a href="/Contacts" className="text-xl md:text-2xl hover:underline font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
             </li>
           </ul>
           {/* Get Started Button for Desktop */}
           <a href="Joinus">
             <button
               type="button"
-              className="text-white ml-20 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-xl p-3 w-36 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800"
+              className="text-white ml-5 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-lg md:text-xl p-2 md:p-3 w-28 md:w-36 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800"
             >
               Get started
             </button>
@@ -81,12 +84,12 @@ const Nav = () => {
         {/* Dark Mode Toggle */}
         <button
           onClick={toggleMode}
-          className={`ml-auto md:ml-0 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg transition-transform duration-500 ${animate ? 'animate-rotate-360' : ''}`}
+          className={`ml-auto md:ml-4 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg transition-transform duration-500 ${animate ? 'animate-rotate-360' : ''}`}
         >
           {darkMode ? (
-            <IoSunnyOutline className='text-6xl text-yellow-300 font-bold' />
+            <IoSunnyOutline className='text-2xl md:text-3xl text-yellow-300' />
           ) : (
-            <FaMoon className='text-6xl text-gray-800 font-bold' />
+            <FaMoon className='text-2xl md:text-3xl text-gray-800' />
           )}
         </button>
 
@@ -107,20 +110,25 @@ const Nav = () => {
         </div>
       </div>
 
+      {/* Overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black opacity-50 z-10" onClick={closeMenu}></div>
+      )}
+
       {/* Collapsible Menu for Small Screens */}
-      <div className={`md:hidden ${menuOpen ? 'block' : 'hidden'}`}>
+      <div className={`md:hidden ${menuOpen ? 'block' : 'hidden'} relative z-20`}>
         <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
           <li>
-            <a href="/About" className="text-2xl font-semibold text-[#101010] block py-2 px-3 rounded hover:underline hover:bg-gray-100 md:hover:bg-transparent md:hover:underline md:p-0 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+            <a href="/About" className="text-2xl font-semibold text-[#101010] block py-2 px-3 rounded hover:underline hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:border-gray-700" onClick={closeMenu}>About</a>
           </li>
           <li>
-            <a href="/Tour" className="text-2xl font-semibold hover:text-gray-800 text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tour</a>
+            <a href="/Tour" className="text-2xl font-semibold hover:text-gray-800 text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:border-gray-700" onClick={closeMenu}>Tour</a>
           </li>
           <li>
-            <a href="/Community" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Community</a>
+            <a href="/Community" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:border-gray-700" onClick={closeMenu}>Community</a>
           </li>
           <li>
-            <a href="/Contacts" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacts</a>
+            <a href="/Contacts" className="text-2xl hover:text-gray-800 font-semibold text-[#101010] block py-2 px-3 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:border-gray-700" onClick={closeMenu}>Contacts</a>
           </li>
           {/* Get Started Button for Mobile */}
           <li>
@@ -128,6 +136,7 @@ const Nav = () => {
               <button
                 type="button"
                 className="w-full text-white bg-[#101010] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-2"
+                onClick={closeMenu}
               >
                 Get started
               </button>

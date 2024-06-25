@@ -40,7 +40,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
     <div className='flex flex-wrap justify-center   gap-4 p-4'>
       <div className='flex flex-wrap justify-center items-end md:flex-nowrap'>
         <div className='flex-shrink-0'>
-          <div className="bg-gray-100 dark:bg-gray-800 w-full sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4 md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-br-none">
+          <div className="bg-gray-100 dark:bg-gray-800 w-full sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4  md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-br-none">
             <p className='text-blue-400'>
               <FaMapMarkerAlt className='bg-white text-lg md:text-xl rounded-full p-3 md:p-4 w-12 md:w-16 h-12 md:h-16' />
             </p>

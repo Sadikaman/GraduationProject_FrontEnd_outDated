@@ -16,25 +16,27 @@ const Joinus = () => {
   };
 
   return (
-    <div className="font-kanit transition-colors flex justify-center  items-center w-full h-screen overflow-hidden">
+    <div className="font-kanit transition-colors flex justify-center  items-center w-full  overflow-hidden">
      
       <div className="flex flex-col md:flex-row gap-16 flex-wrap justify-center">
         <div className="flex flex-col ">
-      <div className="w-[100px] h-[100px] rounded-full   relative overflow-hidden">
-              <a href="/">
-              <img
-                src="/AfroLogo.png"
-                alt="AfroLogo"
-                className="object-cover absolute inset-0 m-auto"
-              />
-              </a>
-             
-            </div>
-      <h1 className="pt-10 text-4xl font-semibold ">Join as a Tourist or a service Provider</h1>
+        <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full relative overflow-hidden">
+          <a href="/">
+            <img
+              src="/AfroLogo.png"
+              alt="AfroLogo"
+              className="object-cover w-full h-full"
+            />
+          </a>
+        </div>
+
+        <h1 className="pt-6 text-2xl md:text-3xl lg:text-4xl font-semibold flex justify-center text-center md:text-left">
+           Join as a Tourist or a Service Provider
+        </h1>
       </div>
-        <form className="flex flex-col py-3 px-6 w-full flex-wrap ">
+        <form className="flex flex-col  w-full flex-wrap ">
           {/* Your other form elements */}
-          <div className="lg:flex-row flex flex-row gap-16 md:flex-col sm:flex-col flex-wrap pt-2 justify-center">
+          <div className="lg:flex-row flex flex-row xl:gap-16 md:gap-5 md:flex-col sm:flex-col flex-wrap pt-2 justify-center">
             <div className="mt-4 border-2 border-black w-72 h-80 flex flex-col items-end p-2 rounded-3xl">
               <input
                 type="checkbox"

@@ -281,15 +281,17 @@ const Register = () => {
     setSelectedDate(date);
   };
   return (
-    <div className="font-kanit transition-colors flex justify-center w-screen h-screen ">
+    <div className="font-kanit transition-colors flex justify-center w-full ">
       <div className="flex flex-col md:flex-row gap-16 w-[80%] ">
         <form className="flex flex-col py-3 px-6 w-full ">
           <div className="w-[100px] h-[100px] rounded-full relative overflow-hidden">
+            <a href="/">
             <img
               src="/AfroLogo.png"
               alt="AfroLogo"
               className="object-cover absolute inset-0 m-auto"
             />
+            </a>
           </div>
           <div className="pt-2">
             <h1 className="text-4xl font-semibold pt-2">Sign Up</h1>
@@ -297,7 +299,7 @@ const Register = () => {
               Enter your details below to create a new account and get started
             </p>
           </div>
-          <div className="grid-cols-1 md:grid-cols-2 pt-2">
+          <div className="grid-cols-1 md:grid-cols-2 pt-2 flex flex-col flex-wrap ">
             <div className="lg:flex-row flex flex-row gap-5 md:flex-col pt-2 ">
               <div className="flex flex-col gap-1 w-full">
                 <Label
