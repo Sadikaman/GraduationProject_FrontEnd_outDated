@@ -20,8 +20,8 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
         <>
         {/* small screen size  */}
                     <div className='ml-10 md:ml-20 mt-32 lg:ml-40  flex-col flex xl:hidden lg:hidden'>
-                        <p className='xl:text-xl text-gray-500 font-bold pt-5 md:text-lg'>ELEVATE YOUR TRAVEL JOURNEY</p>
-                        <h1 className='xl:text-6xl text-[#101010]  md:text-4xl font-bold pt-5 pb-5'>
+                        <p className='xl:text-xl text-gray-500 font-bold pt-5 md:text-lg dark:text-[#ffffff]'>ELEVATE YOUR TRAVEL JOURNEY</p>
+                        <h1 className='xl:text-6xl text-[#101010] dark:text-[#ffffff]  md:text-4xl font-bold pt-5 pb-5'>
                             Discover Ethiopia <br /> Where History <br /> Unfolds!
                         </h1>
                         <a href="/Pricing" className='flex gap-5 items-center'>
@@ -32,7 +32,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
                         </a>
                     </div>
                     <div className='w-full flex mt-2 justify-center'                                                    >
-                    <img src="/Landing.jpg" className='h-80  flex xl:hidden lg:hidden' alt="" />
+                    <img src="/Landing.png" className='h-80  flex xl:hidden lg:hidden' alt="" />
                     </div>
                     {/* //////// */}
 <section className='xl:mt-[120px] lg:mt-[120px] flex flex-col bg-white dark:bg-gray-900 dark:text-white font-mono rounded-t-lg overflow-hidden md:h-[810px] p-2 md:p-0 xl:px-28 justify-center' id='About'>
