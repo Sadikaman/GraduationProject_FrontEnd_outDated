@@ -40,7 +40,7 @@ import Nav from "../component/Nav"
   return (
     <>
     <Nav />
-    <div className='flex  gap-10 p-5 dark:bg-gray-900'>
+    <div className='flex  gap-10 p-5 dark:bg-gray-900 mt-[110px]'>
        
       < Sidebars />
       <div className='flex flex-col '>

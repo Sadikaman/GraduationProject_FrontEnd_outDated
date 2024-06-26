@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Card,Dropdown,Sidebar,Datepicker,Progress } from "flowbite-react";
-import { FaUserCircle,FaMoneyBillWave } from "react-icons/fa";
+import { FaUserCircle,FaMoneyBillWave ,FaTimes,FaBars} from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { PiHandWaving } from "react-icons/pi";
 import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
@@ -19,6 +19,7 @@ import Nav from '../component/Nav';
 import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 // import Image from "next/image";
 const CardContainer = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const cardsData = [
     { id: 1, name: "Harar",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/harar.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
@@ -59,22 +60,45 @@ const CardContainer = () => {
   };
 
   return (
-    <>
+    <div className='dark:bg-gray-900'>
     <Nav />
-    
 
-    <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden ">
-    < Sidebars />
+    <div className="dark:bg-gray-900 dark:text-white flex gap-10  mt-[112px]  w-[99%] overflow-hidden ">
+    {/* Sidebar and Toggle Button for Small Screens */}
+    <div className="hidden lg:flex flex-shrink-0">
+        <Sidebars />
+      </div>
+
+      {/* Toggle Button and Sidebar for Small Screens */}
+      <div className="lg:hidden">
+        <button 
+          className="fixed top-[112px] left-4 bg-gray-700 text-white p-2 rounded-md z-50"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          {isSidebarOpen ? <FaTimes /> : <FaBars />}
+        </button>
+        <div className={`${isSidebarOpen ? 'block' : 'hidden'} fixed top-0 left-0 h-full z-40 bg-gray-900`}>
+          <Sidebars />
+        </div>
+      </div>
 
 <div className='flex flex-col'>
     
-    <div className="pt-2 flex justify-center items-center gap-52 dark:bg-gray-900">
-      <div className='flex flex-col '>
-            <h1 className="text-4xl font-semibold pt-2 flex gap-4">Hello, Ezra  <PiHandWaving className="text-yellow-300 "/></h1>
-             <p className="text-lg text-gray-500 pt-2">Welcome back and explore the world </p>
-             </div>
+<div className="pt-2 flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 lg:gap-52 dark:bg-gray-900">
+  <div className='flex flex-col items-center lg:items-start'>
+    <h1 className="text-2xl lg:text-4xl font-semibold pt-2 flex gap-2 lg:gap-4">
+      Hello, Ezra
+      <PiHandWaving className="text-yellow-300 text-lg lg:text-2xl" />
+    </h1>
+    <p className="text-md lg:text-lg text-gray-500 pt-2 text-center lg:text-left">
+      Welcome back and explore the world
+    </p>
+  </div>
+  <div className='w-full lg:w-auto px-4 lg:px-0 mt-4 lg:mt-0'>
     <Searchbar />
-    </div>
+  </div>
+</div>
+
   <div className='flex gap-10 flex-wrap justify-center '>
     <div className="overflow-y-auto h-[95vh] w-[100%] ">
       <div className="flex dark:bg-gray-900  p-4 gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
@@ -256,7 +280,7 @@ const CardContainer = () => {
    
     </div>
   
-    </>
+    </div>
   );
 }
 

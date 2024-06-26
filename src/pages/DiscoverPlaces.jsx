@@ -64,7 +64,7 @@ const DiscoverPlaces = () => {
   return (
     <>
     <Nav />
-  <div className='flex'>
+  <div className='flex mt-[110px]'>
     <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden    pt-5">
 
     < Sidebars />
