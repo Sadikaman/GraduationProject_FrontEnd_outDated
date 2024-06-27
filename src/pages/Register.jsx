@@ -217,8 +217,21 @@ const countries = [
 ];
 const Register = () => {
   
+  const [showFormPart1, setShowFormPart1] = useState(true);
+  const [showFormPart2, setShowFormPart2] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [phoneNumber, setPhoneNumber] = useState('');
 
+  const handleForwardClick = () => {
+    setShowFormPart1(false);
+    setShowFormPart2(true);
+  };
 
+  const handleBackwardClick = () => {
+    setShowFormPart1(true);
+    setShowFormPart2(false);
+  }; 
+  
   const handleCountryChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
     console.log(`Selected country:`, selectedOption);
@@ -226,15 +239,6 @@ const Register = () => {
   };
 
   // Transforming countries array into options array with label and value properties
-  // const countryOptions = countries.map(country => ({
-  //   value: country.code,
-  //   label: (
-  //     <div className="flex items-center">
-  //       <span className="mr-2">{country.flag}</span>
-  //       {country.name}
-  //     </div>
-  //   )
-  // }));
   const countryOptions = countries.map(country => ({
     value: country.code,
     label: `${country.name} ${country.flag}` // Displaying name and flag as a single string
@@ -249,42 +253,38 @@ const Register = () => {
     setFilteredCountries(filtered);
   };
 
+  const handlePhoneNumberChange = (event) => {
+    setPhoneNumber(event.target.value);
+  };
 
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
-  const [phoneNumber, setPhoneNumber] = useState('');
-
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
+  const [gender, setGender] = useState("");
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
   };
 
   const handleCountrySelect = (country) => {
     setSelectedCountry(country);
     setDropdownVisible(false);
   };
-
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
-  };
-
-
-  const [gender, setGender] = useState("");
-
-  const handleGenderChange = (e) => {
-    setGender(e.target.value);
-  };
   
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
   const [selectedDate, setSelectedDate] = useState(null);
-  
-
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
+  
   return (
-    <div className="font-kanit transition-colors flex justify-center w-full ">
+    <div className="font-kanit transition-colors flex justify-center w-full overflow-hidden  ">
       <div className="flex flex-col md:flex-row gap-16 w-[80%] ">
         <form className="flex flex-col py-3 px-6 w-full ">
-          <div className="w-[100px] h-[100px] rounded-full relative overflow-hidden">
+        {showFormPart1 && (
+         <>
+          <div className="w-[100px] h-[100px] rounded-full relative overflow-hidden ">
             <a href="/">
             <img
               src="/AfroLogo.png"
@@ -294,13 +294,16 @@ const Register = () => {
             </a>
           </div>
           <div className="pt-2">
-            <h1 className="text-4xl font-semibold pt-2">Sign Up</h1>
-            <p className="text-lg text-gray-500 pt-2">
-              Enter your details below to create a new account and get started
-            </p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-2 md:pt-4 lg:pt-6">
+            Sign Up
+          </h1>
+          <p className="text-md sm:text-lg md:text-xl lg:text-2xl text-gray-500 pt-2 md:pt-4 lg:pt-6">
+            Enter your details below to create a new account and get started
+          </p>
+
           </div>
-          <div className="grid-cols-1 md:grid-cols-2 pt-2 flex flex-col flex-wrap ">
-            <div className="lg:flex-row flex flex-row gap-5 md:flex-col pt-2 ">
+          <div className="grid-cols-1 md:grid-cols-2 pt-2 flex flex-col  ">
+            <div className="lg:flex-row flex  gap-2 sm:gap-1 md:gap-3 lg:gap-5 md:flex-col pt-2 flex-col">
               <div className="flex flex-col gap-1 w-full">
                 <Label
                   className="text-md pb-4 font-semibold pt-4 "
@@ -328,7 +331,7 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="flex gap-5">
+            <div className="flex gap-5 flex-col lg:flex-row">
               <div className="flex flex-col w-full">
                 <Label
                   className="text-md pb-4 font-semibold pt-4"
@@ -354,8 +357,8 @@ const Register = () => {
                 />
               </div> */}
               
-              <div className="flex items-center w-full relative">
-      <div className="flex flex-col gap-7">
+     <div className="flex items-center w-full relative  ">
+      <div className="flex flex-col gap-7 flex-wrap">
         <label htmlFor="phoneInput" className="font-bold text-xl">
           Phone Number
         </label>
@@ -393,7 +396,7 @@ const Register = () => {
             type="text"
             required
             placeholder="Search..."
-            className="p-2 border-b border-gray-200 dark:border-gray-600"
+            className="p-2 border-bflex-wrap border-gray-200 dark:border-gray-600"
             onChange={handleSearchInputChange}
           />
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
@@ -422,10 +425,14 @@ const Register = () => {
         onChange={handlePhoneNumberChange}
       />
     </div>
-      
-            </div>
-
-  <div className="flex gap-5">
+    </div> 
+   </div>
+  </>
+          )}
+          <div className="lg:block">
+            {showFormPart2 && (
+                <>
+  <div className="flex gap-5 flex-col lg:flex-row">
       <div className="flex flex-col w-full">
           <label className="text-md pb-4 font-semibold pt-4">Nationality</label>
           <Select
@@ -479,33 +486,34 @@ const Register = () => {
                 </div>
               </div>
             </div>
-
-            <div className="flex gap-5">
-              <div className="flex flex-col w-full">
-                <Label
-                  className="text-md pb-4 font-semibold pt-4"
-                  value="Password"
-                />
-                <input
-                 required
-                 placeholder="**********"
-                  type="password"
-                  className="rounded-md border-1 border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
-                />
-              </div>
-              <div className="flex flex-col gap-1 w-full">
-                <Label
-                  className="text-md pb-4 font-semibold pt-3"
-                  value="Confirm Password"
-                />
-                <input
+            
+            <div className="flex flex-col lg:flex-row gap-5">
+            <div className="flex flex-col w-full">
+              <Label
+                className="text-md pb-4 font-semibold pt-4"
+                value="Password"
+              />
+              <input
+                required
+                placeholder="**********"
+                type="password"
+                className="rounded-md border border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
+              />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <Label
+                className="text-md pb-4 font-semibold pt-3"
+                value="Confirm Password"
+              />
+              <input
                 required
                 placeholder="********"
-                  type="password"
-                  className="rounded-md border-1 border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
-                />
-              </div>
+                type="password"
+                className="rounded-md border border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
+              />
             </div>
+          </div>
+
 
             <div className="mt-4">
               <input
@@ -532,20 +540,42 @@ const Register = () => {
                 Login
               </a>
             </p>
+            
+            </> 
+            
+)}
+</div>
+        <div className="pt-4">
+            <Button
+              className="button lg:hidden"
+              onClick={showFormPart1 ? handleForwardClick : handleBackwardClick}
+            >
+              {showFormPart1 ? "Continue" : "Back"}
+            </Button>
+          </div>
 
-            <div className="flex justify-center items-center flex-col gap-1">
-              <div className="gap-2 flex ">
-                <h2 className="dark:text-white w-44 border-b-2 border-b-black "></h2>
-                <span className="text-md font-medium text-center ">OR</span>
-                <h2 className="w-44 border-b-2 text-md border-b-black"></h2>
+
+            <div className="flex justify-center items-center flex-col gap-1 p-4">
+              {/* Horizontal line and "OR" separator */}
+              <div className="flex flex-row items-center gap-2 w-full">
+                <div className="w-full sm:w-44 border-b-2 border-black dark:border-white"></div>
+                <span className="text-md font-medium text-center w-full sm:w-auto">OR</span>
+                <div className="w-full sm:w-44 border-b-2 border-black dark:border-white"></div>
               </div>
 
-              <Button pill className="flex flex-row rounded-md w-[600px] mt-4 bg-gray-200">
+
+              {/* Google Sign-in Button */}
+              <Button
+                pill
+                className="flex flex-row rounded-md w-full sm:w-[600px] mt-4 bg-gray-200 dark:bg-gray-700"
+              >
                 <FcGoogle className="text-xl mr-8" />
                 Continue With Google
               </Button>
             </div>
-          </div>
+
+         
+        
         </form>
       </div>
     </div>
