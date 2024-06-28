@@ -51,7 +51,7 @@ const Hero = ({ isDarkMode, toggleDarkMode }) => {
                     </div>
 
                     {/* Know More Section */}
-            <div className='hidden md:flex md:-ml-28  justify-center items-end w-[82%] h-full '>
+            <div className='hidden md:flex  xl:ml-0 lg:ml-0 md:-ml-28  justify-center items-end w-[82%] h-full '>
                 <div className=' rounded-2xl   w-[400px] h-44'>
                     <div className=" z-10 flex flex-col  p-4 w-full">
                             <div className='flex justify-end  '>

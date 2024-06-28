@@ -18,7 +18,7 @@ import { CiMenuKebab } from "react-icons/ci";
 import { MdDownload } from "react-icons/md";
 import { GiPieChart } from "react-icons/gi";
 import { RiUser3Fill,RiUserHeartFill,RiUserAddFill } from "react-icons/ri";
-
+import { DarkModeProvider } from '../component/DarkModeProvider';
 "use client";
 
 import { Bar } from 'react-chartjs-2';
@@ -93,7 +93,7 @@ const Tpcustomer = () => {
 
   return (
     <>
-    
+    <DarkModeProvider>
    <section className=' flex flex-col'>
    <TravelProviderSidebadr />
     {/* //////////// */}
@@ -194,6 +194,7 @@ const Tpcustomer = () => {
 </div>
 
     </section>   
+    </DarkModeProvider>
     </>
   )
 }

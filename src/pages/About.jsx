@@ -1,10 +1,11 @@
 import React from 'react';
 import Nav from '../component/Nav';
 import Footers from '../component/Footers';
-
+import { DarkModeProvider } from '../component/DarkModeProvider';
 function About() {
   return (
     <>
+     <DarkModeProvider>
       <section className='flex flex-col pt-20 md:pt-36 dark:bg-gray-900 dark:text-white'>
         <Nav />
         <div className='flex justify-center px-4 w-full'>
@@ -53,6 +54,7 @@ function About() {
 
         <Footers />
       </section>
+      </DarkModeProvider>
     </>
   );
 }

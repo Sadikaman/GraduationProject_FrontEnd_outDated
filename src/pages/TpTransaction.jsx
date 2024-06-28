@@ -4,6 +4,7 @@ import { Dropdown } from "flowbite-react";
 import { GiPieChart } from "react-icons/gi";
 import TravelProviderSidebadr from '../component/TravelProviderSidebadr';
 import { Bar } from 'react-chartjs-2';
+import { DarkModeProvider } from '../component/DarkModeProvider';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -52,6 +53,7 @@ const TpTransaction = () => {
 
   return (
     <>
+    <DarkModeProvider>
       <section className='flex flex-col'>
         <TravelProviderSidebadr />
         {/* //////////// */}
@@ -98,6 +100,7 @@ const TpTransaction = () => {
           </div>
         </div>
       </section>
+    </DarkModeProvider>
     </>
   );
 };

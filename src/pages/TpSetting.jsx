@@ -17,6 +17,7 @@ import AddPackageModal from '../component/AddPackageModal';
 import { FiSettings } from "react-icons/fi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { GiPieChart } from "react-icons/gi";
+import { DarkModeProvider } from '../component/DarkModeProvider';
 "use client";
 
 import { Bar } from 'react-chartjs-2';
@@ -28,7 +29,7 @@ const TpSetting = () => {
 
   return (
     <>
-    
+    <DarkModeProvider>
    <section className=' flex flex-col'>
    <TravelProviderSidebadr />
     {/* //////////// */}
@@ -113,6 +114,7 @@ const TpSetting = () => {
 
 
     </section>   
+    </DarkModeProvider>
     </>
   )
 }

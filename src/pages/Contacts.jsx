@@ -3,7 +3,7 @@ import Nav from '../component/Nav'
 const Contacts = () =>  {
   return (
     <>
-     <section className='dark:bg-gray-900'>
+     <section className='dark:bg-gray-900 overflow-hidden'>
 <Nav />
 <div className='flex justify-center gap-16 mt-16 flex-wrap '>
 <section className="bg-white dark:bg-gray-900 flex ">
@@ -33,7 +33,9 @@ const Contacts = () =>  {
               <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
               <textarea id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
           </div>
-          <button type="submit" className="py-3 flex  bg-black px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+          <button type="submit" className="py-3 flex  bg-black px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+            Send message
+            </button>
       </form>
   </div>
 </section>
@@ -42,7 +44,16 @@ const Contacts = () =>  {
 
       {/* //////////////////////////// */}
       <div>
-      <iframe className='rounded-xl' src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63053.19704995932!2d38.699008!3d8.9882624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2set!4v1718222525317!5m2!1sar!2set" width="600" height="750" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe className='rounded-xl'
+       src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63053.19704995932!2d38.699008!3d8.9882624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2set!4v1718222525317!5m2!1sar!2set" 
+       width="600"
+       height="750"
+        style={{border:"0"}}
+         allowfullscreen="" 
+         loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade">
+
+          </iframe>
       </div>
     </div>
 

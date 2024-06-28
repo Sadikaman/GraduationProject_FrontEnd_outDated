@@ -3,6 +3,7 @@ import { FaUserCircle,FaMoneyBillWave } from "react-icons/fa";
 import { Card,Dropdown,Sidebar,Datepicker,Progress } from "flowbite-react";
 import TravelProviderSidebadr from '../component/TravelProviderSidebadr'
 import { GiPieChart } from "react-icons/gi";
+import { DarkModeProvider } from '../component/DarkModeProvider';
 "use client";
 
 import { Bar } from 'react-chartjs-2';
@@ -62,7 +63,7 @@ const TravelProviderPage = () => {
 
   return (
     <>
-    
+    <DarkModeProvider>
    <section className=' flex flex-col'>
    <TravelProviderSidebadr />
     {/* //////////// */}
@@ -211,7 +212,8 @@ const TravelProviderPage = () => {
     <div className='flex justify-end ' >
     <iframe className='' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63052.62655836579!2d38.692454399999995!3d8.9915392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f4738c193c9%3A0x2424a7bc8f3cd3b4!2sEthnological%20Museum!5e0!3m2!1sar!2set!4v1718305017987!5m2!1sar!2set" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    </section>   
+    </section>  
+    </DarkModeProvider> 
     </>
   )
 }

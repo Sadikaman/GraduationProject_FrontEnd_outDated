@@ -74,20 +74,20 @@ const PaymentHistory = () => {
   return (
     <>
       <Nav />
-      <section className='flex'>
+      <section className='flex mt-[110px] dark:bg-gray-900'>
         <Sidebars />
-        <div className='flex flex-col w-[80%] p-4'>
-          <div className='flex justify-between items-center mb-4'>
+        <div className='flex flex-col w-[80%] p-4 '>
+          <div className='flex justify-between items-center mb-4 dark:bg-gray-900 dark:text-white'>
             <h1 className='text-2xl font-bold'>Payment History</h1>
             <button className='flex items-center bg-[#2986FE] text-[#FFFFFF] gap-2 rounded-full px-4 py-2'>
               <MdDownload />
               Download All
             </button>
           </div>
-          <div className='overflow-x-auto rounded-xl'>
-            <table className='w-full bg-gray-100 '>
+          <div className='overflow-x-auto rounded-xl '>
+            <table className='w-full bg-gray-100 dark:bg-gray-700 dark:text-white '>
               <thead>
-                <tr className='bg-gray-100'>
+                <tr className='bg-gray-100 dark:bg-gray-800 dark:text-white'>
                   <th className='p-5 text-left border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" /> Payment Invoice</th>
                   <th className='p-5 text-left border-b-2 border-gray-300'>Amount</th>
                   <th className='p-5 text-left border-b-2 border-gray-300'>Date</th>

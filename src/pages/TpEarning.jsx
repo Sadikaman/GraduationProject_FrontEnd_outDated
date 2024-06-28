@@ -15,7 +15,7 @@ import { FaDollarSign, FaWifi, FaSun,FaStar,FaSatelliteDish,FaShieldAlt } from '
 import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 import AddPackageModal from '../component/AddPackageModal';
 import { MdDownload } from "react-icons/md";
-
+import { DarkModeProvider } from '../component/DarkModeProvider';
 import { GiPieChart } from "react-icons/gi";
 
 "use client";
@@ -72,7 +72,7 @@ const TpEarning = () => {
 
   return (
     <>
-    
+    <DarkModeProvider>
    <section className=' flex flex-col'>
    <TravelProviderSidebadr />
     {/* //////////// */}
@@ -163,6 +163,7 @@ const TpEarning = () => {
 
 
     </section>   
+    </DarkModeProvider>
     </>
   )
 }

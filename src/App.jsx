@@ -11,12 +11,12 @@ import ScrollToTopButton from "./component/ScrollToTopButton"
 
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+ 
 
   return (
     <>
 
-<div className="App dark:bg-gray-90 dark:text-white ">
+<div className="App dark:bg-gray-900 dark:text-white ">
       
       <Outlet />
       

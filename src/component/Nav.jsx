@@ -2,18 +2,44 @@ import React, { useState, useEffect } from 'react';
 import { FaMoon } from "react-icons/fa";
 import { IoSunnyOutline } from "react-icons/io5";
 
-const Nav = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    // Initialize dark mode state from localStorage
-    const savedMode = localStorage.getItem('darkMode');
-    try {
-      // Check if savedMode is truthy and parse JSON
-      return savedMode ? JSON.parse(savedMode) : false;
-    } catch (error) {
-      console.error('Error parsing dark mode state:', error);
-      return false; // Default to false if parsing fails
+const Nav = ({isDarkMode, toggleDarkMode }) => {
+  
+  const [full, setFull] = useState(true);
+  const [theme, setTheme] = useState("Light");
+
+  // Initialize dark mode state from localStorage
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true"
+  );
+  const toggleMode = () => {
+    setAnimate(true);
+    setDarkMode(prevMode => !prevMode);
+    setTimeout(() => setAnimate(false), 500); // duration of the animation
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    // Save dark mode preference to localStorage
+    localStorage.setItem("darkMode", newMode);
+  };
+  
+
+  useEffect(() => {
+    // Use Tailwind dark mode utility classes on the body element
+    document.body.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
+  useEffect(() => {
+    if (theme === "") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-  });
+  }, [theme]);
+
+  
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "Light" : "dark");
+  };
   const [menuOpen, setMenuOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
 
@@ -28,11 +54,7 @@ const Nav = () => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  const toggleMode = () => {
-    setAnimate(true);
-    setDarkMode(prevMode => !prevMode);
-    setTimeout(() => setAnimate(false), 500); // duration of the animation
-  };
+  
 
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
@@ -41,7 +63,7 @@ const Nav = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
-
+  "use client";
   return (
     <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

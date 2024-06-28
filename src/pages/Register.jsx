@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Card, Label, Button } from "flowbite-react";
 import { FcGoogle } from "react-icons/fc";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
+import { DarkModeProvider } from "../component/DarkModeProvider";
 import "react-datepicker/dist/react-datepicker.css";
 
 const countries = [
@@ -216,9 +217,31 @@ const countries = [
   // Add more countries as needed
 ];
 const Register = () => {
-  
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 768) {  // Example breakpoint for large screens
+        setShowFormPart2(true);
+      } else {
+        setShowFormPart2(false);
+      }
+    }
+
+    // Initial check on mount
+    handleResize();
+
+    // Event listener for resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+
   const [showFormPart1, setShowFormPart1] = useState(true);
   const [showFormPart2, setShowFormPart2] = useState(false);
+  
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [phoneNumber, setPhoneNumber] = useState('');
 
@@ -279,6 +302,7 @@ const Register = () => {
   };
   
   return (
+    <DarkModeProvider>
     <div className="font-kanit transition-colors flex justify-center w-full overflow-hidden  ">
       <div className="flex flex-col md:flex-row gap-16 w-[80%] ">
         <form className="flex flex-col py-3 px-6 w-full ">
@@ -293,7 +317,7 @@ const Register = () => {
             />
             </a>
           </div>
-          <div className="pt-2">
+          <div className="">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-2 md:pt-4 lg:pt-6">
             Sign Up
           </h1>
@@ -366,7 +390,7 @@ const Register = () => {
           id="dropdown-phone-button"
           onClick={toggleDropdown}
           type="button"
-          className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+          className="flex-shrink-0 h-10 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
         >
           <span className="mr-2">{selectedCountry.flag}</span>
           {selectedCountry.code}
@@ -396,7 +420,7 @@ const Register = () => {
             type="text"
             required
             placeholder="Search..."
-            className="p-2 border-bflex-wrap border-gray-200 dark:border-gray-600"
+            className="p-2 border-b flex-wrap border-gray-200 dark:border-gray-600"
             onChange={handleSearchInputChange}
           />
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
@@ -404,10 +428,11 @@ const Register = () => {
               <li key={country.code}>
                 <button
                   type="button"
+
                   onClick={() => handleCountrySelect(country)}
                   className="flex items-center justify-between w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
-                  <span className="mr-2">{country.flag}{country.name}</span>
+                  <span className="mr-2">{country.name}{country.flag}</span>
                   {country.code}
                 </button>
               </li>
@@ -430,8 +455,8 @@ const Register = () => {
   </>
           )}
           <div className="lg:block">
-            {showFormPart2 && (
-                <>
+ {showFormPart2 && (
+  <>
   <div className="flex gap-5 flex-col lg:flex-row">
       <div className="flex flex-col w-full">
           <label className="text-md pb-4 font-semibold pt-4">Nationality</label>
@@ -444,7 +469,9 @@ const Register = () => {
             styles={{
               control: provided => ({
                 ...provided,
-                border: '1px solid #CBD5E0'
+                border: '1px solid #CBD5E0',
+                backgroundColor:'#F3F4F6',
+                height:'45px'
               })
             }}
             theme={theme => ({
@@ -527,27 +554,24 @@ const Register = () => {
                 <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
               </label>
             </div>
-            <div className="mt-6 grid grid-cols-2 gap-[63px] justify-center">
-              <input id=""  className="rounded-md bg-gray-100 p-2 text-[#101010]" name="cancel" type="reset" size="md"  />
-              <input className="rounded-md bg-[#101010] text-[#ffffff] p-2" type="submit"  size="md" name=" Register"   />
-               
-            <a href="/DiscoverPlaces">this Link must be changed to Register to make to Tour</a>
+            <div className="mt-3 grid grid-cols-2 gap-[63px] justify-center">
+              <input id=""  className="rounded-md bg-gray-100 p-2 text-[#101010]" name="cancel" 
+              value="cancel" type="reset" size="md"  />
+              <input className="rounded-md bg-[#101010] text-[#ffffff] p-2" type="submit"  value="Register"  size="md" name=" Register"   />
             </div>
 
-            <p className="mt-4 flex justify-center gap-2 text-gray-500 text-md ">
+            <p className="mt-3 flex justify-center gap-2 text-gray-500 text-md ">
               Already have an account?{" "}
               <a href="/login" className=" hover:underline text-black font-medium">
                 Login
               </a>
             </p>
-            
-            </> 
-            
+            </>       
 )}
 </div>
         <div className="pt-4">
             <Button
-              className="button lg:hidden"
+              className="button lg:hidden bg-[#101010] w-full text-bold text-xl text-[#ffffff]"
               onClick={showFormPart1 ? handleForwardClick : handleBackwardClick}
             >
               {showFormPart1 ? "Continue" : "Back"}
@@ -555,19 +579,19 @@ const Register = () => {
           </div>
 
 
-            <div className="flex justify-center items-center flex-col gap-1 p-4">
+            <div className="flex justify-center items-center flex-col gap-1 p-3">
               {/* Horizontal line and "OR" separator */}
-              <div className="flex flex-row items-center gap-2 w-full">
+              <div className="flex justify-center">
+              <div className="flex flex-row  items-center gap-2 w-full">
                 <div className="w-full sm:w-44 border-b-2 border-black dark:border-white"></div>
                 <span className="text-md font-medium text-center w-full sm:w-auto">OR</span>
                 <div className="w-full sm:w-44 border-b-2 border-black dark:border-white"></div>
               </div>
-
-
+              </div>
               {/* Google Sign-in Button */}
               <Button
                 pill
-                className="flex flex-row rounded-md w-full sm:w-[600px] mt-4 bg-gray-200 dark:bg-gray-700"
+                className="flex flex-row rounded-md w-full sm:w-[600px] mt-2 bg-gray-200 dark:bg-gray-700"
               >
                 <FcGoogle className="text-xl mr-8" />
                 Continue With Google
@@ -579,6 +603,7 @@ const Register = () => {
         </form>
       </div>
     </div>
+    </DarkModeProvider>
   );
 };
 

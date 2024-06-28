@@ -3,7 +3,7 @@ import { FaUserCircle, FaPaperPlane, FaRegSmile } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import TravelProviderSidebadr from '../component/TravelProviderSidebadr';
 import EmojiPicker from 'emoji-picker-react'; // Import Emoji Picker
-
+import { DarkModeProvider } from '../component/DarkModeProvider';
 const users = [
   { id: 1, name: "John Doe", status: "Traveler" },
   { id: 2, name: "Abebe Kebede", status: "Traveler" },
@@ -62,6 +62,7 @@ const MessageWindow = ({ messages, onSendMessage }) => {
   };
 
   return (
+    <DarkModeProvider>
     <div className="flex-grow bg-white p-4 relative">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
@@ -109,6 +110,7 @@ const MessageWindow = ({ messages, onSendMessage }) => {
         </div>
       </div>
     </div>
+    </DarkModeProvider>
   );
 };
 
@@ -132,12 +134,15 @@ const MessagingInterface = () => {
   };
 
   return (
+    
     <>
+    <DarkModeProvider>
       <TravelProviderSidebadr />
       <div className="flex h-screen ml-72">
         <MessageSidebar users={users} onUserSelect={handleUserSelect} />
         <MessageWindow messages={messages} onSendMessage={handleSendMessage} />
       </div>
+      </DarkModeProvider>
     </>
   );
 };

@@ -14,7 +14,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { FaDollarSign, FaWifi, FaSun,FaStar,FaSatelliteDish,FaShieldAlt } from 'react-icons/fa'; // Import React icons
 import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 import AddPackageModal from '../component/AddPackageModal';
-
+import { DarkModeProvider } from '../component/DarkModeProvider';
 import { GiPieChart } from "react-icons/gi";
 "use client";
 
@@ -113,7 +113,7 @@ const Packagess = () => {
 
   return (
     <>
-    
+    <DarkModeProvider>
    <section className=' flex flex-col'>
    <TravelProviderSidebadr />
     {/* //////////// */}
@@ -281,7 +281,8 @@ const Packagess = () => {
 
 {isModalOpen && <AddPackageModal onSave={handleAddPackage} onClose={handleCloseModal} />}
 
-    </section>   
+    </section> 
+    </DarkModeProvider>  
     </>
   )
 }

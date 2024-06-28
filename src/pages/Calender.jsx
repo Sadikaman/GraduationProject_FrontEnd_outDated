@@ -17,6 +17,7 @@ import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
 import Nav from '../component/Nav';
 import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
+import { DarkModeProvider } from '../component/DarkModeProvider';
 // import Image from "next/image";
 const CardContainer = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -60,6 +61,7 @@ const CardContainer = () => {
   };
 
   return (
+    <DarkModeProvider>
     <div className='dark:bg-gray-900'>
     <Nav />
 
@@ -281,6 +283,7 @@ const CardContainer = () => {
     </div>
   
     </div>
+    </DarkModeProvider>
   );
 }
 

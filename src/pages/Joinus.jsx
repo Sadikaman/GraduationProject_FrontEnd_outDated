@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "flowbite-react";
 import { FaPersonWalkingLuggage } from "react-icons/fa6";
 import { BsCartDashFill } from "react-icons/bs";
-
+import { DarkModeProvider } from "../component/DarkModeProvider";
 const Joinus = () => {
   const [isTourist, setIsTourist] = useState(false);
 
@@ -16,6 +16,7 @@ const Joinus = () => {
   };
 
   return (
+    <DarkModeProvider>
     <div className="font-kanit transition-colors flex justify-center  items-center w-full  overflow-hidden">
      
       <div className="flex flex-col md:flex-row gap-16 flex-wrap justify-center">
@@ -90,6 +91,7 @@ const Joinus = () => {
         </form>
       </div>
     </div>
+    </DarkModeProvider>
   );
 };
 

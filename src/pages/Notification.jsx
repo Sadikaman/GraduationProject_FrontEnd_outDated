@@ -4,7 +4,7 @@ import { IoIosNotificationsOutline } from 'react-icons/io';
 import { MdDeleteOutline } from 'react-icons/md';
 import { Dropdown } from 'flowbite-react';
 import TravelProviderSidebadr from '../component/TravelProviderSidebadr';
-
+import { DarkModeProvider } from '../component/DarkModeProvider';
 const Notification = () => {
     const initialNotifications = [
         { id: 1, message: 'Set yourself free.' },
@@ -23,6 +23,7 @@ const Notification = () => {
     };
 
     return (
+        <DarkModeProvider>
         <section className="flex flex-col">
             <TravelProviderSidebadr />
             {/* Top section */}
@@ -95,6 +96,7 @@ const Notification = () => {
                 </div>
             </div>
         </section>
+        </DarkModeProvider>
     );
 };
 

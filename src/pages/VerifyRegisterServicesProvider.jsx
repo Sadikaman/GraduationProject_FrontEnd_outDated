@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Label, Button } from "flowbite-react";
 import { MdOutlineVerified } from "react-icons/md";
-
+import { DarkModeProvider } from "../component/DarkModeProvider";
 const VerifyRegisterServicesProvider = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -17,6 +17,7 @@ const VerifyRegisterServicesProvider = () => {
   const handleSubmit = () => {};
 
   return (
+    <DarkModeProvider>
     <div className="font-kanit transition-colors flex justify-center items-center">
       <div className="flex flex-col w-full lg:w-[60%] gap-16">
         <form onSubmit={handleSubmit} className="flex flex-col py-3 px-6 w-full justify-center items-center">
@@ -104,6 +105,7 @@ const VerifyRegisterServicesProvider = () => {
         </form>
       </div>
     </div>
+    </DarkModeProvider>
   );
 };
 
