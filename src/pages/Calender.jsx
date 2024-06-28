@@ -7,10 +7,12 @@ import { PiHandWaving } from "react-icons/pi";
 import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
 import { PiAirplaneTakeoffBold } from "react-icons/pi";
 import { MdOutlineHotel } from "react-icons/md";
+import { BiSolidLike } from "react-icons/bi";
 import { IoLocationOutline,IoAirplane } from "react-icons/io5";
 import { SiEthiopianairlines } from "react-icons/si";
 import { GiCommercialAirplane } from "react-icons/gi";
-import { FaDollarSign, FaWifi, FaSun } from 'react-icons/fa'; // Import React icons
+import { FaStar,  FaSatelliteDish, FaShieldAlt, FaDollarSign,FaLessThan,FaWifi, FaSun,FaHeart } from 'react-icons/fa';
+import { FaGreaterThan } from "react-icons/fa6";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
@@ -22,6 +24,8 @@ import { DarkModeProvider } from '../component/DarkModeProvider';
 const CardContainer = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+ 
+
   const cardsData = [
     { id: 1, name: "Harar",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/harar.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
     { id: 2, name: "Abjifar Hawolt",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/hawolet.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
@@ -59,13 +63,33 @@ const CardContainer = () => {
       }
     ]
   };
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCards, setFilteredCards] = useState(cardsData);
+  const [hiddenCards, setHiddenCards] = useState([]); // To track hidden cards
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    if (query) {
+      setFilteredCards(cardsData.filter(card => card.name.toLowerCase().includes(query.toLowerCase())));
+    } else {
+      setFilteredCards(cardsData);
+    }
+  };
+
+  const handleHideCard = (id) => {
+    setHiddenCards([...hiddenCards, id]);
+  };
+
+  const handleHover = (event) => {
+    event.target.setAttribute('title', 'Hide until next session');
+  };
 
   return (
     <DarkModeProvider>
-    <div className='dark:bg-gray-900'>
-    <Nav />
+    <div className='dark:bg-gray-900 flex justify-center flex-wrap'>
+   
 
-    <div className="dark:bg-gray-900 dark:text-white flex gap-10  mt-[112px]  w-[99%] overflow-hidden ">
+    <div className="dark:bg-gray-900 dark:text-white flex gap-10   w-[99%] overflow-hidden   flex-wrap-reverse sm:flex-wrap-reverse md:flex-wrap-reverse lg:flex-nowrap xl:flex-nowrap ">
     {/* Sidebar and Toggle Button for Small Screens */}
     <div className="hidden lg:flex flex-shrink-0">
         <Sidebars />
@@ -74,10 +98,10 @@ const CardContainer = () => {
       {/* Toggle Button and Sidebar for Small Screens */}
       <div className="lg:hidden">
         <button 
-          className="fixed top-[112px] left-4 bg-gray-700 text-white p-2 rounded-md z-50"
+          className="fixed top-[112px] left-1  dark:text-white text-[#101010] text-xl font-bold rounded-md z-50"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >
-          {isSidebarOpen ? <FaTimes /> : <FaBars />}
+          {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
         </button>
         <div className={`${isSidebarOpen ? 'block' : 'hidden'} fixed top-0 left-0 h-full z-40 bg-gray-900`}>
           <Sidebars />
@@ -97,90 +121,74 @@ const CardContainer = () => {
     </p>
   </div>
   <div className='w-full lg:w-auto px-4 lg:px-0 mt-4 lg:mt-0'>
-    <Searchbar />
+  <Searchbar onSearch={handleSearch} />
   </div>
 </div>
 
   <div className='flex gap-10 flex-wrap justify-center '>
     <div className="overflow-y-auto h-[95vh] w-[100%] ">
       <div className="flex dark:bg-gray-900  p-4 gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
-        {cardsData.map((card) => (
+      {filteredCards.filter(card => !hiddenCards.includes(card.id)).map((card) => (
           <div key={card.id} className="p-4 " style={{ minWidth: "300px" }}>
             <Card
-      className='w-80 h-[320px] rounded-3xl relative overflow-hidden'
-      imgAlt={`Image of ${card.name}`}
-      style={{
-        backgroundImage: `url(${card.imageSrc})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+              className='w-80 h-[320px] rounded-3xl relative overflow-hidden'
+              imgAlt={`Image of ${card.name}`}
+              style={{
+                backgroundImage: `url(${card.imageSrc})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
 
       {/* card hover effect  */}
-              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex ">
-        <div className="text-white w-full p-2 ">
-          <div className='flex justify-between'><MdFavoriteBorder  className='text-4xl hover:text-red-600'/> <IoMdClose className='text-4xl' /></div>
-         
-
-         <div className='w-full flex flex-col mt-16'>
-          
-         <div className='flex gap-1  '>
-          
-           <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
-          <div className='ml-20 mb-2'>
-          <div className="text-base f gap-5ont-medium text-green-700 w-40"></div>
-          <Progress progress={45} size="xl" color="green" />
-          </div>
-          </div>
-
-         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
-         
-         <div className='ml-20 mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
-      <Progress progress={45} size="xl" color="green" />
-      </div>
-      </div>
-
-         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
-         
-         <div className='ml-20 mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
-      <Progress progress={45} size="xl" color="green" />
-      </div>
-      </div>
-
-         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
-         
-         <div className='ml-20 mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
-      <Progress progress={45} size="xl" color="green" />
-      </div>
-      </div>
-
-         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
-         
-         <div className='ml-20 mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
-      <Progress progress={45} size="xl" color="green" />
-      </div>
-      </div>
-
-         <div className='flex gap-1 '> <FaMoneyBillWave className='text-2xl text-green-500'/> {card.price}
-         
-         <div className='ml-20 mb-2'>
-           <div className="text-base gap-5 font-medium text-green-700 w-40"></div>
-      <Progress progress={45} size="xl" color="green" />
-      </div>
-      </div>
-         
-         </div>
-         <p className='pt-3 text-lg'>Lorem ipsum dolor sit amet cons</p>
-       
-          
-        </div>
+      <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 flex">
+                    <div className="text-white w-full p-2">
+                      <div className='flex justify-between p-2'>
+                      <FaHeart className='text-4xl hover:text-red-600' /> 
+                      <IoMdClose
+                          className='text-4xl cursor-pointer'
+                          title="Hidden until next session"
+                          onClick={() => handleHideCard(card.id)}
+                        />
+                      
+                      </div>
+                      <div className='w-full flex flex-col mt-10'>
+                        <div className='flex gap-10'>
+                          <p className='flex gap-1'><FaStar className='text-xl text-yellow-300' />Overall</p>
+                          <div className=' mb-2'>
+                            <Progress progress={80} size="xl" color="green" />
+                          </div>
+                        </div>
+                        <div className='flex gap-[48px]'>
+                          <p className='flex gap-2'><FaMoneyBillWave className='text-2xl text-green-400' />Price </p>
+                          <div className=' mb-2'>
+                            <Progress progress={56} size="xl" color="green" />
+                          </div>
+                        </div>
+                        <div className='flex gap-[35px]'>
+                          <p className='flex gap-2'><FaSatelliteDish className='text-xl' />Internet</p>
+                          <div className='mb-2'>
+                            <Progress progress={75} size="xl" color="green" />
+                          </div>
+                        </div>
+                        <div className='flex gap-[50px]'>
+                          <p className='flex gap-1'><BiSolidLike className='text-2xl text-yellow-300' />Liked</p>
+                          <div className=' mb-2'>
+                            <Progress progress={55} size="xl" color="green" />
+                          </div>
+                        </div>
+                        <div className='flex gap-[43px]'>
+                          <p className='flex gap-1'><FaShieldAlt className='text-2xl text-red-600' />Safety</p>
+                          <div className=' mb-2'>
+                            <Progress progress={65} size="xl" color="green" />
+                          </div>
+                        </div>
+                      </div>
+                      <p className='pt-3 text-lg'>Lorem ipsum dolor sit amet cons</p>
+                    </div>
       </div>
       
       <div className="flex flex-col gap-20">
@@ -201,7 +209,7 @@ const CardContainer = () => {
         <div className='flex justify-between'>
           {card.sunny}
           <p className='text-white text-2xl'>
-            <FaDollarSign /> {card.price}
+            {card.price}
           </p>
         </div>
               </div>

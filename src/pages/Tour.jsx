@@ -34,6 +34,18 @@ const Tour = () => {
     { id: 12, name: "South-OmoVally",country: "Ethiopia", rating: 4.5, price: "$120", imageSrc: "/south-Omo-Vally.jpg" , sunny: <IoIosPartlySunny className='text-2xl text-gray-50' />,internet: <IoIosWifi className='text-2xl text-gray-50' /> ,num:"1"},
   ];
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCards, setFilteredCards] = useState(cardsData);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    if (query) {
+      setFilteredCards(cardsData.filter(card => card.name.toLowerCase().includes(query.toLowerCase())));
+    } else {
+      setFilteredCards(cardsData);
+    }
+  };
+
   return (
     <div className='dark:bg-gray-900 min-h-screen'>
       <Nav />
@@ -45,10 +57,10 @@ const Tour = () => {
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold pt-2 flex gap-4">Hello, Ezra <PiHandWaving className="text-yellow-300 " /></h1>
               <p className="text-sm md:text-base lg:text-lg text-gray-500 pt-2">Welcome back and explore the world</p>
             </div>
-            <Searchbar />
+            <Searchbar onSearch={handleSearch} />
           </div>
           <div className='flex gap-6 flex-wrap justify-center mt-4'>
-            {cardsData.map((card) => (
+          {filteredCards.map((card) => (
               <div key={card.id} className="p-4" style={{ minWidth: "300px" }}>
                 <div className="w-72 h-[320px] rounded-3xl relative overflow-hidden bg-cover bg-center" style={{ backgroundImage: `url(${card.imageSrc})` }}>
                   {/* Card Hover Effect */}
@@ -131,7 +143,7 @@ const Tour = () => {
             <p className='flex justify-center text-xl'>Announcement</p>
             <div className="overflow-y-auto h-[95vh] w-[100%]">
               <div className="flex gap-2 flex-wrap" style={{ overflowX: "hidden" }}>
-                {cardsData.map((card) => (
+              {filteredCards.map((card) => (
                   <div key={card.id} className="w-full sm:w-72 md:w-60 lg:w-72" style={{ minWidth: "300px" }}>
                     <Card className='bg-gray-50 flex h-56' imgAlt={`Image of ${card.name} ` }>
                       <div className="flex flex-col gap-2">

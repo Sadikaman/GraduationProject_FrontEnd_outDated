@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../component/Nav';
 import Footers from '../component/Footers';
 import { DarkModeProvider } from '../component/DarkModeProvider';
+import DatePiker from '../component/DatePiker';
 function About() {
   return (
     <>
@@ -51,7 +52,7 @@ function About() {
             <img src="plain.jpeg" className='w-full md:w-1/2 rounded-lg' alt="" />
           </div>
         </div>
-
+    
         <Footers />
       </section>
       </DarkModeProvider>

@@ -17,7 +17,7 @@ const Joinus = () => {
 
   return (
     <DarkModeProvider>
-    <div className="font-kanit transition-colors flex justify-center  items-center w-full  overflow-hidden">
+    <div className="font-kanit transition-colors flex justify-center dark:bg-gray-900  items-center w-full  overflow-hidden">
      
       <div className="flex flex-col md:flex-row gap-16 flex-wrap justify-center">
         <div className="flex flex-col ">

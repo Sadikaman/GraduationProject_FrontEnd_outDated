@@ -4,7 +4,7 @@ import { Card,Dropdown,Sidebar ,Button,Progress} from "flowbite-react";
 import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
 import { PiAirplaneTakeoffBold } from "react-icons/pi";
 import { Datepicker } from "flowbite-react";
-import { FaUserCircle,FaMoneyBillWave,FaStar,FaSatelliteDish,FaShieldAlt } from "react-icons/fa";
+import { FaUserCircle,FaMoneyBillWave,FaStar,FaSatelliteDish,FaShieldAlt,FaGreaterThan,FaTimes } from "react-icons/fa";
 import { MdOutlineHotel,MdFavoriteBorder } from "react-icons/md";
 import { CiStar } from "react-icons/ci";
 import { IoLocationOutline,IoAirplane } from "react-icons/io5";
@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebars from '../component/Sidebars';
 import Searchbar from '../component/Searchbar';
+import { DarkModeProvider } from '../component/DarkModeProvider';
 import Nav from '../component/Nav';
 import { FaDollarSign, FaWifi, FaSun } from 'react-icons/fa'; // Import React icons
 
@@ -60,14 +61,54 @@ const DiscoverPlaces = () => {
       }
     ]
   };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCards, setFilteredCards] = useState(cardsData);
+  const [hiddenCards, setHiddenCards] = useState([]); // To track hidden cards
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    if (query) {
+      setFilteredCards(cardsData.filter(card => card.name.toLowerCase().includes(query.toLowerCase())));
+    } else {
+      setFilteredCards(cardsData);
+    }
+  };
+
+  const handleHideCard = (id) => {
+    setHiddenCards([...hiddenCards, id]);
+  };
+
+  const handleHover = (event) => {
+    event.target.setAttribute('title', 'Hide until next session');
+  };
+
 
   return (
     <>
-    <Nav />
-  <div className='flex mt-[110px]'>
+  <DarkModeProvider>
+  <div className='flex justify-center flex-wrap-reverse sm:flex-wrap-reverse md:flex-wrap-reverse lg:flex-nowrap xl:flex-nowrap overflow-hidden'>
     <div className="dark:bg-gray-900 dark:text-white flex gap-10  w-[99%] overflow-hidden    pt-5">
 
-    < Sidebars />
+       {/* Sidebar and Toggle Button for Small Screens */}
+       <div className="hidden lg:flex flex-shrink-0">
+        <Sidebars />
+      </div>
+
+      {/* Toggle Button and Sidebar for Small Screens */}
+      <div className="lg:hidden">
+        <button 
+          className="fixed top-[112px] left-1  dark:text-white text-[#101010] text-xl font-bold rounded-md z-50"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
+        </button>
+        <div className={`${isSidebarOpen ? 'block' : 'hidden'} fixed top-0 left-0 h-full z-40 bg-gray-900`}>
+          <Sidebars />
+        </div>
+      </div>
+
     <div className='flex'>
     <div className='flex flex-col flex-wrap'>
       <div className='flex flex-col '>
@@ -86,6 +127,7 @@ const DiscoverPlaces = () => {
         </div>
       </div>
 {/* tour card  */}
+<section className='flex flex-col justify-center '>
       <div className='flex gap-16 flex-wrap justify-start'>
       <div className="overflow-x-auto  w-[40%]">
         <div className="flex  gap-28 " style={{ overflowX: "auto", scrollbarWidth: "",}}>
@@ -203,8 +245,13 @@ const DiscoverPlaces = () => {
 
        {/* map part */}
   
-  <div className='flex flex-col  p-5'>
-<div className='flex justify-between'>
+
+ </div>
+
+</div>
+<section className='flex w-[40%] sm:w-[15%] md:w-[20%] xl:w-[40%] h-[500px] mt-2 justify-start'>
+  <div className='flex flex-col  w-full justify-center'>
+<div className='flex justify-between '>
    <h1 className="text-2xl font-extrabold">Discover Places </h1>
    <div className='border-2 border-gray-700 rounded-full w-32'>
         <Dropdown  className='' label="View All" color='white'  dismissOnClick={false}>
@@ -216,18 +263,23 @@ const DiscoverPlaces = () => {
         </div>
         </div>
         {/* map  */}
-      <div className='bg-gray-200 w-full flex flex-col h-[500px] rounded-3xl mt-5'>
-      <iframe className='w-full h-full rounded-3xl' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.359785830047!2d37.89022262418306!3d13.202713787134343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1669c1d46d16f89d%3A0x770284df7312622d!2z2YXZhtiq2LLZhyDYs9mK2YXZitmGINin2YTZiNi32YbZig!5e0!3m2!1sar!2set!4v1715193868538!5m2!1sar!2set" width="600" height="450" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
     
-      </div>
+      
+          <iframe className='w-full h-full rounded-3xl '
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.359785830047!2d37.89022262418306!3d13.202713787134343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1669c1d46d16f89d%3A0x770284df7312622d!2z2YXZhtiq2LLZhyDYs9mK2YXZitmGINin2YTZiNi32YbZig!5e0!3m2!1sar!2set!4v1715193868538!5m2!1sar!2set" width="600"
+          height="450"
+          style={{border:"0"}}
+          allowfullscreen=""
+          loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade">
+        </iframe>
+    
+
 
       </div>
-
- </div>
-
-</div>
-
-
+  </section>
+  </section>
       </div>
 
     </div>
@@ -295,38 +347,36 @@ const DiscoverPlaces = () => {
     {/* /////////////////  */}
 
 {/* card part */}
-    <div className="overflow-y-auto h-[95vh] w-[100%] ">
-      <div className="flex   gap-8  flex-wrap " style={{ overflowX: "hidden" }}>
-        {cardsData.map((card) => (
-          <div key={card.id} className=" " style={{ minWidth: "300px" }}>
-            <Card className=' w-72 h-44 rounded-3xl  flex' imgAlt={`Image of ${card.name}`} >
-              <div className="flex flex-col gap-2">
-                <div className='flex gap-2'>
-                  <img className='w-16 rounded-md' 
-                  src={card.imageSrc}
-                 />
-                  <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {card.name}
-                  </h1>
-               </div>
-      
-                <div className="flex items-center justify-between">
-                  <span className="text-md flex font-bold text-gray-900 dark:text-white"> ${card.price}</span>
-                 
-                </div>
-              </div>
-            </Card>
-          </div>
-          ))}
-    </div>
+<div className="overflow-y-auto h-[95vh] w-full">
+  <div className="flex flex-wrap justify-center gap-8" style={{ overflowX: "hidden" }}>
+    {cardsData.map((card) => (
+      <div key={card.id} className="min-w-[300px] max-w-[100%] md:w-72">
+        <Card className='w-full h-44 md:h-auto rounded-3xl flex' imgAlt={`Image of ${card.name}`}>
+          <div className="flex flex-col gap-2">
+            <div className='flex items-center gap-2'>
+              <img className='w-16 rounded-md' src={card.imageSrc} alt={`Image of ${card.name}`} />
+              <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                {card.name}
+              </h1>
+            </div>
 
-    </div>
+            <div className="flex items-center justify-between">
+              <span className="text-md flex font-bold text-gray-900 dark:text-white">${card.price}</span>
+            </div>
+          </div>
+        </Card>
+      </div>
+    ))}
+  </div>
+</div>
 
 
   
     </Card>
     </div>
+    
 </div>
+</DarkModeProvider>
     </>
   );
 }

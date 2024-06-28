@@ -2,7 +2,9 @@ import React, { useState,useEffect } from "react";
 import { Card, Label, Button } from "flowbite-react";
 import { FcGoogle } from "react-icons/fc";
 import Select from "react-select";
-import DatePicker from "react-datepicker";
+ // Make sure to import the styles
+ import DatePiker from "../component/DatePiker";
+
 import { DarkModeProvider } from "../component/DarkModeProvider";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -356,30 +358,16 @@ const Register = () => {
             </div>
 
             <div className="flex gap-5 flex-col lg:flex-row">
-              <div className="flex flex-col w-full">
-                <Label
-                  className="text-md pb-4 font-semibold pt-4"
+            
+              <div className="relative gap-5 flex flex-col  w-full">
+              <Label
+                  className="text-md pb-2 mt-2 font-semibold "
                   value="Date of Birth"
                 />
-                <DatePicker
-                 required
-                  selected={selectedDate}
-                  onChange={handleDateChange}
-                  dateFormat="MM/dd/yyyy"
-                  placeholderText="Select your date of birth"
-                  className="rounded-md w-full border-1 border-gray-200 bg-gray-100 h-12 dark:bg-gray- dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
-                />
+                <DatePiker  />
               </div>
-              {/* <div className="flex flex-col gap-1 w-full">
-                <Label
-                  className="text-md pb-4 font-semibold pt-3"
-                  value="Phone Number"
-                />
-                <input
-                  type="password"
-                  className="rounded-md border-1 border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
-                />
-              </div> */}
+
+              
               
      <div className="flex items-center w-full relative  ">
       <div className="flex flex-col gap-7 flex-wrap">

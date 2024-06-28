@@ -73,6 +73,7 @@ const PaymentHistory = () => {
 
   return (
     <>
+    
       <Nav />
       <section className='flex mt-[110px] dark:bg-gray-900'>
         <Sidebars />

@@ -7,8 +7,11 @@ import { IoMdSend } from "react-icons/io";
 import { MdDateRange } from "react-icons/md";
 import { FaXTwitter,FaYoutube,FaLinkedin,FaFacebook,FaPinterest,FaSquareInstagram } from "react-icons/fa6";
 import React, { useState } from 'react';
+import { FaUserCircle,FaMoneyBillWave ,FaTimes,FaBars,FaGreaterThan} from "react-icons/fa";
 import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@heroicons/react/outline';
 import Nav from "../component/Nav"
+import { DarkModeProvider } from '../component/DarkModeProvider';
+
 
   const Community = () => {
 
@@ -37,30 +40,61 @@ import Nav from "../component/Nav"
       // Add more card data objects as needed
     ];
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <>
-    <Nav />
-    <div className='flex  gap-10 p-5 dark:bg-gray-900 mt-[110px]'>
+   <DarkModeProvider>
+    <div className='flex  gap-10 p-5 dark:bg-gray-900 flex-wrap-reverse sm:flex-wrap-reverse md:flex-wrap-reverse lg:flex-nowrap xl:flex-nowrap overflow-hidden '>
        
-      < Sidebars />
+{/* Sidebar and Toggle Button for Small Screens */}
+<div className="hidden lg:flex flex-shrink-0">
+        <Sidebars />
+      </div>
+
+    <div className="lg:hidden">
+        <button 
+          className="fixed top-[112px] left-1  dark:text-white text-[#101010] p-2 rounded-md z-50"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
+        </button>
+        <div className={`${isSidebarOpen ? 'block' : 'hidden'} fixed top-0 left-0 h-full z-40 bg-gray-900`}>
+          <Sidebars />
+        </div>
+      </div>
       <div className='flex flex-col '>
       <h1 className='text-2xl font-semibold pb-12'>The Afro Community </h1>
       <div className=' bg-gray-100  rounded-xl w-full p-5 dark:bg-gray-900'>
      
-      <div className='bg-gray-300 rounded-xl w-[100%] h-[500px] flex flex-col dark:bg-gray-800'></div>
-      <Button className='w-28 mt-2' color='dark' inline label= "destination"/>
+      <div className='bg-gray-300 rounded-xl  h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[500px] w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] flex flex-col dark:bg-gray-800'></div>
+
+      <button className='p-2 bg-[#2689FE] rounded-xl mt-2'>destination</button>
      
-      <div className='gap-5 w-[72%] p-6'>
-      <h1 className='text-4xl font-semibold pt-2'>How 10 Things Will Change The Way You  Approach This  New  Dubai</h1>
-      <p className='text-sm pt-5'>Traveling is A wonderful  Way To Explore New places, Learn About  Different  Cultures  and Gain new Experiences.
-       Traveling is A wonderful  Way To Explore New places, Learn About  Different  Cultures  and Gain new Experiences Traveling is A wonderful  
-       Way To Explore New places, Learn About  Different  Cultures  and Gain new Experiences Traveling is A wonderful  Way To Explore New places,
-        Learn About  Different  Cultures  and Gain new Experiences     </p>
-        <span className='flex gap-3 '>
-        <h1 className='text-xl font-semibold pt-2 gap-3 border-r-2 border-r-black flex w-44'><CgProfile className='text-4xl text-white bg-black rounded-full'/> By John Doe </h1><IoTimeOutline className='text-2xl mt-2'/> <p className='mt-2'>12  04 2024</p> </span>
+      <div className='flex w-full flex-col justify-start'>
+        <h1 className='text-xl  font-semibold pt-2'>
+          How 10 Things Will Change The Way  <br /> You Approach This New Dubai
+        </h1>
+        <p className='text-sm sm:text-base md:text-lg pt-5 dark:text-white'>
+          Traveling is a wonderful way to explore  <br />
+          Traveling is a wonderful way to explore  <br />
+          Traveling is a wonderful way to explore  <br />
+          Traveling is a wonderful way to explore 
+          </p>
+        <div className='flex flex-col sm:flex-row sm:items-center gap-3 pt-4'>
+          <div className='flex items-center gap-3 border-r-2 border-r-black pr-3'>
+            <CgProfile className='text-3xl sm:text-4xl text-white bg-black rounded-full' />
+            <h2 className='text-base sm:text-lg md:text-xl font-semibold'>By John Doe</h2>
+          </div>
+          <div className='flex items-center gap-2'>
+            <IoTimeOutline className='text-lg sm:text-xl md:text-2xl' />
+            <p className='text-sm sm:text-base md:text-lg'>12 04 2024</p>
+          </div>
+        </div>
       </div>
 {/* card */}
-  <div className='flex gap-5 '>
+  <div className='flex gap-5 flex-wrap sm:flex-wrap md:flex-wrap lg:flex-nowrap xl:flex-nowrap'>
     <div className='bg-gray-300 rounded-2xl w-80 h-96 flex justify-end items-start p-4 flex-col  dark:bg-gray-800'>
     <Button color="blue" pill>
         Destination
@@ -89,94 +123,102 @@ import Nav from "../component/Nav"
 
 {/* message sender part */}
 
-  <div className="flex items-center border-t border-gray-200 pt-12">
-     
-      <input
-        type="text"
-        placeholder="Type your message..."
-        value={message}
-        onChange={handleMessageChange}
-        className="flex-grow px-4 py-2 outline-none border-none rounded-full bg-gray-200 dark:bg-gray-800"
-      />
+<div className="flex  border-t border-gray-200 pt-5">
+  <input
+    type="text"
+    placeholder="Type your message..."
+    value={message}
+    onChange={handleMessageChange}
+    className="flex-grow  rounded-full bg-gray-200 dark:bg-gray-800 border-none outline-none"
+  />
+  <button
+    onClick={sendMessage}
+    className=" px-2 sm:px-1 py-1 sm:py-1 rounded-full bg-blue-500 text-white flex items-center justify-center"
+  >
+    <IoMdSend className='text-xl sm:text-2xl' />
+  </button>
+  <button className="ml-2 p-2 sm:p-3">
+    <EmojiHappyIcon className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />
+  </button>
+  <button className="ml-2 p-2 sm:p-3">
+    <MicrophoneIcon className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />
+  </button>
+  <button className="ml-2 p-2 sm:p-3">
+    <CameraIcon className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />
+  </button>
+  <button className="ml-2 p-2 sm:p-3">
+    <PaperClipIcon className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />
+  </button>
+</div>
 
-      <button
-        onClick={sendMessage}
-        className="px-4 py-2"
-      >
-        <IoMdSend className='text-2xl '/>
-      </button>
-      <button className="p-2">
-  
-        <EmojiHappyIcon className="h-6 w-6 text-gray-500" />
-      </button>
-      <button className="p-2">
-        <MicrophoneIcon className="h-6 w-6 text-gray-500" />
-      </button>
-      <button className="p-2">
-        <CameraIcon className="h-6 w-6 text-gray-500" />
-      </button>
-      <button className="p-2">
-        <PaperClipIcon className="h-6 w-6 text-gray-500" />
-      </button>
-     
-    </div>
 
       </div>
      
       </div>
 
 {/* Social Network */}
-      <div className='h-screen bg-slate-100 rounded-xl w-[40%] flex flex-col mt-4 p-8 dark:bg-gray-900'>
-<h1 className='text-2xl font-semibold'>Social Networks</h1>
-<div className='flex flex-col pt-8 gap-3'>
-  <div className='flex gap-5 '>
-  <a href="#" className="flex dark:bg-gray-800  p-4 bg-white rounded-full text-xl gap-5"><FaSquareInstagram className='text-4xl bg-white text-black'/>
- Instagram</a>
-  <a href="#" className="flex dark:bg-gray-800 p-4 bg-white rounded-full text-xl gap-5"><FaXTwitter className='text-4xl bg-black text-white'/>
- Twitter X</a>
+<div className='h-screen bg-slate-100 rounded-xl w-full lg:w-[40%] flex flex-col mt-4 p-4 sm:p-6 md:p-8 dark:bg-gray-900'>
+  <h1 className='text-lg sm:text-xl md:text-2xl font-semibold'>Social Networks</h1>
+  
+  <div className='flex flex-col pt-6 sm:pt-8 gap-3'>
+    <div className='flex flex-col sm:flex-row gap-5'>
+      <a href="#" className="flex items-center dark:bg-gray-800 p-3 sm:p-4 bg-white rounded-full text-base sm:text-lg md:text-xl gap-3 sm:gap-5">
+        <FaSquareInstagram className='text-3xl sm:text-4xl bg-white text-black'/>
+        Instagram
+      </a>
+      <a href="#" className="flex items-center dark:bg-gray-800 p-3 sm:p-4 bg-white rounded-full text-base sm:text-lg md:text-xl gap-3 sm:gap-5">
+        <FaXTwitter className='text-3xl sm:text-4xl bg-black text-white'/>
+        Twitter X
+      </a>
+    </div>
+    
+    <div className='flex flex-col sm:flex-row gap-5'>
+      <a href="#" className="flex items-center dark:bg-gray-800 p-3 sm:p-4 bg-white rounded-full text-base sm:text-lg md:text-xl gap-3 sm:gap-5">
+        <FaFacebook className='text-3xl sm:text-4xl text-blue-700'/>
+        Facebook
+      </a>
+      <a href="#" className="flex items-center dark:bg-gray-800 p-3 sm:p-4 bg-white rounded-full text-base sm:text-lg md:text-xl gap-3 sm:gap-5">
+        <FaYoutube className='text-3xl sm:text-4xl text-red-700'/>
+        YouTube
+      </a>
+    </div>
+
+    <div className='flex flex-col sm:flex-row gap-5'>
+      <a href="#" className="flex items-center dark:bg-gray-800 p-3 sm:p-4 bg-white rounded-full text-base sm:text-lg md:text-xl gap-3 sm:gap-5">
+        <FaPinterest className='text-3xl sm:text-4xl text-red-700'/>
+        Pinterest
+      </a>
+      <a href="#" className="flex items-center dark:bg-gray-800 p-3 sm:p-4 bg-white rounded-full text-base sm:text-lg md:text-xl gap-3 sm:gap-5">
+        <FaLinkedin className='text-3xl sm:text-4xl text-blue-700'/>
+        LinkedIn
+      </a>
+    </div>
   </div>
- <div className='flex gap-5 '>
- <a href="#" className=" flex dark:bg-gray-800 p-4 bg-white rounded-full text-xl gap-5"><FaFacebook className='text-4xl text-blue-700'/>
- Facebook</a>
-  <a href="#" className="flex dark:bg-gray-800 p-4 bg-white rounded-full text-xl gap-5"><FaYoutube className='text-4xl text-red-700'/>
- You Tube</a>
- </div>
-  <div className='flex gap-5 '>
-  <a href="#" className="flex dark:bg-gray-800  p-4 bg-white rounded-full text-xl gap-5"><FaPinterest className='text-4xl text-red-700'/>
- Pinterest</a>
-  <a href="#" className="flex dark:bg-gray-800 p-4 bg-white rounded-full text-xl gap-5"><FaLinkedin className='text-4xl text-blue-700'/>
- Linked in</a>
+
+  {/* card */}
+  <div className="overflow-y-auto h-[45vh] sm:h-[55vh] md:h-[70vh] lg:h-[80vh] w-full mt-6 sm:mt-8">
+    <h1 className='text-lg sm:text-xl md:text-xl font-medium'>Announcement</h1>
+    <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:gap-5 md:gap-6" style={{ overflowX: "hidden" }}>
+      {cardsData.map((card) => (
+        <div key={card.id} className="w-full sm:w-[48%] md:w-[32%] lg:w-[24%] flex flex-col gap-2 min-w-[200px]">
+          <Card className='w-full h-28 rounded-2xl bg-gray-300 flex' imgAlt={`Image of ${card.name}`} >
+            <div className="flex flex-col gap-2">
+              <div className='flex gap-2'>
+                {/* Image or any other content can be here */}
+              </div>
+            </div>
+          </Card>
+          <h1 className='text-md font-medium'>Seven Things To Avoid in Photography</h1>
+        </div>
+      ))}
+    </div>
   </div>
- 
 </div>
 
-{/* card  */}
-<div className="overflow-y-auto h-[95vh] w-[100%]  mt-8">
-      <div className="flex   gap-10 flex-wrap" style={{ overflowX: "hidden" }}>
-      <h1 className='text-xl font-medium'>Announcement</h1>
-        {cardsData.map((card) => (
-          
-          <div key={card.id} className="flex gap-2" style={{ minWidth: "300px" }}>  
-            <Card className=' w-72 h-28 rounded-2xl bg-gray-300  flex' imgAlt={`Image of ${card.name}`} >
-              <div className="flex flex-col gap-2">
-            <div className='flex gap-2'>
-              
-               
-                </div>
-              </div>
-            </Card>
-            <h1 className='text-md font-medium'>Seven Things To avoid in Photography</h1>
-          </div>
-          ))}
-    </div>
-
-    </div>
-        
-      </div>
-      
-
       
     </div>
+    </DarkModeProvider>
+
     </>
   )
 }
