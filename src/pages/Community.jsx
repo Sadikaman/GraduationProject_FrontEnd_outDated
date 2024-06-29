@@ -1,4 +1,5 @@
-// import React from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+
 import Sidebars from '../component/Sidebars'
 import { Button,Card } from 'flowbite-react'
 import { CgProfile } from "react-icons/cg";
@@ -6,7 +7,6 @@ import { IoTimeOutline } from "react-icons/io5";
 import { IoMdSend } from "react-icons/io";
 import { MdDateRange } from "react-icons/md";
 import { FaXTwitter,FaYoutube,FaLinkedin,FaFacebook,FaPinterest,FaSquareInstagram } from "react-icons/fa6";
-import React, { useState } from 'react';
 import { FaUserCircle,FaMoneyBillWave ,FaTimes,FaBars,FaGreaterThan} from "react-icons/fa";
 import { EmojiHappyIcon, MicrophoneIcon, CameraIcon, PaperClipIcon } from '@heroicons/react/outline';
 import Nav from "../component/Nav"
@@ -27,22 +27,39 @@ import { DarkModeProvider } from '../component/DarkModeProvider';
     setMessage('');
   };
     const cardsData = [
-      { id: 1, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 2, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 3, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 4, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 5, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 6, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 7, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 8, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 9, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
-      { id: 10, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/images.jpeg" },
+      { id: 1, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 2, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 3, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 4, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 5, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 6, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 7, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 8, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 9, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
+      { id: 10, name: "Lalibela", rating: 4.5, price: 599, imageSrc: "/comming-soon.jpeg" },
       // Add more card data objects as needed
     ];
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isSidebarOpen]);
   return (
     <>
    <DarkModeProvider>
@@ -50,27 +67,36 @@ import { DarkModeProvider } from '../component/DarkModeProvider';
        
 {/* Sidebar and Toggle Button for Small Screens */}
 <div className="hidden lg:flex flex-shrink-0">
-        <Sidebars />
-      </div>
-
-    <div className="lg:hidden">
-        <button 
-          className="fixed top-[112px] left-1  dark:text-white text-[#101010] p-2 rounded-md z-50"
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        >
-          {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
-        </button>
-        <div className={`${isSidebarOpen ? 'block' : 'hidden'} fixed top-0 left-0 h-full z-40 bg-gray-900`}>
-          <Sidebars />
-        </div>
-      </div>
+            <Sidebars />
+          </div>
+          <div className="lg:hidden relative">
+            <button 
+              className="fixed top-[112px] left-1 dark:text-white text-[#101010] p-2 rounded-md z-50"
+              onClick={(e) => {
+                setIsSidebarOpen(!isSidebarOpen);
+                e.stopPropagation(); // Prevents the click from closing the sidebar immediately
+              }}
+            >
+              {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
+            </button>
+            {isSidebarOpen && (
+              <div
+                ref={sidebarRef}
+                className="fixed top-0 left-0 h-full z-40 bg-gray-900  transition-all duration-300"
+              >
+                <Sidebars />
+              </div>
+            )}
+          </div>
       <div className='flex flex-col '>
       <h1 className='text-2xl font-semibold pb-12'>The Afro Community </h1>
       <div className=' bg-gray-100  rounded-xl w-full p-5 dark:bg-gray-900'>
      
-      <div className='bg-gray-300 rounded-xl  h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[500px] w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] flex flex-col dark:bg-gray-800'></div>
+      <div className='flex'>
+        <img src="/afar.jpg" className='rounded-xl  h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[500px] w-[300px] sm:w-[400px] md:w-[500px] lg:w-[700px] xl:w-[900px] flex flex-col dark:bg-gray-800' alt="" />
+      </div>
 
-      <button className='p-2 bg-[#2689FE] rounded-xl mt-2'>destination</button>
+      <button className='p-2 bg-[#2689FE] rounded-xl mt-2 '>destination</button>
      
       <div className='flex w-full flex-col justify-start'>
         <h1 className='text-xl  font-semibold pt-2'>
@@ -200,19 +226,25 @@ import { DarkModeProvider } from '../component/DarkModeProvider';
     <h1 className='text-lg sm:text-xl md:text-xl font-medium'>Announcement</h1>
     <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:gap-5 md:gap-6" style={{ overflowX: "hidden" }}>
       {cardsData.map((card) => (
-        <div key={card.id} className="w-full sm:w-[48%] md:w-[32%] lg:w-[24%] flex flex-col gap-2 min-w-[200px]">
-          <Card className='w-full h-28 rounded-2xl bg-gray-300 flex' imgAlt={`Image of ${card.name}`} >
+        <div 
+        key={card.id} 
+        className="card rounded-2xl h-32 justify-end w-full sm:w-[48%] md:w-[32%] lg:w-[24%] flex flex-col gap-2 min-w-[200px]"
+        style={{ backgroundImage: `url(${card.imageSrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+       
+          <card  className='w-full h-28 rounded-2xl flex'  >
             <div className="flex flex-col gap-2">
               <div className='flex gap-2'>
                 {/* Image or any other content can be here */}
               </div>
             </div>
-          </Card>
-          <h1 className='text-md font-medium'>Seven Things To Avoid in Photography</h1>
+          </card>
+          <h1 className='text-md text-[#ffffff] font-bold'>Seven Things To Avoid in Photography</h1>
         </div>
       ))}
     </div>
   </div>
+  
 </div>
 
       

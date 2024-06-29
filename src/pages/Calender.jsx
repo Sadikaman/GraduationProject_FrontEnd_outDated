@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useRef,useEffect } from 'react';
 import { Card,Dropdown,Sidebar,Datepicker,Progress } from "flowbite-react";
 import { FaUserCircle,FaMoneyBillWave ,FaTimes,FaBars} from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
@@ -66,7 +66,7 @@ const CardContainer = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCards, setFilteredCards] = useState(cardsData);
   const [hiddenCards, setHiddenCards] = useState([]); // To track hidden cards
-
+  const sidebarRef = useRef(null);
   const handleSearch = (query) => {
     setSearchQuery(query);
     if (query) {
@@ -83,6 +83,22 @@ const CardContainer = () => {
   const handleHover = (event) => {
     event.target.setAttribute('title', 'Hide until next session');
   };
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isSidebarOpen]);
 
   return (
     <DarkModeProvider>
@@ -92,21 +108,27 @@ const CardContainer = () => {
     <div className="dark:bg-gray-900 dark:text-white flex gap-10   w-[99%] overflow-hidden   flex-wrap-reverse sm:flex-wrap-reverse md:flex-wrap-reverse lg:flex-nowrap xl:flex-nowrap ">
     {/* Sidebar and Toggle Button for Small Screens */}
     <div className="hidden lg:flex flex-shrink-0">
-        <Sidebars />
-      </div>
-
-      {/* Toggle Button and Sidebar for Small Screens */}
-      <div className="lg:hidden">
-        <button 
-          className="fixed top-[112px] left-1  dark:text-white text-[#101010] text-xl font-bold rounded-md z-50"
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        >
-          {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
-        </button>
-        <div className={`${isSidebarOpen ? 'block' : 'hidden'} fixed top-0 left-0 h-full z-40 bg-gray-900`}>
-          <Sidebars />
-        </div>
-      </div>
+            <Sidebars />
+          </div>
+          <div className="lg:hidden relative">
+            <button 
+              className="fixed top-[112px] left-1 dark:text-white text-[#101010] p-2 rounded-md z-50"
+              onClick={(e) => {
+                setIsSidebarOpen(!isSidebarOpen);
+                e.stopPropagation(); // Prevents the click from closing the sidebar immediately
+              }}
+            >
+              {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
+            </button>
+            {isSidebarOpen && (
+              <div
+                ref={sidebarRef}
+                className="fixed top-0 left-0 h-full z-40 bg-gray-900  transition-all duration-300"
+              >
+                <Sidebars />
+              </div>
+            )}
+          </div>
 
 <div className='flex flex-col'>
     
