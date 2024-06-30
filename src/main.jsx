@@ -34,8 +34,9 @@ import TpEarning from "./pages/TpEarning.jsx";
 import Notification from "./pages/Notification.jsx";
 import TpSetting from "./pages/TpSetting.jsx";
 import TpTransaction from "./pages/TpTransaction.jsx";
-import MessagingInterface from "./pages/MessagingInterface.jsx";
+import TpMessagingInterface from "./pages/TpMessagingInterface.jsx";
 import DatePiker from "./component/DatePiker.jsx";
+import UserMessagingInterface from "./pages/UserMessagingInterface.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -163,17 +164,17 @@ const router = createBrowserRouter([
         element:<TpTransaction />
       },
       {
-        path: "/MessagingInterface",
-        element:<MessagingInterface />
+        path: "/TpMessagingInterface",
+        element:<TpMessagingInterface />
       },
       {
         path: "/DatePiker",
         element:<DatePiker />
       },
-      // {
-      //   path: "/DatePiker",
-      //   element:<TpSetting />
-      // },
+      {
+        path: "/UserMessagingInterface",
+        element:<UserMessagingInterface />
+      },
     ],
   },
 ]);

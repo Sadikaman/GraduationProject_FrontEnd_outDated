@@ -1,26 +1,12 @@
-import React ,{ useState, useRef, useEffect }from 'react'
-import { FaUserCircle,FaMoneyBillWave ,FaPlus} from "react-icons/fa";
-import { Card,Dropdown,Sidebar,Datepicker,Progress } from "flowbite-react";
-import TravelProviderSidebadr from '../component/TravelProviderSidebadr'
-import { CiStar } from "react-icons/ci";
-import { PiHandWaving } from "react-icons/pi";
-import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
-import { PiAirplaneTakeoffBold } from "react-icons/pi";
-import { MdOutlineHotel } from "react-icons/md";
-import { IoLocationOutline,IoAirplane } from "react-icons/io5";
-import { SiEthiopianairlines } from "react-icons/si";
-import { GiCommercialAirplane } from "react-icons/gi";
-import { BiSolidLike } from "react-icons/bi";
-import { FaDollarSign, FaWifi, FaSun,FaStar,FaSatelliteDish,FaShieldAlt } from 'react-icons/fa'; // Import React icons
-import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
-import AddPackageModal from '../component/AddPackageModal';
+import React, { useState,useEffect,useRef } from 'react';
+import { FaUserCircle, FaMoneyBillWave,FaTimes,FaGreaterThan } from "react-icons/fa";
+import { GiPieChart } from "react-icons/gi";
+import { Dropdown } from "flowbite-react";
+import TravelProviderSidebadr from '../component/TravelProviderSidebadr';
 import { MdDownload } from "react-icons/md";
 import { DarkModeProvider } from '../component/DarkModeProvider';
-import { GiPieChart } from "react-icons/gi";
 
 "use client";
-
-
 
 const payments = [
   {
@@ -58,114 +44,152 @@ const payments = [
     date: '2024-06-18',
     status: 'Pending'
   },
-  
-  
 ];
 
 
-import { Bar } from 'react-chartjs-2';
 
 
 const TpEarning = () => {
-
-  
-
+ 
+  const [hiddenCards, setHiddenCards] = useState([]); // To track hidden cards
+  const sidebarRef = useRef(null);
+const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+const handleClickOutside = (event) => {
+  if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+    setIsSidebarOpen(false);
+  }
+};
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isSidebarOpen]);
   return (
-    <>
-    <DarkModeProvider>
-   <section className=' flex flex-col'>
-   <TravelProviderSidebadr />
-    {/* //////////// */}
-<div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-    <div className=' flex   mt-5 gap-[1000px]  overflow-hidden '>
-
-   <h1 className='flex text-black text-2xl font-bold gap-2'><GiPieChart className='text-2xl'/>Earning</h1>
-
-   <div className='flex dark:bg-gray-900 w-full p-4'>
-     <FaUserCircle className='text-4xl ' />
-      <Dropdown inline label="Jeremy Zuck ">
-          <Dropdown.Item>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+    <div className="flex flex-col sm:flex-row">
+      <DarkModeProvider>
+        
+            <TravelProviderSidebadr />
+        
+         
+            <div className="lg:hidden relative">
+            <button 
+              className="fixed top-[112px] left-1 dark:text-white text-[#101010] p-2 rounded-md z-50"
+              onClick={(e) => {
+                setIsSidebarOpen(!isSidebarOpen);
+                e.stopPropagation(); // Prevents the click from closing the sidebar immediately
+              }}
             >
-              Edit
-            </a>
-          </Dropdown.Item>
-          <Dropdown.Item>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Export Data
-            </a>
-          </Dropdown.Item>
-          <Dropdown.Item>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Delete
-            </a>
-          </Dropdown.Item>
-        </Dropdown>
-        </div>
-        </div>
-    </div>
-<div className='flex ml-72 mt-20 '>
-  <div className='flex flex-col gap-8'>
-    <div className='w-96 h-52 bg-gray-100 rounded-xl flex flex-col  p-10 gap-10 '>
-      <h1 className='flex flex-col text-gray-400 '>Total balances<p className='text-black font-bold text-xl'>$ 389.07</p></h1>
-      <div className='flex gap-4'>
-        <button className='bg-[#101010] text-[#FFFFFF] rounded-full p-2 w-28'>Send</button>
-        <button className='bg-[#101010] text-[#FFFFFF] rounded-full p-2 w-28'>Request </button>
-        <button className='bg-[#101010] text-[#FFFFFF] rounded-full p-2 w-28'>Refund</button>
-      </div>
-    </div>
-    {/* ////// */}
-    <div className='flex flex-col gap-2'>
-        <h1 className='text-xl font-semibold'>Transaction</h1>
-        <div className='overflow-x-auto rounded-xl' >
-            <table className='w-full bg-gray-100 '>
-              <thead>
-                <tr className='bg-gray-100'>
-                  <th className='p-5 text-left border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" /> Payment Invoice</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Amount</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Date</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Status</th>
-                  <th className='p-5 text-left border-b-2 border-gray-300'>Download</th>
-                </tr>
-              </thead>
-              <tbody>
-                {payments.map((payment) => (
-                  <tr key={payment.id} className='text-left'>
-                    <td className='p-5 border-b-2 border-gray-300 flex gap-5'><input type="checkbox" name="" className='rounded-md text-black' id="" />  {payment.invoice}</td>
-                    <td className='p-5 border-b-2 border-gray-300'>  ${payment.amount.toFixed(2)}</td>
-                    <td className='p-5 border-b-2 border-gray-300'> {new Date(payment.date).toLocaleDateString()}</td>
-                    <td className='p-5 border-b-2 border-gray-300'>
-                      <span className={`p-1 rounded ${payment.status === 'Paid' ? 'bg-green-200' : 'bg-red-200'}`}>
-                       {payment.status}
-                      </span>
-                    </td>
-                    <td className='p-2 border-b-2 border-gray-300'>
-                      <button className='flex items-center justify-center text-xl gap-3 text-[#2986FE]   rounded-full px-2 py-1'>
-                        <MdDownload /> Download
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              {isSidebarOpen ? <FaTimes /> : <FaGreaterThan />}
+            </button>
+            {isSidebarOpen && (
+              <div
+                ref={sidebarRef}
+                className="fixed top-0 left-0 h-full z-40 bg-gray-900  transition-all duration-300"
+              >
+                <TravelProviderSidebadr />
+              </div>
+            )}
           </div>
+        <section className="flex-grow p-4 ">
+          <div className="flex flex-col sm:flex-row justify-between border-b-2 w-full h-24 border-b-gray-400 mb-4">
+            <h1 className="flex text-black text-2xl dark:text-white font-bold items-center gap-2 mb-4 sm:mb-0">
+              <GiPieChart className="text-2xl dark:text-white" />
+              Earning
+            </h1>
+            <div className="flex dark:bg-gray-900 gap-5 items-center">
+              <FaUserCircle className="text-4xl" />
+              <Dropdown inline label="Jeremy Zuck">
+                <Dropdown.Item>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Edit
+                  </a>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Export Data
+                  </a>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Delete
+                  </a>
+                </Dropdown.Item>
+              </Dropdown>
+            </div>
+          </div>
+          
+          <div className="flex flex-col  gap-8">
+            <div className="w-full lg:w-1/3 bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col p-6 gap-4 shadow-lg">
+              <h1 className="flex flex-col text-gray-400 dark:text-gray-300">
+                Total balances
+                <p className="text-black dark:text-white font-bold text-xl">$ 389.07</p>
+              </h1>
+              <div className="flex justify-between gap-4">
+                <button className="bg-[#101010] text-white rounded-full py-2 px-4 w-full lg:w-1/3">Send</button>
+                <button className="bg-[#101010] text-white rounded-full py-2 px-4 w-full lg:w-1/3">Request</button>
+                <button className="bg-[#101010] text-white rounded-full py-2 px-4 w-full lg:w-1/3">Refund</button>
+              </div>
+            </div>
+            
+            <div className="flex flex-col gap-4 w-full">
+              <h1 className="text-xl font-semibold dark:text-white">Transaction</h1>
+              <div className="overflow-x-auto rounded-xl shadow-lg">
+                <table className="min-w-full bg-gray-100 dark:bg-gray-800">
+                  <thead>
+                    <tr className="bg-gray-100 dark:bg-gray-700">
+                      <th className="p-5 text-left border-b-2 border-gray-300 dark:border-gray-600">
+                        <input type="checkbox" className="rounded-md text-black dark:text-white" /> Payment Invoice
+                      </th>
+                      <th className="p-5 text-left border-b-2 border-gray-300 dark:border-gray-600">Amount</th>
+                      <th className="p-5 text-left border-b-2 border-gray-300 dark:border-gray-600">Date</th>
+                      <th className="p-5 text-left border-b-2 border-gray-300 dark:border-gray-600">Status</th>
+                      <th className="p-5 text-left border-b-2 border-gray-300 dark:border-gray-600">Download</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {payments.map((payment) => (
+                      <tr key={payment.id} className="text-left">
+                        <td className="p-5 border-b-2 border-gray-300 dark:border-gray-600 flex items-center gap-5">
+                          <input type="checkbox" className="rounded-md text-black dark:text-white" />
+                          {payment.invoice}
+                        </td>
+                        <td className="p-5 border-b-2 border-gray-300 dark:border-gray-600">${payment.amount.toFixed(2)}</td>
+                        <td className="p-5 border-b-2 border-gray-300 dark:border-gray-600">{new Date(payment.date).toLocaleDateString()}</td>
+                        <td className="p-5 border-b-2 border-gray-300 dark:border-gray-600">
+                          <span className={`p-1 rounded ${payment.status === 'Paid' ? 'bg-green-200 dark:bg-green-700' : 'bg-red-200 dark:bg-red-700'}`}>
+                            {payment.status}
+                          </span>
+                        </td>
+                        <td className="p-2 border-b-2 border-gray-300 dark:border-gray-600">
+                          <button className="flex items-center justify-center text-xl gap-3 text-[#2986FE] rounded-full px-2 py-1">
+                            <MdDownload /> Download
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </DarkModeProvider>
     </div>
-  </div>
-</div>
+  );
+};
 
-
-    </section>   
-    </DarkModeProvider>
-    </>
-  )
-}
-
-export default TpEarning
+export default TpEarning;

@@ -18,10 +18,10 @@
       animation-delay: 0s;
     }
   }
-* {
+/* * {
     @apply transition-all duration-200
     
-}
+} */
 html {
     font-family: 'dm-sans', sans-serif;
 }

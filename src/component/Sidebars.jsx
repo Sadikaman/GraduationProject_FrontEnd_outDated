@@ -31,7 +31,7 @@ function Sidebars() {
           <Sidebar.Item href="/Community">
           <FaUsers className='text-blue-500 text-4xl'/>
           </Sidebar.Item>
-          <Sidebar.Item href="/MessagingInterface">
+          <Sidebar.Item href="/UserMessagingInterface">
           <MdOutlineSupportAgent className='text-blue-500 text-4xl'/>
           </Sidebar.Item>
           <Sidebar.Item href="./PaymentHistory">

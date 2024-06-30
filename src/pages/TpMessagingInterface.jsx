@@ -3,7 +3,7 @@ import { FaUserCircle, FaPaperPlane, FaRegSmile, FaGreaterThan, FaTimes } from "
 import { AiOutlineSearch } from "react-icons/ai";
 import EmojiPicker from 'emoji-picker-react'; // Import Emoji Picker
 import { DarkModeProvider } from '../component/DarkModeProvider';
-import Sidebars from '../component/Sidebars';
+import TravelProviderSidebadr from '../component/TravelProviderSidebadr';
 
 const users = [
   { id: 1, name: "John Doe", status: "Traveler" },
@@ -111,7 +111,7 @@ const MessageWindow = ({ messages, onSendMessage }) => {
   );
 };
 
-const MessagingInterface = () => {
+const TpMessagingInterface = () => {
   const [selectedUser, setSelectedUser] = useState(users[0]); // Default to first user
   const [messages, setMessages] = useState(initialMessages);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -154,7 +154,7 @@ const MessagingInterface = () => {
       <DarkModeProvider>
         <section className="flex w-full h-screen">
           <div className="hidden lg:flex flex-shrink-0">
-            <Sidebars />
+            <TravelProviderSidebadr />
           </div>
           <div className="lg:hidden relative">
             <button 
@@ -171,7 +171,7 @@ const MessagingInterface = () => {
                 ref={sidebarRef}
                 className="fixed top-0 left-0 h-full z-40 bg-gray-900  transition-all duration-300"
               >
-                <Sidebars />
+                <TravelProviderSidebadr />
               </div>
             )}
           </div>
@@ -187,4 +187,4 @@ const MessagingInterface = () => {
   );
 };
 
-export default MessagingInterface;
+export default TpMessagingInterface;

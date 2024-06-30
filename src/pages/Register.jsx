@@ -4,19 +4,19 @@ import { FcGoogle } from "react-icons/fc";
 import Select from "react-select";
  // Make sure to import the styles
  import DatePiker from "../component/DatePiker";
-
+import PhoneInputForm from "../component/PhoneInputForm";
 import { DarkModeProvider } from "../component/DarkModeProvider";
 import "react-datepicker/dist/react-datepicker.css";
 
 const countries = [
-  { code: '+1', flag: '🇺🇸', name: 'United States' },
-  { code: '+7', flag: '🇷🇺', name: 'Russia' },
-  { code: '+20', flag: '🇪🇬', name: 'Egypt' },
-  { code: '+27', flag: '🇿🇦', name: 'South Africa' },
-  { code: '+30', flag: '🇬🇷', name: 'Greece' },
-  { code: '+31', flag: '🇳🇱', name: 'Netherlands' },
-  { code: '+32', flag: '🇧🇪', name: 'Belgium' },
-  { code: '+33', flag: '🇫🇷', name: 'France' },
+  { code: '+1', flag: '🇺🇸', name: 'United States' ,},
+  { code: '+7', flag: '🇷🇺', name: 'Russia' ,},
+  { code: '+20', flag: '🇪🇬', name: 'Egypt' ,},
+  { code: '+27', flag: '🇿🇦', name: 'South Africa' ,},
+  { code: '+30', flag: '🇬🇷', name: 'Greece' ,},
+  { code: '+31', flag: '🇳🇱', name: 'Netherlands' ,},
+  { code: '+32', flag: '🇧🇪', name: 'Belgium' ,},
+  { code: '+33', flag: '🇫🇷', name: 'France' ,},
   { code: '+34', flag: '🇪🇸', name: 'Spain' },
   { code: '+36', flag: '🇭🇺', name: 'Hungary' },
   { code: '+39', flag: '🇮🇹', name: 'Italy' },
@@ -220,32 +220,28 @@ const countries = [
 ];
 const Register = () => {
 
+
+  const [showFormPart1, setShowFormPart1] = useState(true);
+  const [showFormPart2, setShowFormPart2] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [filteredCountries, setFilteredCountries] = useState(countries);
+  const [gender, setGender] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
+
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 768) {  // Example breakpoint for large screens
+      if (window.innerWidth >= 768) {
         setShowFormPart2(true);
       } else {
         setShowFormPart2(false);
       }
     }
 
-    // Initial check on mount
     handleResize();
-
-    // Event listener for resize
     window.addEventListener('resize', handleResize);
 
-    // Clean up
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-
-
-  const [showFormPart1, setShowFormPart1] = useState(true);
-  const [showFormPart2, setShowFormPart2] = useState(false);
-  
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
-  const [phoneNumber, setPhoneNumber] = useState('');
 
   const handleForwardClick = () => {
     setShowFormPart1(false);
@@ -255,21 +251,13 @@ const Register = () => {
   const handleBackwardClick = () => {
     setShowFormPart1(true);
     setShowFormPart2(false);
-  }; 
-  
+  };
+
   const handleCountryChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
     console.log(`Selected country:`, selectedOption);
-    // You can perform any other actions with the selected option here
   };
 
-  // Transforming countries array into options array with label and value properties
-  const countryOptions = countries.map(country => ({
-    value: country.code,
-    label: `${country.name} ${country.flag}` // Displaying name and flag as a single string
-  }));
-
-  const [filteredCountries, setFilteredCountries] = useState(countries);
   const handleSearchInputChange = (e) => {
     const searchQuery = e.target.value.toLowerCase();
     const filtered = countries.filter((country) =>
@@ -278,47 +266,55 @@ const Register = () => {
     setFilteredCountries(filtered);
   };
 
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
-  };
-
-  const [gender, setGender] = useState("");
   const handleGenderChange = (e) => {
     setGender(e.target.value);
   };
 
-  const handleCountrySelect = (country) => {
-    setSelectedCountry(country);
-    setDropdownVisible(false);
-  };
-  
-
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
-  };
-  const [selectedDate, setSelectedDate] = useState(null);
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
+
+  // Transform countries array into options array with label and value properties
+  const countryOptions = countries.map(country => ({
+    value: country.code,
+    label: `${country.name} ${country.flag}`
+  }));
+
   
+  const [theme, setTheme] = useState("Light");
+  // Initialize dark mode state from localStorage
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true"
+  );
+  
+
   return (
     <DarkModeProvider>
-    <div className="font-kanit transition-colors flex justify-center w-full overflow-hidden  ">
+    <div className="dark:bg-gray-900 h-full min-h-screen ">
+   
+    <div className="font-kanit  flex justify-center w-full overflow-hidden ">
       <div className="flex flex-col md:flex-row gap-16 w-[80%] ">
         <form className="flex flex-col py-3 px-6 w-full ">
         {showFormPart1 && (
          <>
-          <div className="w-[100px] h-[100px] rounded-full relative overflow-hidden ">
-            <a href="/">
+          
+          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          {/* Use different images for light and dark mode */}
+          {darkMode ? (
             <img
-              src="/AfroLogo.png"
-              alt="AfroLogo"
-              className="object-cover absolute inset-0 m-auto"
+              src="/AfroLogo.jpg" // Dark mode logo image
+              className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+              alt="Afro Logo"
             />
-            </a>
-          </div>
+          ) : (
+            <img
+              src="/AfroLogo.png" // Light mode logo image
+              className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+              alt="Afro Logo"
+            />
+          )}
+        </a>
+         
           <div className="">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-2 md:pt-4 lg:pt-6">
             Sign Up
@@ -339,7 +335,7 @@ const Register = () => {
                  required
                   type="text"
                   placeholder="Enter Your First Name"
-                  className="rounded-md border-1  border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white hover:dark:shadow-cyan-500 duration-200"
+                  className="rounded-md border-1  border-gray-200 bg-gray-100 h-12 dark:bg-[#374151]  dark:text-white hover:dark:shadow-cyan-500 duration-200"
                 />
               </div>
               <div className="flex flex-col w-full pt-1">
@@ -352,92 +348,24 @@ const Register = () => {
                  required
                  placeholder="Example@gmail.com"
                   type="email"
-                  className="rounded-md border-1 border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white hover:dark:shadow-cyan-500 duration-200"
+                  className="rounded-md border-1 border-gray-200 bg-gray-100 h-12 dark:bg-[#374151] dark:text-white hover:dark:shadow-cyan-500 duration-200"
                 />
               </div>
             </div>
 
             <div className="flex gap-5 flex-col lg:flex-row">
-            
+  
               <div className="relative gap-5 flex flex-col  w-full">
               <Label
-                  className="text-md pb-2 mt-2 font-semibold "
+                  className="text-md mt-2 font-semibold dark:text-[#ffffff] "
                   value="Date of Birth"
                 />
                 <DatePiker  />
               </div>
 
-              
-              
-     <div className="flex items-center w-full relative  ">
-      <div className="flex flex-col gap-7 flex-wrap">
-        <label htmlFor="phoneInput" className="font-bold text-xl">
-          Phone Number
-        </label>
-        <button
-          id="dropdown-phone-button"
-          onClick={toggleDropdown}
-          type="button"
-          className="flex-shrink-0 h-10 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-        >
-          <span className="mr-2">{selectedCountry.flag}</span>
-          {selectedCountry.code}
-          <svg
-            className="w-2.5 h-2.5 ml-2.5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-        </button>
-      </div>
-      {dropdownVisible && (
-        <div
-          id="dropdown-phone"
-          className="absolute mt-1 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700 max-h-48 overflow-y-auto"
-        >
-          <input
-            type="text"
-            required
-            placeholder="Search..."
-            className="p-2 border-b flex-wrap border-gray-200 dark:border-gray-600"
-            onChange={handleSearchInputChange}
-          />
-          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-            {filteredCountries.map((country) => (
-              <li key={country.code}>
-                <button
-                  type="button"
-
-                  onClick={() => handleCountrySelect(country)}
-                  className="flex items-center justify-between w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  <span className="mr-2">{country.name}{country.flag}</span>
-                  {country.code}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <input
-        type="tel"
-        required
-        id="phoneInput"
-        className="rounded-none mt-14 rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="123-456-7890"
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-      />
-    </div>
+              <div className="flex mt-3 w-full   ">
+              <PhoneInputForm />
+              </div>
     </div> 
    </div>
   </>
@@ -455,22 +383,43 @@ const Register = () => {
             isSearchable
             placeholder="Search or select a country"
             styles={{
-              control: provided => ({
+              control: (provided) => ({
                 ...provided,
                 border: '1px solid #CBD5E0',
-                backgroundColor:'#F3F4F6',
-                height:'45px'
+                backgroundColor: darkMode ? "#374151" : "#ffffff",
+                color: darkMode ? "#ffffff" : "#000000",
+                height: '45px',
+              }),
+              menu: (provided) => ({
+                ...provided,
+                backgroundColor: darkMode ? "#1a202c" : "#ffffff",
+                color: darkMode ? "#ffffff" : "#000000",
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+                color: darkMode ? "#ffffff" : "#000000",
+              }),
+              option: (provided, state) => ({
+                ...provided,
+                backgroundColor: state.isSelected ? (darkMode ? "#2d3748" : "#e2e8f0") : (darkMode ? "#1a202c" : "#ffffff"),
+                color: state.isSelected ? (darkMode ? "#ffffff" : "#000000") : (darkMode ? "#ffffff" : "#000000"),
+              }),
+              placeholder: (provided) => ({
+                ...provided,
+                color: darkMode ? "#A0AEC0" : "#718096",
               })
             }}
-            theme={theme => ({
+            theme={(theme) => ({
               ...theme,
-              borderRadius: 5,
               colors: {
                 ...theme.colors,
-                primary: '#3182CE'
-              }
+                primary25: darkMode ? "#2d3748" : "#e2e8f0",
+                primary: darkMode ? "#2b6cb0" : "#2986fe",
+                neutral0: darkMode ? "#1a202c" : "#ffffff",
+                neutral80: darkMode ? "#ffffff" : "#000000",
+              },
             })}
-          />
+    />
         </div>
               <div className="flex flex-col gap-1 w-full">
                 <Label
@@ -482,7 +431,7 @@ const Register = () => {
                    required
                     value={gender}
                     onChange={handleGenderChange}
-                    className="rounded-md border-1 border-gray-200 w-full bg-gray-100 h-12 dark:bg-gray-900 dark:text-white hover:dark:shadow-cyan-500 duration-200 appearance-none"
+                    className="rounded-md border-1 border-gray-200 w-full bg-gray-100 h-12 dark:bg-[#374151]  dark:text-white hover:dark:shadow-cyan-500 duration-200 appearance-none"
                   >
                    
                     <option value="male">Male</option>
@@ -512,7 +461,7 @@ const Register = () => {
                 required
                 placeholder="**********"
                 type="password"
-                className="rounded-md border border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
+                className="rounded-md border border-gray-200 bg-gray-100 h-12 dark:bg-[#374151]  dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
@@ -524,7 +473,7 @@ const Register = () => {
                 required
                 placeholder="********"
                 type="password"
-                className="rounded-md border border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
+                className="rounded-md border border-gray-200 bg-gray-100 h-12 dark:bg-[#374151]  dark:text-white shadow-lg hover:dark:shadow-cyan-500 duration-200"
               />
             </div>
           </div>
@@ -539,18 +488,18 @@ const Register = () => {
               />
               <label htmlFor="termsCheckbox">
                 By creating an account, I agree to the{" "}
-                <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
               </label>
             </div>
             <div className="mt-3 grid grid-cols-2 gap-[63px] justify-center">
-              <input id=""  className="rounded-md bg-gray-100 p-2 text-[#101010]" name="cancel" 
+              <input id=""  className="rounded-md bg-[#ffffff] dark:bg-[#101010] dark:text-[#ffffff] p-2 text-[#101010]" name="cancel" 
               value="cancel" type="reset" size="md"  />
-              <input className="rounded-md bg-[#101010] text-[#ffffff] p-2" type="submit"  value="Register"  size="md" name=" Register"   />
+              <input className="rounded-md bg-[#15171b] dark:bg-[#ffffff] dark:text-[#101010] text-[#ffffff] p-2" type="submit"  value="Register"  size="md" name=" Register"   />
             </div>
 
-            <p className="mt-3 flex justify-center gap-2 text-gray-500 text-md ">
+            <p className="mt-3 flex justify-center  dark:text-[#ffffff] gap-2 text-gray-500 text-md ">
               Already have an account?{" "}
-              <a href="/login" className=" hover:underline text-black font-medium">
+              <a href="/login" className=" hover:underline text-[#101010] dark:text-[#ffffff] font-medium">
                 Login
               </a>
             </p>
@@ -590,6 +539,8 @@ const Register = () => {
         
         </form>
       </div>
+    </div>
+    
     </div>
     </DarkModeProvider>
   );

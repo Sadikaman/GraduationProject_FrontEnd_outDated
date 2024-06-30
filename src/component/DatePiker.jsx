@@ -7,7 +7,7 @@ import { Datepicker } from "flowbite-react";
 const DatePiker = () => {
   return (
     <div>
-      <Datepicker minDate={new Date(2023, 0, 1)} maxDate={new Date(2023, 3, 30)} />;
+      <Datepicker minDate={new Date(2023, 0, 1)} maxDate={new Date(2023, 3, 30)} />
     </div>
   )
 }

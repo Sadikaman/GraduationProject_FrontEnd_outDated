@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Label, Button } from "flowbite-react";
 import { PiHandWaving } from "react-icons/pi";
 import { FcGoogle } from "react-icons/fc";
@@ -12,19 +12,33 @@ const Login = () => {
     const selectedFile = e.target.files[0];
     console.log("Selected file:", selectedFile);
   };
+  const [theme, setTheme] = useState("Light");
+  // Initialize dark mode state from localStorage
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true"
+  );
 
   return (
     <DarkModeProvider>
     <div className="font-kanit transition-colors flex justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-800 p-4">
       <div className="flex flex-col md:flex-row gap-16 w-full max-w-2xl md:max-w-4xl">
         <form className="flex flex-col py-3 px-6 w-full">
-          <div className="w-[100px] h-[100px] rounded-full relative overflow-hidden mx-auto md:mx-0">
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          {/* Use different images for light and dark mode */}
+          {darkMode ? (
             <img
-              src="/AfroLogo.png"
-              alt="AfroLogo"
-              className="object-cover absolute inset-0"
+              src="/AfroLogo.jpg" // Dark mode logo image
+              className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+              alt="Afro Logo"
             />
-          </div>
+          ) : (
+            <img
+              src="/AfroLogo.png" // Light mode logo image
+              className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+              alt="Afro Logo"
+            />
+          )}
+        </a>
           <div className="pt-2 text-center md:text-left gap-3">
             <h1 className="text-4xl font-semibold pt-2 flex gap-4 justify-center md:justify-start">
               Welcome back <PiHandWaving className="text-yellow-300" />

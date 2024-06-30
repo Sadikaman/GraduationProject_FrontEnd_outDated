@@ -40,7 +40,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
     <div className='flex flex-wrap justify-center   gap-4 p-4'>
       <div className='flex flex-wrap justify-center items-end md:flex-nowrap'>
         <div className='flex-shrink-0'>
-          <div className="bg-gray-100 dark:bg-gray-800 w-full sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4  md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-br-none">
+          <div className="bg-gray-100 dark:bg-gray-800 w-80 sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4  md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-br-none">
             <p className='text-blue-400'>
               <FaMapMarkerAlt className='bg-white text-lg md:text-xl rounded-full p-3 md:p-4 w-12 md:w-16 h-12 md:h-16' />
             </p>
@@ -50,7 +50,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
           </div>
         </div>
 
-        <div className="relative overflow-hidden  w-full sm:w-80 md:w-72 lg:w-96 h-64 md:h-56 lg:h-[420px] rounded-t-3xl rounded-b-none bg-[#2986FE] text-white flex flex-col p-4 md:p-6 lg:p-12 gap-4 md:gap-5">
+        <div className="relative overflow-hidden  w-full sm:w-80 md:w-72 lg:w-96 h-80 md:h-56 lg:h-[420px] rounded-t-3xl rounded-b-none bg-[#2986FE] text-white flex flex-col p-4 md:p-6 lg:p-12 gap-4 md:gap-5">
           <div className="absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 lg:w-60 lg:h-56 overflow-hidden rounded-full transform translate-x-10 -translate-y-10">
             <img src="/afar.jpg" alt="Boat" className="w-full h-full object-cover" />
           </div>
@@ -71,7 +71,7 @@ const BookTicket = (isDarkMode, toggleDarkMode) => {
         </div>
 
         <div className='flex-shrink-0'>
-          <div className="bg-gray-100 dark:bg-gray-800 w-full sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4 md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-bl-none">
+          <div className="bg-gray-100 dark:bg-gray-800 w-80 sm:w-64 md:w-56 lg:w-80 h-64 md:h-56 lg:h-72 flex flex-col p-4 md:p-6 lg:p-8 gap-6 md:gap-10 lg:gap-20 rounded-3xl rounded-bl-none">
             <p className='text-blue-400'>
               <BsFillCreditCardFill className='bg-white text-lg md:text-xl rounded-full p-3 md:p-4 w-12 md:w-16 h-12 md:h-16' />
             </p>

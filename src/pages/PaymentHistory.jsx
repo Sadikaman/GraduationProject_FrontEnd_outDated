@@ -94,7 +94,7 @@ const PaymentHistory = () => {
   return (
     <>
     <DarkModeProvider>
-      <section className='flex  flex-row  dark:bg-gray-900'>
+      <section className='flex  flex-row  dark:bg-gray-900 min-h-screen'>
         
       <div className="hidden lg:flex flex-shrink-0">
             <Sidebars />

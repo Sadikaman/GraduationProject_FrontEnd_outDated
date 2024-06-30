@@ -18,7 +18,7 @@ const VerifyRegisterServicesProvider = () => {
 
   return (
     <DarkModeProvider>
-    <div className="font-kanit transition-colors flex justify-center items-center">
+    <div className="font-kanit transition-colors flex justify-center items-center min-h-screen">
       <div className="flex flex-col w-full lg:w-[60%] gap-16">
         <form onSubmit={handleSubmit} className="flex flex-col py-3 px-6 w-full justify-center items-center">
           <div className="w-[100px] h-[100px] rounded-full relative overflow-hidden">
@@ -36,8 +36,8 @@ const VerifyRegisterServicesProvider = () => {
 
           <div className="pt-2 flex flex-col">
             <div className="flex pt-2 gap-5">
-              <div className="flex flex-col w-full pt-1">
-                <Label className="text-md pb-4 font-semibold pt-4" value="Legal Business Name" />
+              <div className="flex flex-col w-full ">
+                 <label htmlFor=""> Legal Business Name</label>
                 <input
                   type="text"
                   className="rounded-md border-1 w-full lg:w-[400px] border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white hover:dark:shadow-cyan-500 duration-200"
@@ -45,7 +45,7 @@ const VerifyRegisterServicesProvider = () => {
               </div>
 
               <div className="flex flex-col w-full">
-                <Label className="text-md pb-4 font-semibold pt-5" value=" Business Type" />
+                <label htmlFor=""> Business Type</label>
                 <input
                   type="password"
                   className="rounded-md border-1 w-full lg:w-[400px] border-gray-200 bg-gray-100 h-12 dark:bg-gray-800 dark:text-white hover:dark:shadow-cyan-500 duration-200"
