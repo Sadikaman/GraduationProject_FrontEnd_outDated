@@ -15,21 +15,34 @@ const Joinus = () => {
     const registerPage = isTourist ? "/Register" : "/RegisterServicesProvider";
     window.location.href = registerPage; // Redirect to the selected page
   };
+  const [theme, setTheme] = useState("Light");
+  // Initialize dark mode state from localStorage
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true"
+  );
 
   return (
     <DarkModeProvider>
       <div className="font-kanit transition-colors  h-full flex justify-center dark:bg-gray-900 dark:text-white items-center w-full min-h-screen overflow-hidden">
         <div className="flex flex-col md:flex-row gap-16 flex-wrap justify-center">
           <div className="flex flex-col items-center md:items-start">
-            <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full relative overflow-hidden">
-              <a href="/">
-                <img
-                  src="/AfroLogo.png"
-                  alt="AfroLogo"
-                  className="object-cover w-full h-full"
-                />
+            
+            <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                {/* Use different images for light and dark mode */}
+                {darkMode ? (
+                  <img
+                    src="/AfroLogo.jpg" // Dark mode logo image
+                    className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+                    alt="Afro Logo"
+                  />
+                ) : (
+                  <img
+                    src="/AfroLogo.png" // Light mode logo image
+                    className="rounded-full h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+                    alt="Afro Logo"
+                  />
+                )}
               </a>
-            </div>
             <h1 className="pt-6 text-2xl md:text-3xl lg:text-4xl font-semibold text-center md:text-left">
               Join as a Tourist or a Service Provider
             </h1>

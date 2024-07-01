@@ -95,12 +95,13 @@ const handleClickOutside = (event) => {
               </div>
             )}
           </div>
-        <section className="flex-grow p-4 ">
-          <div className="flex flex-col sm:flex-row justify-between border-b-2 w-full h-24 border-b-gray-400 mb-4">
-            <h1 className="flex text-black text-2xl dark:text-white font-bold items-center gap-2 mb-4 sm:mb-0">
-              <GiPieChart className="text-2xl dark:text-white" />
+
+<section className="flex-grow p-4 ">
+    <div className="flex flex-col sm:flex-row justify-between border-b-2 w-full h-24 border-b-gray-400 mb-4">
+        <h1 className="flex text-black text-2xl dark:text-white font-bold items-center gap-2 mb-4 sm:mb-0">
+           <GiPieChart className="text-2xl dark:text-white" />
               Earning
-            </h1>
+        </h1>
             <div className="flex dark:bg-gray-900 gap-5 items-center">
               <FaUserCircle className="text-4xl" />
               <Dropdown inline label="Jeremy Zuck">

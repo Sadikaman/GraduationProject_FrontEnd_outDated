@@ -54,16 +54,19 @@ const TpTransaction = () => {
   return (
     <>
     <DarkModeProvider>
-      <section className='flex flex-col'>
+     <section className='flex   '>
         <TravelProviderSidebadr />
         {/* //////////// */}
-        <div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-          <div className='flex mt-5 gap-[950px] overflow-hidden'>
-            <h1 className='flex text-black text-2xl font-bold gap-2'>
+       <div className='flex flex-col bg-white w-full dark:bg-gray-900'>
+        
+          <div className='flex border-b-2 justify-between p-5'>
+          
+            <h1 className='flex dark:text-[#ffffff] text-black text-2xl font-bold gap-2 mt-5'>
               <GiPieChart className='text-2xl' />
               Transaction
             </h1>
-            <div className='flex dark:bg-gray-900 w-full p-4'>
+            
+            <div className='flex dark:bg-gray-900 gap-2 p-4'>
               <FaUserCircle className='text-4xl' />
               <Dropdown inline label="Jeremy Zuck">
                 <Dropdown.Item>
@@ -92,14 +95,19 @@ const TpTransaction = () => {
                 </Dropdown.Item>
               </Dropdown>
             </div>
+
           </div>
-        </div>
-        <div className='flex justify-center'>
+
+          <div className='flex justify-center mt-5'>
           <div className='w-[600px]'>
           <Bar data={data} options={options} />
           </div>
         </div>
-      </section>
+
+        </div>
+        
+     
+    </section>
     </DarkModeProvider>
     </>
   );

@@ -40,7 +40,7 @@ const VerifyRegisterServicesProvider = () => {
                  <label htmlFor=""> Legal Business Name</label>
                 <input
                   type="text"
-                  className="rounded-md border-1 w-full lg:w-[400px] border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white hover:dark:shadow-cyan-500 duration-200"
+                  className="rounded-md border-1  w-full lg:w-[400px] border-gray-200 bg-gray-100 h-12 dark:bg-gray-800 dark:text-white hover:dark:shadow-cyan-500 duration-200"
                 />
               </div>
 
@@ -70,7 +70,7 @@ const VerifyRegisterServicesProvider = () => {
                 />
               )}
             </div>
-            <Button className="mt-4 w-full lg:w-40 " color="dark" onClick={handleFileInput} pill>upload file</Button>
+            <Button className="mt-4 w-full lg:w-40  " color="dark" onClick={handleFileInput} pill>upload file</Button>
             <input
               type="file"
               id="fileInput"
@@ -85,7 +85,7 @@ const VerifyRegisterServicesProvider = () => {
             <Label className="text-md pb-4 font-semibold pt-4" value="Business License Number" />
             <input
               type="text"
-              className="rounded-md border-1 w-full lg:w-[40%] md:w-44 sm:w-28 border-gray-200 bg-gray-100 h-12 dark:bg-gray-900 dark:text-white hover:dark:shadow-cyan-500 duration-200"
+              className="rounded-md border-1 w-full  lg:w-[40%] md:w-44 sm:w-28 border-gray-200 bg-gray-100 h-12 dark:bg-gray-800 dark:text-white hover:dark:shadow-cyan-500 duration-200"
             />
           </div>
 
@@ -99,7 +99,7 @@ const VerifyRegisterServicesProvider = () => {
             <label htmlFor="termsCheckbox">I confirm that the information provided is correct</label>
           </div>
 
-          <Button color="white" pill href="/TravelProviderPage" className="flex w-full lg:w-44 rounded-full mt-4 border-2 border-black">
+          <Button color="white" pill href="/TravelProviderPage" className="flex w-full lg:w-44 rounded-full mt-4 border-2 dark:bg-gray-800 dark:border-white border-black">
             Verify now <MdOutlineVerified className="text-blue-700 ml-2 text-xl"/>
           </Button>
         </form>

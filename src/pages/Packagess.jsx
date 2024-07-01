@@ -110,19 +110,16 @@ const Packagess = () => {
     },
   };
 
-
   return (
     <>
     <DarkModeProvider>
-   <section className=' flex flex-col'>
+   <section className=' flex overflow-hidden'>
    <TravelProviderSidebadr />
     {/* //////////// */}
-<div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-    <div className=' flex   mt-5 gap-[1000px]  overflow-hidden '>
-
-   <h1 className='flex text-black text-2xl font-bold'><GiPieChart className='text-2xl'/>Analytic</h1>
-
-   <div className='flex dark:bg-gray-900 w-full p-4'>
+<div className='flex flex-col w-full'>
+  <div className=' flex   mt-5  justify-between p-5 border-b-2'>
+    <h1 className='flex text-black text-2xl font-bold dark:text-[#ffffff]'><GiPieChart className='text-2xl'/>Analytic</h1>
+   <div className='flex dark:bg-gray-900  gap-2 p-4'>
      <FaUserCircle className='text-4xl ' />
       <Dropdown inline label="Jeremy Zuck ">
           <Dropdown.Item>
@@ -152,7 +149,7 @@ const Packagess = () => {
         </Dropdown>
         </div>
         </div>
-    </div>
+  
 
 <div className='flex justify-center'>
 <div className='flex gap-10 flex-wrap justify-center '>
@@ -280,8 +277,9 @@ const Packagess = () => {
 
 
 {isModalOpen && <AddPackageModal onSave={handleAddPackage} onClose={handleCloseModal} />}
-
+</div>
     </section> 
+
     </DarkModeProvider>  
     </>
   )
