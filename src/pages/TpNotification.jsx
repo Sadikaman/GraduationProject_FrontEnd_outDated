@@ -54,12 +54,10 @@ const Tpcustomer = () => {
   return (
     <>
     <DarkModeProvider>
-   <section className=' flex flex-col'>
+   <section className=' flex flex-row  overflow-hidden'>
    <TravelProviderSidebadr />
     {/* //////////// */}
-<div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-    <div className=' flex   mt-5 gap-[1000px]  overflow-hidden '>
-
+<div className='flex flex-col w-full border-b-2 '>
    <h1 className='flex text-black text-2xl font-bold'><GiPieChart className='text-2xl'/>Analytic</h1>
 
    <div className='flex dark:bg-gray-900 w-full p-4'>
@@ -91,7 +89,7 @@ const Tpcustomer = () => {
           </Dropdown.Item>
         </Dropdown>
         </div>
-        </div>
+        
     </div>
 
 

@@ -24,16 +24,16 @@ const Notification = () => {
 
     return (
         <DarkModeProvider>
-        <section className="flex flex-col">
+        <section className="flex overflow-hidden">
             <TravelProviderSidebadr />
             {/* Top section */}
-            <div className="flex justify-center w-full border-b-2 border-b-gray-400">
-                <div className="flex mt-5 gap-[900px] overflow-hidden">
-                    <h1 className="flex text-black text-2xl font-bold gap-2">
+            <div className="flex flex-col  w-full border-b-2 ">
+                <div className="flex mt-5 justify-between w-full p-4  border-b-2 ">
+                    <h1 className="flex text-black dark:text-[#ffffff] text-2xl font-bold gap-2">
                         <IoIosNotificationsOutline className="text-2xl" />
                         Notification
                     </h1>
-                    <div className="flex dark:bg-gray-900 w-full p-4">
+                    <div className="flex dark:bg-gray-900  p-4">
                         <FaUserCircle className="text-4xl" />
                         <Dropdown inline label="Jeremy Zuck">
                             <Dropdown.Item>
@@ -54,7 +54,7 @@ const Notification = () => {
                         </Dropdown>
                     </div>
                 </div>
-            </div>
+           
             {/* Delete All button */}
             <div className="flex justify-center ml-[880px] mt-7">
                 <button 
@@ -94,6 +94,7 @@ const Notification = () => {
                         ))
                     )}
                 </div>
+            </div>
             </div>
         </section>
         </DarkModeProvider>
