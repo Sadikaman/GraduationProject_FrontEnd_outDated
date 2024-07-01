@@ -59,7 +59,7 @@ const TravelProviderSidebar = () => {
 
       <aside
         id="logo-sidebar"
-        className={`fixed top-0 left-0 z-50 w-64 h-screen bg-gray-50 dark:bg-gray-800 transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0 sm:static sm:block`}
+        className={`fixed top-0 left-0 z-50 w-64  bg-gray-50 dark:bg-gray-800 transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0 sm:static sm:block`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto">

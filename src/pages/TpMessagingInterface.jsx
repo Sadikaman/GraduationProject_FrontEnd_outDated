@@ -16,7 +16,7 @@ const initialMessages = [
 ];
 
 const MessageSidebar = ({ users, onUserSelect }) => (
-  <div className="w-full sm:w-64 bg-white dark:bg-gray-800 border-r p-4 sm:flex-shrink-0">
+  <div className="w-full sm:w-64 bg-white h-full dark:bg-gray-800 border-r p-4 sm:flex-shrink-0">
     <h2 className="text-lg font-semibold mb-4 dark:text-white">Messages</h2>
     <div className="flex items-center gap-2 mb-2">
       <button className="px-3 py-1 bg-blue-500 text-white rounded-md">Customers</button>
@@ -63,7 +63,7 @@ const MessageWindow = ({ messages, onSendMessage }) => {
   };
 
   return (
-    <div className="flex-grow bg-white dark:bg-gray-900 p-4 flex flex-col h-[calc(100vh-112px)]">
+    <div className="flex-grow bg-white dark:bg-gray-900 p-6  flex flex-col h-[calc(100vh-112px)]">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
           <FaUserCircle className="text-2xl dark:text-gray-300" />

@@ -3,6 +3,8 @@ import { FaUserCircle,FaMoneyBillWave ,FaPlus} from "react-icons/fa";
 import { Card,Dropdown,Sidebar,Datepicker,Progress } from "flowbite-react";
 import TravelProviderSidebadr from '../component/TravelProviderSidebadr'
 import { CiStar } from "react-icons/ci";
+import TpLatestCustomers from '../component/TpLatestCustomers';
+import TpTopUsers from '../component/TpTopUsers';
 import { PiHandWaving } from "react-icons/pi";
 import { IoIosPartlySunny ,IoIosWifi,IoMdDoneAll,IoMdClose} from "react-icons/io";
 import { PiAirplaneTakeoffBold } from "react-icons/pi";
@@ -16,8 +18,27 @@ import { MdDateRange,MdFavoriteBorder } from "react-icons/md";
 import AddPackageModal from '../component/AddPackageModal';
 import { Line } from 'react-chartjs-2';
 import { DarkModeProvider } from '../component/DarkModeProvider';
+import { LiaMapMarkedAltSolid } from "react-icons/lia";
+import { useInView } from 'react-intersection-observer';
 import 'chart.js/auto'; // Automatically import required components for Chart.js
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
 
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 import { GiPieChart } from "react-icons/gi";
 "use client";
 
@@ -53,21 +74,67 @@ const TpStatus = () => {
       },
     };
   
+    const Counter = ({ startValue, endValue, duration = 2000, formatValue = value => value }) => {
+      const [count, setCount] = useState(startValue);
+    
+      useEffect(() => {
+        let start = startValue;
+        const end = endValue;
+        const incrementTime = Math.abs(Math.floor(duration / (end - start)));
+    
+        const timer = setInterval(() => {
+          start += 1;
+          setCount(start);
+          if (start >= end) clearInterval(timer);
+        }, incrementTime);
+    
+        return () => clearInterval(timer);
+      }, [startValue, endValue, duration]);
+    
+      return <h1 className='text-4xl text-[#2986FE]'>{formatValue(count)}</h1>;
+    };
+    
+    const StatCard = ({ startValue, endValue, title, info, icon: Icon }) => {
+      const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
+    
+      return (
+        <div
+          ref={ref}
+          className='bg-gray-100 rounded-lg shadow-cyan-500 w-[360px] shadow-md gap-3 h-[150px] flex flex-col p-5 dark:bg-gray-800'
+        >
+          <h1 className='text-lg text-[#2986FE] flex gap-2'>
+            {Icon && <Icon className='mt-1' />}
+            {title}
+          </h1>
+          {inView ? <Counter startValue={startValue} endValue={endValue} formatValue={title === "Balance" ? value => `$${value.toLocaleString('en-US', { minimumFractionDigits: 2 })}` : value => `${value}+`} /> : <h1 className='text-6xl text-[#2986FE]'>{title === "Balance" ? `$${startValue.toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '0+'}</h1>}
+        
+          <h1 className='text-lg text-gay-500 dark:text-[#ffffff] flex gap-2'>
+            
+            {info}
+          </h1>
+        </div>
+        
+      );
+    };
+    
+    
 
   return (
     <>
     <DarkModeProvider>
-   <section className=' flex flex-col'>
+   <section className=' flex  overflow-hidden'>
    <TravelProviderSidebadr />
     {/* //////////// */}
-<div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-    <div className=' flex   mt-5 gap-[500px]  overflow-hidden '>
+<div className='flex flex-col w-full '>
 
-   <h1 className='flex text-black text-2xl font-bold'><GiPieChart className='text-2xl'/>Status</h1>
-
-   <div className='flex dark:bg-gray-900 w-full p-4'>
-     <FaUserCircle className='text-4xl ' />
-      <Dropdown inline label="Jeremy Zuck ">
+    <div className=' flex   mt-5 justify-between  border-b-2 p-5 '>
+      <h1 className='flex text-black text-2xl font-bold dark:text-[#ffffff]'><GiPieChart className='text-2xl'/>Status</h1>
+      <div className='flex dark:bg-gray-900 '>
+        <FaUserCircle className='text-4xl ' />
+        <Dropdown inline label="Jeremy Zuck ">
           <Dropdown.Item>
             <a
               href="#"
@@ -94,20 +161,23 @@ const TpStatus = () => {
           </Dropdown.Item>
         </Dropdown>
         </div>
-        </div>
+       
     </div>
 {/* ///////////// */}
 <div className='flex justify-center mt-10'>
 <div className='flex  flex-col gap-10'>
 
-<div className='flex gap-11  '>
-    <div className='w-96 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
-    <div className='w-96 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
-    <div className='w-96 h-32 shadow-lg rounded-xl border-2 border-gray-100'></div>
-</div>
-{/* /////// */}
+{/* Card Section */}
+<section className='flex mt-10 dark:bg-gray-900 dark:text-white w-full justify-center flex-wrap p-2'>
+  <div className='flex gap-5 flex-wrap justify-center'>
+    <StatCard title="Total Amount" info="+33% month over month" startValue={391111} endValue={391254} />
+    <StatCard title="Income" info="+33% month over month" startValue={400} endValue={500} icon={FaUserCircle} />
+    <StatCard title="Spent"  info="+33% month over month" startValue={35} endValue={50} icon={LiaMapMarkedAltSolid} />
+  </div>
+</section>
+          {/* Chart Section */}
 <div className='flex gap-10'>
-<div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800">
+<div className="w-full  bg-white rounded-lg shadow dark:bg-gray-800">
       <div className="flex justify-between p-4 md:p-6 pb-0 md:pb-0">
         <div>
           <h5 className="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">
@@ -241,19 +311,20 @@ const TpStatus = () => {
       </div>
 </div>
 
-<div className='w-[500px] bg-gray-100 h-[400px] border'>
-
-</div>
+{/* TpLatestCustomers */}
+<TpLatestCustomers />
 
 </div>
 {/* //////// */}
-<div className='flex gap-10'>
-<div className='w-[500px] bg-gray-100 h-[400px] border'>
-
-</div>
-<div className='w-[500px] bg-gray-100 h-[400px] border'>
-
-</div>
+<div className='flex w-full gap-10'>
+{/* TpTopUsers */}
+<TpTopUsers />
+{/* chart  */}
+<div className='flex w-full mt-5'>
+            <div className='w-full'>
+              <Bar data={data} options={options} />
+            </div>
+          </div>
 </div>
 {/* /////// */}
 
@@ -262,7 +333,7 @@ const TpStatus = () => {
 {/* ////////////// */}
 
 
-
+</div>
     </section>   
     </DarkModeProvider>
     </>

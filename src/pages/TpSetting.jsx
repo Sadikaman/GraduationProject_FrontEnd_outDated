@@ -30,15 +30,13 @@ const TpSetting = () => {
   return (
     <>
     <DarkModeProvider>
-   <section className=' flex flex-col'>
+   <section className=' flex overflow-hidden '>
    <TravelProviderSidebadr />
     {/* //////////// */}
-<div className='flex justify-center w-full border-b-2 border-b-gray-400'>
-    <div className=' flex   mt-5 gap-[1000px]  overflow-hidden '>
-
-   <h1 className='flex text-black text-2xl font-bold'><GiPieChart className='text-2xl'/>Setting</h1>
-
-   <div className='flex dark:bg-gray-900 w-full p-4'>
+<div className='flex flex-col  w-full '>
+  <div className=' flex w-full  mt-5 p-5 justify-between border-b-2'>
+   <h1 className='flex text-black   dark:text-[#ffffff] gap-2 text-2xl font-bold'><GiPieChart className='text-2xl'/>Setting</h1>
+   <div className='flex dark:bg-gray-900 gap-2 '>
      <FaUserCircle className='text-4xl ' />
       <Dropdown inline label="Jeremy Zuck ">
           <Dropdown.Item>
@@ -68,42 +66,42 @@ const TpSetting = () => {
         </Dropdown>
         </div>
         </div>
-    </div>
+   
 
-<section className='flex flex-col'>
+<section className='flex flex-col p-4'>
         <div className='flex flex-grow'>
           {/* Sidebar */}
-          <div className='flex flex-col w-64 p-4 bg-gray-50 border-r'>
+          <div className='flex flex-col w-64 p-4 bg-gray-50 border-r dark:bg-gray-800 dark:text-white'>
             <div className='flex items-center mb-8'>
               <FaUserCircle className='text-5xl text-gray-700' />
               <div className='ml-4'>
-                <h2 className='text-lg font-semibold text-gray-900'>John Doe</h2>
-                <p className='text-sm text-gray-500'>Manage your name</p>
+                <h2 className='text-lg font-semibold text-gray-900dark:text-white '>John Doe</h2>
+                <p className='text-sm text-gray-500 dark:text-white'>Manage your name</p>
               </div>
             </div>
             <div className='flex flex-col gap-4'>
-              <a href="#" className='text-red-500 font-semibold'>Delete Account</a>
+              <a href="#" className='text-red-500 font-semibold '>Delete Account</a>
             </div>
           </div>
 
           {/* Main Content */}
-          <div className='flex flex-grow justify-center items-center bg-white mt-4'>
+          <div className='flex flex-grow justify-center items-center bg-white dark:text-white dark:bg-gray-700 mt-4'>
             <div className='w-[90%] max-w-[800px] h-[500px] p-8 border rounded-lg shadow'>
               <div className='flex items-center gap-4'>
                 <AiOutlineCheckCircle className='text-4xl text-blue-500' />
                 <div>
-                  <h2 className='text-xl font-semibold text-gray-900'>ABC Tour and Accommodation</h2>
-                  <p className='text-sm text-gray-500'>ID: ATT34GHMKL56</p>
+                  <h2 className='text-xl font-semibold text-gray-900 dark:text-white'>ABC Tour and Accommodation</h2>
+                  <p className='text-sm text-gray-500 dark:text-white'>ID: ATT34GHMKL56</p>
                 </div>
               </div>
               <div className='mt-8 flex flex-col gap-4'>
-                <h3 className='text-gray-700 text-lg'>General</h3>
+                <h3 className='text-gray-700 text-lg dark:text-white'>General</h3>
                 <div className='flex flex-col gap-2'>
-                  <a href="#" className='text-gray-400'>Edit Profile</a>
-                  <a href="#" className='text-gray-400'>Password</a>
-                  <a href="#" className='text-gray-400'>Social Profiles</a>
-                  <a href="#" className='text-gray-400'>Company</a>
-                  <a href="#" className='text-red-400'>Delete account</a>
+                  <a href="#" className='text-gray-400 dark:text-white'>Edit Profile</a>
+                  <a href="#" className='text-gray-400 dark:text-white'>Password</a>
+                  <a href="#" className='text-gray-400 dark:text-white'>Social Profiles</a>
+                  <a href="#" className='text-gray-400 dark:text-white'>Company</a>
+                  <a href="#" className='text-red-400 '>Delete account</a>
 
                 </div>
               </div>
@@ -112,7 +110,7 @@ const TpSetting = () => {
         </div>
       </section>
 
-
+      </div>
     </section>   
     </DarkModeProvider>
     </>
